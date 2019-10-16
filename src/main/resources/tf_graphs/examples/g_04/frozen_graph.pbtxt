@@ -1,0 +1,243 @@
+node {
+  name: "input_1"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 16
+        }
+        dim {
+          size: 16
+        }
+      }
+    }
+  }
+}
+node {
+  name: "input_2"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 16
+        }
+        dim {
+          size: 16
+        }
+      }
+    }
+  }
+}
+node {
+  name: "in0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 8
+          }
+          dim {
+            size: 1
+          }
+          dim {
+            size: 8
+          }
+        }
+        tensor_content: "0\0077T\306\224\340\277,T \247\034\352\355?\356\233\017\367\323M\341?]\017\226\276\022\322\366\277\340v\341G\276\203\357\277\305\014\260@\343\276\270\277jr\206Rw\215\303\277\235O!\027\007W\315\277\366C\224l\200\024\337\277y\346\362P\235U\005\300N\345\t\253l\343\342?\275?\2340\356\271\340\277\221\315\325\270}D\317\277\300\035a\244\342\330\372?fRa\014\017\017\357?\\k\016\353Qp\341?\0263*5;`\365\277v\361H\231M\023\372\277\023\235\304\252\t\303\007\300{\034Y~\223\346\345?X\024\311\020\376Z\263\277j\204x\021\017\211\347?\372t\237\372va\272\277)\321\003`\203\n\325?\237\366\261\020\363\024\363\277\271\243\020Y\r6\321\277\035|\336\010\3239\364?za\020\035\0020\327?\362\247\347\277!q\367?\250\205\323SS \343\277\221=\321\357\205\270\332\277\243C\006\373\366 \202?q\232\2729k+\324?\312\263!\316\244\247\361\2777\341\227\250\370*\353?\220\033\346yvN\261?\211\2108\237\036>\001@AI\247\225\237(\362?4\272f\305\370\365\345?y!\025\270\202Iz?\332\023\220\366\n\326\340?\361\2341\220\252C\311?\332\367\261\032\277\270\342\277\262\373\rL4%\337\277\213\223\244 \303\336\307?Igy\336\227L\352?\253\322;\204A\202\320?\340\334\340\2159\261\346?9?3\3647\325\335\277\341M\221Y4\360\371?\357\240\303U{Q\355\2777\035)`\315\000\361\277\013\0327\367b\346\367\277\3766\245u\257.\301?\255>5!\334\346\344?p\264\231\314\246\216\262?\034/\262\251v\267\361\277\006\354\261\214S\275\333?4[*\3542Y\311\277\361\032\312\340\314\037\355\277,\\Q\322\027\023\327?\322t\222!s\361\350\277\030}l\315\2029\312\277\013/\264\202y\260\361\277"
+      }
+    }
+  }
+}
+node {
+  name: "in0/read"
+  op: "Identity"
+  input: "in0"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in0"
+      }
+    }
+  }
+}
+node {
+  name: "concat/axis"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: -2
+      }
+    }
+  }
+}
+node {
+  name: "concat"
+  op: "ConcatV2"
+  input: "input_1"
+  input: "input_2"
+  input: "concat/axis"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "Reshape/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "\010\000\000\000\010\000\000\000\010\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "Reshape"
+  op: "Reshape"
+  input: "concat"
+  input: "Reshape/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "Pow"
+  op: "Pow"
+  input: "Reshape"
+  input: "Reshape"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Tan"
+  op: "Tan"
+  input: "Pow"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Neg"
+  op: "Neg"
+  input: "Tan"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Mul"
+  op: "Mul"
+  input: "Neg"
+  input: "Pow"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "output"
+  op: "Sub"
+  input: "Mul"
+  input: "in0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+library {
+}

@@ -1,0 +1,221 @@
+node {
+  name: "input_0"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 4
+        }
+        dim {
+          size: 4
+        }
+        dim {
+          size: 16
+        }
+        dim {
+          size: 16
+        }
+      }
+    }
+  }
+}
+node {
+  name: "in0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 8
+          }
+          dim {
+            size: 8
+          }
+        }
+        tensor_content: "t\332\323\263$\351\360\277\025\340^\312\243m\377\277\035\332I\351\2408\357?\251\037\233\322\030E\327?C\350a$\214+\321?\351\263\363F\\|\346?\355\312\3608\274\306\326\277\353\023\3431\224\271\346?\345\241\217\310\351]\323\277\035y\332\355\220\003\346\277\340Y#fK\022\246?\320\\\326\020E\253\342?\275\334\373l1w\365\277\323\364\206\351\333\204\344\277R\357\325\304`\336\361?\260SZ\273\325\033\340?\322\010\366\226E]\276\277\023\376\371?\234\322\344\277N\214\325\236U\346\364?\203\265\237\357\0261\357\277oG\301\243\334K\377?r\017\302\032\246A\341?\367%\010[`\234\002\300pc\227B\236<\362\277\243\227\254p\\\223\240?\326\354z\341\005\232\355?\230\007\267LL\252\253\2777\250\273\267\210%\364\277J4\253\344\013\026\273?\217=\020h\007\255\347\277\207\0367<\001\240\333?\022CY\373\353x\303\277H\212aQ%\324\307\277n\345\235M\"\353\367\277\222\177\263_\005R\365\277\373\363\343\253\231^\333\277\246\3074\375\020\300\331?\320\220g\277\341\237\270\277I$\275\304\320m\361?\360\206\234\373\266\244\356\277\030\212\233M3\317\365?\245Q\342\241\210\344\362?\242\2313\222\2665\340?\245j;\203\366\250\355\277\203\263w\240C\340\350?\364\017\237\227<\301\323?\2462\307\037A[\311?\324\34097\017\221\364\277\240\366\263,\000=\363\277I\210\372\234\264E\334?o\3242\'\315-\306\277\350\\\276\225\261\272\237\277\2664\374*\017\272\010@S6\254\257]8\250\277\254\244\215\214L\265\362\277\314!\250\337*e\323\277\274\021\304\277\036#\265?\347\372N~\031\201\273?\352\344\206\354\201l\362\277\177\337\206\007\337\021\362\277\223,\025gfW\306?\267a\375y\232\332\320?)of\356-\301\003\300XF?\233\312G\352?"
+      }
+    }
+  }
+}
+node {
+  name: "in0/read"
+  op: "Identity"
+  input: "in0"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in0"
+      }
+    }
+  }
+}
+node {
+  name: "DepthToSpace"
+  op: "DepthToSpace"
+  input: "input_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "block_size"
+    value {
+      i: 4
+    }
+  }
+}
+node {
+  name: "Cumsum/axis"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: -3
+      }
+    }
+  }
+}
+node {
+  name: "Cumsum"
+  op: "Cumsum"
+  input: "DepthToSpace"
+  input: "Cumsum/axis"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "exclusive"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "reverse"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "Reshape/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 4
+          }
+        }
+        tensor_content: "\010\000\000\000\010\000\000\000\010\000\000\000\010\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "Reshape"
+  op: "Reshape"
+  input: "Cumsum"
+  input: "Reshape/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "DiagPart"
+  op: "DiagPart"
+  input: "Reshape"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Diag"
+  op: "Diag"
+  input: "DiagPart"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "output"
+  op: "Add"
+  input: "Diag"
+  input: "in0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+library {
+}

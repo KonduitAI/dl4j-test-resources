@@ -1,0 +1,2 @@
+ImageTensor uint8
+SemanticPredictions int64

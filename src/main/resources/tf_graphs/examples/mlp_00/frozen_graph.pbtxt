@@ -1,0 +1,309 @@
+node {
+  name: "input"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: -1
+        }
+        dim {
+          size: 5
+        }
+      }
+    }
+  }
+}
+node {
+  name: "l0W"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 5
+          }
+          dim {
+            size: 10
+          }
+        }
+        tensor_content: "t\332\323\263$\351\360\277\025\340^\312\243m\377\277\035\332I\351\2408\357?\251\037\233\322\030E\327?C\350a$\214+\321?\351\263\363F\\|\346?\355\312\3608\274\306\326\277\353\023\3431\224\271\346?\345\241\217\310\351]\323\277\035y\332\355\220\003\346\277\340Y#fK\022\246?\320\\\326\020E\253\342?\275\334\373l1w\365\277\323\364\206\351\333\204\344\277R\357\325\304`\336\361?\260SZ\273\325\033\340?\322\010\366\226E]\276\277\023\376\371?\234\322\344\277N\214\325\236U\346\364?\203\265\237\357\0261\357\277oG\301\243\334K\377?r\017\302\032\246A\341?\367%\010[`\234\002\300pc\227B\236<\362\277\243\227\254p\\\223\240?\326\354z\341\005\232\355?\230\007\267LL\252\253\2777\250\273\267\210%\364\277J4\253\344\013\026\273?\217=\020h\007\255\347\277\207\0367<\001\240\333?\022CY\373\353x\303\277H\212aQ%\324\307\277n\345\235M\"\353\367\277\222\177\263_\005R\365\277\373\363\343\253\231^\333\277\246\3074\375\020\300\331?\320\220g\277\341\237\270\277I$\275\304\320m\361?\360\206\234\373\266\244\356\277\030\212\233M3\317\365?\245Q\342\241\210\344\362?\242\2313\222\2665\340?\245j;\203\366\250\355\277\203\263w\240C\340\350?\364\017\237\227<\301\323?\2462\307\037A[\311?\324\34097\017\221\364\277\240\366\263,\000=\363\277I\210\372\234\264E\334?"
+      }
+    }
+  }
+}
+node {
+  name: "l0W/read"
+  op: "Identity"
+  input: "l0W"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@l0W"
+      }
+    }
+  }
+}
+node {
+  name: "l1W"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 10
+          }
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "c\331-YO\370\364\277A\352r\0064[\365?\001J\353n\324\341\375?5\346\032O\260\000\343?\274\205\373N\376\325\363\277\323=a\024\n\221\375\277RW\272a\373\005\370\277\212\032\212\320\034l\330\277\005\316\250X\241\267\352\277\2526q,[\375\336\277\002\336\347\330P\355\352?\024\234\2547\252\266\323? \234j*ff\336\277\203\006\020zw:\325?\035\364\3345\267\352\357\277\320\006\305\376\272\210\364\277\265\250S\305\354\316\363\277\366 \344=\026M\322?\324\'\240\310\250\335\353\277\002Fu \276\323\347?\242)s\267\230\004\351\277\242\004\337\257\313\311\340?1\306\306\346\250\355\354?\321\246\254-\t\333\322?\344\273\014t\3340\373\277S\311\225\321\030\003\312\277`\205\306\306\362\223\355\277\345\343,\235\212\276\322?,\356\245\305\037\273\353\277\247\343\304Uu\n\377?"
+      }
+    }
+  }
+}
+node {
+  name: "l1W/read"
+  op: "Identity"
+  input: "l1W"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@l1W"
+      }
+    }
+  }
+}
+node {
+  name: "l0B"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 10
+          }
+        }
+        tensor_content: "\244;\311\234\025\213\337\277\256\361V\210\243\276\361\277\240 \220@\340\341\230\277\325\271\212sB\311\337\2771\034\256L\373\236\344\277o\264;Bk\034\356\277\334\332I\301\321\351\002@dF\014\270\225\345\324?\312\264\246\233\266\347\340?g+\376\346W\025\266?"
+      }
+    }
+  }
+}
+node {
+  name: "l0B/read"
+  op: "Identity"
+  input: "l0B"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@l0B"
+      }
+    }
+  }
+}
+node {
+  name: "l1B"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "\343\235Q\322\374\316\324\277\266\364\364\036g\006\320\277o~\233oA\234\013\300"
+      }
+    }
+  }
+}
+node {
+  name: "l1B/read"
+  op: "Identity"
+  input: "l1B"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@l1B"
+      }
+    }
+  }
+}
+node {
+  name: "MatMul"
+  op: "MatMul"
+  input: "input"
+  input: "l0W/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "l0Preout"
+  op: "BiasAdd"
+  input: "MatMul"
+  input: "l0B/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+}
+node {
+  name: "l0Out"
+  op: "Abs"
+  input: "l0Preout"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "MatMul_1"
+  op: "MatMul"
+  input: "l0Out"
+  input: "l1W/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "l1PreOut"
+  op: "BiasAdd"
+  input: "MatMul_1"
+  input: "l1B/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+}
+node {
+  name: "output"
+  op: "Softmax"
+  input: "l1PreOut"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+library {
+}

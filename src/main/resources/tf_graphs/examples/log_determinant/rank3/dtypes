@@ -1,0 +1,16 @@
+logdet/mul.0 float32
+Variable.0 float32
+Variable____read.0 float32
+Variable_1.0 float32
+Variable_1____read.0 float32
+stack.0 float32
+eye____ones.0 float32
+eye____MatrixDiag.0 float32
+add.0 float32
+logdet____Cholesky.0 float32
+logdet____MatrixDiagPart.0 float32
+logdet____Log.0 float32
+logdet____Sum____reduction_indices.0 int32
+logdet____Sum.0 float32
+logdet____mul____x.0 float32
+logdet____mul.0 float32
