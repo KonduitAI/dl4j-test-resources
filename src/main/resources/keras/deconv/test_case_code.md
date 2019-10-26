@@ -48,16 +48,21 @@ for k in kernels:
                                     input_shape = (i, i, chIn)
                                     df = "channels_last"
                                     inArr = np.arange(chIn*i*i).reshape(1,i,i,chIn)
+                                if p is "valid":
+                                    output_padding = (0,0)
+                                else:
+                                    output_padding = None
                                 inputs = Input(shape=input_shape, name='in')
                                 outputs = Conv2DTranspose(filters=chOut,kernel_size=(k,k),strides=s,padding=p, data_format=df, \
                                                           dilation_rate=(d, d), kernel_initializer=keras.initializers.RandomNormal(mean=0.0, stddev=0.5, seed=None), \
-                                                          bias_initializer=keras.initializers.RandomNormal(mean=0.0, stddev=0.5, seed=None))(inputs)
+                                                          bias_initializer=keras.initializers.RandomNormal(mean=0.0, stddev=0.5, seed=None),
+                                                          output_padding=output_padding)(inputs)
                                 model = Model(inputs, outputs, name='out')
                                 #print(model.summary())
                                 w = model.layers[1].get_weights()[0]
                                 b = model.layers[1].get_weights()[1]
                                 out = model.predict(inArr)
-                                
+
                                 outW = rootdir + name + "_W.npy"
                                 outB = rootdir + name + "_b.npy"
                                 outIn = rootdir + name + "_in.npy"
@@ -66,7 +71,7 @@ for k in kernels:
                                 np.save(outB, b)
                                 np.save(outIn, inArr)
                                 np.save(outOut, out)
-                                
-                                
+
+
 print(count)
 ```
