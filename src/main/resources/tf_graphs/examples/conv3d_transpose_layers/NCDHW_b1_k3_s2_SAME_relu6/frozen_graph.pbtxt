@@ -1,0 +1,982 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 1
+          }
+          dim {
+            size: 2
+          }
+          dim {
+            size: 6
+          }
+          dim {
+            size: 6
+          }
+          dim {
+            size: 6
+          }
+        }
+        tensor_content: "~^G?L\033M?\236p9?\220ol>\356%:?X\2708><q\001?b|d?\224\316\013?\314al?P@\257=,5K?\326\271(?\3566\016?`u#>0\024\236>\240{\036>\240h\360>\222o~?v|\034?\346+-?HM8>v\312,?p\375e>@\235P=\030\216\353>$\024T?\250\004q>H\250y?h\014V?(W\204>\014t\326>\016\3503?\366\226D? \213\t?\24019?D\300\211>\0008\312;\340\310\005=0\374\203=\\\302W?\300\325??\200\206\232=\270\337\037?\220\272\262>\256L\024?\266\256\022?\300\214:>\262Z$?\240\020j?\350\225\232>\304\372\266>\020\204.>\"\350V?8\370\013?\320W\230=\202\256f?\222N(?\200!\323>`Zz>8|\331>6\231\005?\n\3721?\240\345\372>H\001]>\006ut?\330\357\r>(\033\036>ZY\t?\200\002\\<\310\'\325>\350$\025> ]\322>h_~>\030{\252>D?\230>l\344)?\270\376\302>\212\314]?H!B>F\304@?\336\2618?\346A)?\330\037:?z\005\022?\354{\210>4\315>?\000\3675=\370\317\232>\344U\370>rUL?\200\260\305=\302\306H?\366\353\001?P\347\254=^CV?\2449\034?\254\267\353>~\326\033?\264\000\\?@t\353>\244\341+?\324\202\214>\320\336J>\264\033\324>\322:H?|s\263>V\010\001?p\233\361=$\253T?\320\006:>Z\035X?\204\343\001?x\353\344>\220\261\002?F\246*?l\345\203>h\253o>r\033.? \303\207>z\024\n?\220\032\360>\216W\035?\300\340\367=\214\343\203>\360\220\235=,\267\355>(\267&>\000wO>\2146\301>\240.O=\264>\261>\264o\022?P\264\253=\364}\330>\340\363p=zB\t?\034\203\363>\240\217\201>@\0076>p\275\231=F\316e?x\304\272>\334\353\234>D\235\362>6\2163?`\001\345>\306b\004?X\2242>\210\213\262>\316\243F?\212\372r?\310\037T> k_>^\350&?DN\236>\362Vt?P\236@>\3645u?\200\3026>\014\256v?\004N\367>\244)(?\360\245\253>V\356\177?RB\026?\032\036\023?\200\373\302<\340\257\226>\276X\006?,\177\026?H\003:?0@I>\374\251j?\310\374x?\\\256k?@{T=\020m\231>\000\254};\356\343C?\364\277\014?\334A\302>4\036\302>H\241\264>\034\037\223>\270\347N?`J\362>\014?\341>p\036)?\274a\031?\000\350_;\360\216\371>P\"!?\270\0011?\2404\030=V\255\030?\2401\035=h\253\026?\300\273*=\262T4?J\254|?\264Hv?\034\031\357>\322\212\017?\344]p?\270\256\276>\200ea=\210%\004?\350H\257>ZL#?\260\252\364=`R\004?\256q\017?\020\274\270>\224\222\001?x.\252>\244\361\037?\364C\354>,I\327>\274^\023?\024\022\037?\246?3?\320\221\244=\240\207#>\314\306\211>\3006r?D\0364?\314:\021?T\t??L\351R?\000\271\226;\000vK>V\223#?\034^\322>D\2576?\346\231\017?\264\0200?8\244o?\000\tE?4LX?\214`\302>\224\331\240>\254g\355>\310@\270>\360\302\274=\220\322\225=\320E\340=\030\375\033>|\001\020?h\315m?\036\037l?\320\216\246=\320\225\271=\240\365\006=$y\206>p\311\016>\370.\034>\350\200/>\242\352??\360\342F?\032\tB?H\3356?p\0374>\\\323\224>\362\342\032?`J\321=\300\242\220>\304\002@?\"\\\005?NBl?\260\235\024?\334\213\371>\206\245X?\200a\346>\206\300+?\204\333\032?p\250\313=\320C\304>\370q\301>0)\'>\222e}?\356\353\026?\314d^?Nu7?x\026_?\000\320\027?\020\356>>\242\026B?4\372\341>\262\343~?\310(A?\204\006;?\264\245\036?F\202:?\220n\217=\010\241{?\272\014t?\006\'!?4\344\341>B1u?\2749(?l\272\346>\364\360T?\350\350\001?\254\n\301>~\2558?\320\330Q>@f&?l\261D?\270%C>\320\253\203=\266|l?\340\014h?|E\345>\300\263\360=\320\345\256>F\3509?\000\023!>v\003t?\0308\200>\212&\016?\274\372\275>\210\363t>\274@\271>@\300\034=\336\302\033?\010\235+>d\341\362>p\236W?\234\365^?8\300\342>\200\363\332<\340\245\001>\020\250*>@l\274=>xL?(^\366>V\260|?\322\003i?\034\235\304>\240t\306=|\315_?\320\371\300=\274\246.?\254\375\377>Xnw>\004\246\010?\030r\324>\254\200\373>,\261p?\370\350d>t^\333>x\226\366>L\242\002?\252\313v?\330\316\342>\240\241N?\364\177U?\324\202r?<*\214>\340\021\220=\202-P?\320\264s?\000\350\226=\014\270\003?\0004\226<x\264\022>\320\334\373=\000\307\352;\210\363*>p_\240>\270\202\300>\004G\t?\224q\204>T\022p?B\354)?\010\205\000>DLx?<}s?j\337l?Hk>?\350$*?\200\3575=D8\221>\3624x?\222\355B?V\223i?p\313`>\030xZ>@R\007>\220:\234>\000\250\331=\236\0243?\264\354\370>\200\000\242=\334\000\321>PO\006?\320\2434?\244\017\016?\240\207\232=B5??\220\031\033?8y\003?\014\234\313>\210\363M?\356\370K?\252E|?B\257-?T\253\370>D\343x?\260\031)>\334\367o?D\303.?`S\336>\354\013w?\000\\\"=\320mI?j%z?pM=?z\373A?>{\026?\000\270*;@\271\312=@\327{=@\217\274=x\237<?\236\023}?\374\254\203>d\316\335>\024\215\267>,s\032?\006\214p?"
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/kernel"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 6
+          }
+        }
+        tensor_content: ".\344\256=\271\302\t>\253\357\033>\340\367\246\273\340|8=X\361\005=\254?A=j\027\250=\334\253\247=rx\007\275w\223\020>\032\271\347=T#\271=\036\346\375=\220f:\274l\323\212=p\247o\274\036\246\304=\031|\023>\000L\027<~\301\326=9\235\035\276\200\252\001\275\032\334\337\275\000\3049\275pA\332\275\000\355\304\273J\252\332\275\370\354\353\274\367b\013>(\220\010\276\260\"\274<\321\237\n>\340\332\324\273\314QC\275\205\345\022>\017\n\014\276\216\361L\275\010j\374\275\021\311\361\275\256\215\324=\342\013\362=<\3779\275<\220\377\275\276k[\275O\006\304\275\031\270\000>\304\237\\\275*O\216\275\270\365\211\274c\026\026>`\273\206\275\321\321\021>\362\362k\275a\320\030>w\346\357\275\240\254\206;\020`C\275\020\252+\275p\231\212\274^8\303=A\207\331\275\302e\374=\216\000\245=\020\252H\2745\217\270\275\240=\222\274\260\206N=z\350\302=-\305\017>6v]\275x\3070=\333C\t>\2562\021\275\023x\026\2763\232\010>\265|\023>\366\203\204=\000\251\026;\246\035\325=htz=\200\n\277\272J2\026\276r\202\304=\334\343\033\276\230\360\261<r\360\354\275\0265q\275O\212\027>\031\032\310\275&\265M\275\314\337\035=\3600\254=,r\203\2758:\304\274p\000K<\310\263\313\274\326\333\354=i\371\n>};\t>BN\032\276\373\177\013>\330\027\337<\366\350\247=\264#*=\342\344\305\275\216r\365\275\304z\267=\270\346t=\\V\007\276\241\357\020>\322\253\'\275l\336\222\275\034\024\275=` \353;\342\352\301\275\372\022\326\275\'\364\355\275\3144}\275LKv\275\212\237\343=P\310\357\275oK\335\275\276\340\312=X\030\316\275 q\374\273\212\335\001\276\222\337\216\275\033\333\005>~\036\330=\240 \324\275\202\316\320=\300~\022\274\215\334\021>~\033\316=z:\342=\232\201\353=\312\376_\275\034\331y\2750\004i\274\350\277\340\275\300\034\003\273\000\356/\273$\3675=\347\361\010>\351A\002>\032\033\027\275\303\233\001>6\325)\275\210\206X=\303\274\037>*\003D\275E\333\001>0\032==\253\371\031>e\215\337\275 5\361\274@\270\227;\010\246\366<C:\304\275\030<\357<V\'\273= \342m=\322\364\003\276\004\032\213=\300e\346\274\226\035\330\275\304\342\177\275\3218\037\276:*\351\275\020\033\242\274N\007!\275\023\257\004\276\0140~=t\3356=\3445\'=\3045|\275\200\273\367:$\302w=\221\260\032>\000\234\205:D\204_=\251f\220\275\336?\332=\004G\364\275*\375\372\275+m\205\275^@\352=\360\225\264=\246\201,\275\360RD<{\332\014\276\236\325\361=\356\264\376=<\017s=\370e\352\275@%\232;\336\334\244\275P\340\004\275\303\035\326\275\036{\032\276\244\324\212=\260Mr\275@\271\033<,\353\265=@\267\271=A\204\020>\362\r\036\275\204\201.=[\355\007>,\276;=\370:\221\274\272\362\271\275\000\025>\273\206pd\275\342\022\347=|f|=V\342\202=@\010\225<PB\034\274p\334\035\274\300:3;eO\036> \225(=\220\332J<\213]\031>\023\242\271\275\360\366\330<0\253\024\274\210\207\340\275\374\277t\275L2~\275\254\341\267\275\317}\377\275`d5=v\261\324\275~f\352=\330\016U=\300F\024;\020\222Q<\364\024n\275\340\270\022\274\206\\\342=\300t\237\273\240\213\266;\226\277\n\275\340\021\343\275s3\035>r\307\333=&\244\364=[p\025\276h\271\323\275\203\007\313\275\246\375\320=\001\037\013>\202\372\366\275\260\371\255<\000Vs;J(\321\275\260\337d=\341\253\010\276RG\253\275\333V\224\275\300&\240\274\232\024\270=\237\267\005>\020Ka<\022\025\356=\346\177\341=b&(\275\276\031\264\275\220\016>=\030x\250\275\340#\261\273\200\246\230\274\3077\010>\t\262\n>\322E\232\275a\005\030>ts\241\275\237\250\r\276@\236f<R\212\224\275\240lM\274\336-\326\275\020\'F\274\200\362\213\272c\001\031>v \332\275\324\230\031=.N\014\276\362\336\341=\364 \266=\000[\036\273=\265\037\276hX\177=\030t\010=\340Y\254;:\351\302\275X\252\377\274\214\361[=\271\204\004>\364\177\030=x\252\217=>\200\331=\306{\373=@\261\';_\251\001\276\260u\336<\226\010\214\275z\271u\275@\262\342\273\340\035f<`\347d\274_\355\253\275\200;\213;\026z\357=z\037\352=\320\001\247<\310T9\275.\357\314\275\200#\231\274V\034\266\2750\357\267=\247\356\233\275\302\265K\275rt\310=N\252\223\2759\345\036>\240\275\036=\250\0063=,y\002\275\220 \305<\231\215\035>\324F;=\346\021\340=\246l\261=H?\r\276\371\333\r>\207\250\253\275\267\243\001\276\304>i=*\233\'\275/\256\024>\035l\031>\2527\007\275H^\262\274\334i\240=\337\336\r>z\225\374=\307\346\255\275)\254\017>X\223\220\275\244RG=\000\306\360;\346\364\352\275\260\232\247\274\340Y.=\036\330\321=*\035\343=\0258\367\275\000\202\253\273yw\201\275\341!\026>?\263\232\275 \006\022\276\350u\221<x\354\324\275\266\367*\275\201o\022\276\023(\n>\250\020\032=\300\375\335\273t\361n\275\334\255i=\000&\325\273\201\244\004>\331\311\035\276\020\366 \275g\'\034>Ds\022\276\200\225%<U\\\034><\277L\27500\201=_\n\030>\240,U=`\366\201=FKS\275\020\226\375\275\320\233G=\\\266\000\275\007K\r>\326\333\221=,X\241\275-b\037>\\I3=@\263\021<Z\325\331=h*\023\276\266\345\317=m2\274\275\215\252\331\275X{\210=&\340\332=\004l\340\275\266\301\224=\370\207\342\275\014\340\031\276\302\367\r\276h\226N\275\0002@\273\355\377\024\276r\t\251=\263=\014>\224\267w\275P<\252\274\203\237\001\276\377D\032>\310\036\266<\335\244\034\276\3004~\274H\205\337\2747\342\031>u\264\233\275\333\274\t>\000\346-<\217d\303\275\300\026-\274/\002\013>0\'\017\275\300\270\024\276\374N0=\354\242M\275\342w\030\276\230\204n\275B\003\222\275R\246\317=\224\326\024\276\004\323\036\276b\t\354=t\254\353\275N\366\237\275\200\330\216:\024\001\017\275\300Q$=\220\r\326\274\312\242\341=\360\320\225\2748\203\246\274\333h\034\276<\322\240=%+\003>L\177\317\275\322\371\326=zJ\273=\013X\024>>\360|\275\002\342\316\275\256&\304\275@\365J<\014}\004=\010\263\251\2750\312D\274\300\310\235=pn\033=4\252\221=o\374\273\275\302\216\275\275\000t{\272\262N\013\275\226\340\226=n;\020\275\220\207\322\275\tJ\036>\242\341\026\275\030\016$=\340.Y<\276\266\232=\320\312\006<\376\326\337\2757&\020>\305B\262\275\361\235\036\276\277G\002>+\315\030>"
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/kernel/read"
+  op: "Identity"
+  input: "conv3d_transpose/kernel"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@conv3d_transpose/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/bias"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "\000\000\000\000\000\000\000\000\000\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/bias/read"
+  op: "Identity"
+  input: "conv3d_transpose/bias"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@conv3d_transpose/bias"
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 5
+          }
+        }
+        tensor_content: "\001\000\000\000\002\000\000\000\006\000\000\000\006\000\000\000\006\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice"
+  op: "StridedSlice"
+  input: "conv3d_transpose/Shape"
+  input: "conv3d_transpose/strided_slice/stack"
+  input: "conv3d_transpose/strided_slice/stack_1"
+  input: "conv3d_transpose/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_1/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_1/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_1/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_1"
+  op: "StridedSlice"
+  input: "conv3d_transpose/Shape"
+  input: "conv3d_transpose/strided_slice_1/stack"
+  input: "conv3d_transpose/strided_slice_1/stack_1"
+  input: "conv3d_transpose/strided_slice_1/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_2/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_2/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 3
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_2/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_2"
+  op: "StridedSlice"
+  input: "conv3d_transpose/Shape"
+  input: "conv3d_transpose/strided_slice_2/stack"
+  input: "conv3d_transpose/strided_slice_2/stack_1"
+  input: "conv3d_transpose/strided_slice_2/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_3/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 3
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_3/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 4
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_3/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/strided_slice_3"
+  op: "StridedSlice"
+  input: "conv3d_transpose/Shape"
+  input: "conv3d_transpose/strided_slice_3/stack"
+  input: "conv3d_transpose/strided_slice_3/stack_1"
+  input: "conv3d_transpose/strided_slice_3/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/mul/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/mul"
+  op: "Mul"
+  input: "conv3d_transpose/strided_slice_1"
+  input: "conv3d_transpose/mul/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/mul_1/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/mul_1"
+  op: "Mul"
+  input: "conv3d_transpose/strided_slice_2"
+  input: "conv3d_transpose/mul_1/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/mul_2/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/mul_2"
+  op: "Mul"
+  input: "conv3d_transpose/strided_slice_3"
+  input: "conv3d_transpose/mul_2/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/stack/4"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 3
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/stack"
+  op: "Pack"
+  input: "conv3d_transpose/strided_slice"
+  input: "conv3d_transpose/mul"
+  input: "conv3d_transpose/mul_1"
+  input: "conv3d_transpose/mul_2"
+  input: "conv3d_transpose/stack/4"
+  attr {
+    key: "N"
+    value {
+      i: 5
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/conv3d_transpose"
+  op: "Conv3DBackpropInputV2"
+  input: "conv3d_transpose/stack"
+  input: "conv3d_transpose/kernel/read"
+  input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NDHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/Reshape/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 4
+          }
+        }
+        tensor_content: "\001\000\000\0000\000\000\000\014\000\000\000\003\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/Reshape"
+  op: "Reshape"
+  input: "conv3d_transpose/conv3d_transpose"
+  input: "conv3d_transpose/Reshape/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/BiasAdd"
+  op: "BiasAdd"
+  input: "conv3d_transpose/Reshape"
+  input: "conv3d_transpose/bias/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/Reshape_1/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 5
+          }
+        }
+        tensor_content: "\001\000\000\000\004\000\000\000\014\000\000\000\014\000\000\000\003\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/Reshape_1"
+  op: "Reshape"
+  input: "conv3d_transpose/BiasAdd"
+  input: "conv3d_transpose/Reshape_1/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "conv3d_transpose/Relu6"
+  op: "Relu6"
+  input: "conv3d_transpose/Reshape_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+library {
+}
