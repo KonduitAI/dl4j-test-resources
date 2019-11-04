@@ -85,12 +85,12 @@
                 <repository>
                     <id>ci-nexus-releases</id>
                     <name>Nexus Release Repository</name>
-                    <url>https://nexus.ci.skymind.io/repository/maven-releases/</url>
+                    <url>https://packages.konduit.ai/repository/maven-releases/</url>
                 </repository>
                 <snapshotRepository>
                     <id>ci-nexus-snapshots</id>
                     <name>Sonatype Nexus snapshot repository</name>
-                    <url>https://nexus.ci.skymind.io/repository/maven-snapshots/</url>
+                    <url>https://packages.konduit.ai/repository/maven-snapshots/</url>
                 </snapshotRepository>
             </distributionManagement>
             <build>
@@ -119,7 +119,7 @@
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ci-nexus-snapshots</serverId>
-                            <nexusUrl>https://nexus.ci.skymind.io/</nexusUrl>
+                            <nexusUrl>https://packages.konduit.ai/</nexusUrl>
                             <skipStagingRepositoryClose>true</skipStagingRepositoryClose>
                         </configuration>
                     </plugin>
