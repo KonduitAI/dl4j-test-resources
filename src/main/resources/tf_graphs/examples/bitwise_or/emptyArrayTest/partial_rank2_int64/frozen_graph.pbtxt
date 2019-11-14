@@ -1,0 +1,105 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+            size: 1
+          }
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+          }
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "BitwiseOr/y"
+  op: "Pack"
+  input: "Const"
+  attr {
+    key: "N"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "BitwiseOr"
+  op: "BitwiseOr"
+  input: "in_0/read"
+  input: "BitwiseOr/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+library {
+}
