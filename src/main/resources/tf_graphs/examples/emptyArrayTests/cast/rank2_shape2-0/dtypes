@@ -1,5 +1,4 @@
-Cast_1.0 int32
-import____Variable.0 float32
-import____Variable____read.0 float32
-import____Cast_1____x.0 float32
-import____Cast_1.0 int32
+Cast.0 int32
+Const.0 float32
+Cast____x.0 float32
+Cast.0 int32

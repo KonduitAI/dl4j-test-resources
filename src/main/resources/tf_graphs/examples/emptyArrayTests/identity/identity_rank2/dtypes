@@ -1,5 +1,4 @@
 Identity.0 int32
-import____Variable.0 int32
-import____Variable____read.0 int32
-import____Identity____input.0 int32
-import____Identity.0 int32
+Const.0 int32
+Identity____input.0 int32
+Identity.0 int32

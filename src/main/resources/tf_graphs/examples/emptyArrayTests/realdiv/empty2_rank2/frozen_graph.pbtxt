@@ -1,5 +1,5 @@
 node {
-  name: "Variable"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -19,25 +19,6 @@ node {
             size: 1
           }
         }
-      }
-    }
-  }
-}
-node {
-  name: "Variable/read"
-  op: "Identity"
-  input: "Variable"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@Variable"
       }
     }
   }
@@ -91,7 +72,7 @@ node {
 node {
   name: "RealDiv/x"
   op: "Pack"
-  input: "Variable/read"
+  input: "Const"
   attr {
     key: "N"
     value {

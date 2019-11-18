@@ -1,5 +1,4 @@
 Identity.0 float32
-import____Variable.0 float32
-import____Variable____read.0 float32
-import____Identity____input.0 float32
-import____Identity.0 float32
+Const.0 float32
+Identity____input.0 float32
+Identity.0 float32

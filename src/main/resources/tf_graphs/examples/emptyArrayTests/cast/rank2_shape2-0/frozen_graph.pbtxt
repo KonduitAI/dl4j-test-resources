@@ -1,5 +1,5 @@
 node {
-  name: "Variable"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -24,28 +24,9 @@ node {
   }
 }
 node {
-  name: "Variable/read"
-  op: "Identity"
-  input: "Variable"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@Variable"
-      }
-    }
-  }
-}
-node {
-  name: "Cast_1/x"
+  name: "Cast/x"
   op: "Pack"
-  input: "Variable/read"
+  input: "Const"
   attr {
     key: "N"
     value {
@@ -66,9 +47,9 @@ node {
   }
 }
 node {
-  name: "Cast_1"
+  name: "Cast"
   op: "Cast"
-  input: "Cast_1/x"
+  input: "Cast/x"
   attr {
     key: "DstT"
     value {

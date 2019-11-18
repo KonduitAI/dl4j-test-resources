@@ -1,5 +1,5 @@
 node {
-  name: "Variable"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -26,26 +26,7 @@ node {
   }
 }
 node {
-  name: "Variable/read"
-  op: "Identity"
-  input: "Variable"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT64
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@Variable"
-      }
-    }
-  }
-}
-node {
-  name: "Variable_1"
+  name: "Const_1"
   op: "Const"
   attr {
     key: "dtype"
@@ -72,28 +53,9 @@ node {
   }
 }
 node {
-  name: "Variable_1/read"
-  op: "Identity"
-  input: "Variable_1"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT64
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@Variable_1"
-      }
-    }
-  }
-}
-node {
   name: "IdentityN/input_0"
   op: "Pack"
-  input: "Variable/read"
+  input: "Const"
   attr {
     key: "N"
     value {
@@ -116,7 +78,7 @@ node {
 node {
   name: "IdentityN/input_1"
   op: "Pack"
-  input: "Variable_1/read"
+  input: "Const_1"
   attr {
     key: "N"
     value {

@@ -45,7 +45,7 @@ node {
   }
 }
 node {
-  name: "Variable"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -70,28 +70,9 @@ node {
   }
 }
 node {
-  name: "Variable/read"
-  op: "Identity"
-  input: "Variable"
-  attr {
-    key: "T"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@Variable"
-      }
-    }
-  }
-}
-node {
   name: "Maximum/y"
   op: "Pack"
-  input: "Variable/read"
+  input: "Const"
   attr {
     key: "N"
     value {

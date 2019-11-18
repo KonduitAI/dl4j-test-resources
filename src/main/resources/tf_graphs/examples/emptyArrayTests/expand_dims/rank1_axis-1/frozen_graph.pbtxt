@@ -1,5 +1,5 @@
 node {
-  name: "Variable"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -21,28 +21,9 @@ node {
   }
 }
 node {
-  name: "Variable/read"
-  op: "Identity"
-  input: "Variable"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@Variable"
-      }
-    }
-  }
-}
-node {
   name: "ExpandDims/input"
   op: "Pack"
-  input: "Variable/read"
+  input: "Const"
   attr {
     key: "N"
     value {
