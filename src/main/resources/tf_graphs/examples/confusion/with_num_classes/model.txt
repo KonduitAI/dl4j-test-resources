@@ -374,6 +374,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "confusion_matrix/Cast_1"
@@ -389,6 +395,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -1223,6 +1235,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -2226,7 +2244,7 @@ node {
   }
 }
 node {
-  name: "confusion_matrix/ToInt64"
+  name: "confusion_matrix/Cast_3"
   op: "Cast"
   input: "confusion_matrix/stack"
   attr {
@@ -2239,6 +2257,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -2286,7 +2310,7 @@ node {
   op: "SparseTensorDenseAdd"
   input: "confusion_matrix/stack_1"
   input: "confusion_matrix/ones_like"
-  input: "confusion_matrix/ToInt64"
+  input: "confusion_matrix/Cast_3"
   input: "confusion_matrix/zeros"
   attr {
     key: "T"
@@ -2302,7 +2326,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -2318,6 +2342,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -2556,5 +2616,5 @@ node {
   input: "^in_1/Assign"
 }
 versions {
-  producer: 26
+  producer: 134
 }

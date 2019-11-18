@@ -143,6 +143,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "confusion_matrix/Cast_1"
@@ -158,6 +164,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -866,6 +878,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -1605,6 +1623,12 @@ node {
       type: DT_FLOAT
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "confusion_matrix/stack"
@@ -1655,7 +1679,7 @@ node {
   }
 }
 node {
-  name: "confusion_matrix/ToInt64"
+  name: "confusion_matrix/Cast_4"
   op: "Cast"
   input: "confusion_matrix/stack"
   attr {
@@ -1668,6 +1692,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -1715,7 +1745,7 @@ node {
   op: "SparseTensorDenseAdd"
   input: "confusion_matrix/stack_1"
   input: "confusion_matrix/Cast_3"
-  input: "confusion_matrix/ToInt64"
+  input: "confusion_matrix/Cast_4"
   input: "confusion_matrix/zeros"
   attr {
     key: "T"
