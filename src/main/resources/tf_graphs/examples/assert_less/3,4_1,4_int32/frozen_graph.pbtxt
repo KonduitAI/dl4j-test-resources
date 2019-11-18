@@ -160,7 +160,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: ""
+        string_val: "Condition x < y did not hold element-wise:"
       }
     }
   }
@@ -181,34 +181,13 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "Condition x < y did not hold element-wise:"
-      }
-    }
-  }
-}
-node {
-  name: "assert_less/Assert/Assert/data_2"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_STRING
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_STRING
-        tensor_shape {
-        }
         string_val: "x (in_0/read:0) = "
       }
     }
   }
 }
 node {
-  name: "assert_less/Assert/Assert/data_4"
+  name: "assert_less/Assert/Assert/data_3"
   op: "Const"
   attr {
     key: "dtype"
@@ -234,15 +213,13 @@ node {
   input: "assert_less/All"
   input: "assert_less/Assert/Assert/data_0"
   input: "assert_less/Assert/Assert/data_1"
-  input: "assert_less/Assert/Assert/data_2"
   input: "in_0/read"
-  input: "assert_less/Assert/Assert/data_4"
+  input: "assert_less/Assert/Assert/data_3"
   input: "in_1/read"
   attr {
     key: "T"
     value {
       list {
-        type: DT_STRING
         type: DT_STRING
         type: DT_STRING
         type: DT_INT32

@@ -77,6 +77,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "in_0"
@@ -243,6 +249,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "in_1"
@@ -400,7 +412,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: ""
+        string_val: "Condition x >= y did not hold element-wise:"
       }
     }
   }
@@ -421,7 +433,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "Condition x >= y did not hold element-wise:x (in_0/read:0) = "
+        string_val: "x (in_0/read:0) = "
       }
     }
   }
@@ -534,7 +546,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: ""
+        string_val: "Condition x >= y did not hold element-wise:"
       }
     }
   }
@@ -556,7 +568,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "Condition x >= y did not hold element-wise:x (in_0/read:0) = "
+        string_val: "x (in_0/read:0) = "
       }
     }
   }
@@ -723,7 +735,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -739,6 +751,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -977,5 +1025,5 @@ node {
   input: "^in_1/Assign"
 }
 versions {
-  producer: 26
+  producer: 134
 }

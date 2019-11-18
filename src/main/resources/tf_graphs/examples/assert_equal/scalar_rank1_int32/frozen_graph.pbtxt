@@ -82,7 +82,7 @@ node {
   }
 }
 node {
-  name: "assert_equal/Equal"
+  name: "assert_equal_1/Equal"
   op: "Equal"
   input: "in_0/read"
   input: "in_1/read"
@@ -92,9 +92,15 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
+    }
+  }
 }
 node {
-  name: "assert_equal/Const"
+  name: "assert_equal_1/Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -118,10 +124,10 @@ node {
   }
 }
 node {
-  name: "assert_equal/All"
+  name: "assert_equal_1/All"
   op: "All"
-  input: "assert_equal/Equal"
-  input: "assert_equal/Const"
+  input: "assert_equal_1/Equal"
+  input: "assert_equal_1/Const"
   attr {
     key: "Tidx"
     value {
@@ -136,28 +142,7 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/Assert/data_0"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_STRING
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_STRING
-        tensor_shape {
-        }
-        string_val: ""
-      }
-    }
-  }
-}
-node {
-  name: "assert_equal/Assert/Assert/data_1"
+  name: "assert_equal_1/Assert/Assert/data_0"
   op: "Const"
   attr {
     key: "dtype"
@@ -178,7 +163,7 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/Assert/data_2"
+  name: "assert_equal_1/Assert/Assert/data_1"
   op: "Const"
   attr {
     key: "dtype"
@@ -199,7 +184,7 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/Assert/data_4"
+  name: "assert_equal_1/Assert/Assert/data_3"
   op: "Const"
   attr {
     key: "dtype"
@@ -220,20 +205,18 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/Assert"
+  name: "assert_equal_1/Assert/Assert"
   op: "Assert"
-  input: "assert_equal/All"
-  input: "assert_equal/Assert/Assert/data_0"
-  input: "assert_equal/Assert/Assert/data_1"
-  input: "assert_equal/Assert/Assert/data_2"
+  input: "assert_equal_1/All"
+  input: "assert_equal_1/Assert/Assert/data_0"
+  input: "assert_equal_1/Assert/Assert/data_1"
   input: "in_0/read"
-  input: "assert_equal/Assert/Assert/data_4"
+  input: "assert_equal_1/Assert/Assert/data_3"
   input: "in_1/read"
   attr {
     key: "T"
     value {
       list {
-        type: DT_STRING
         type: DT_STRING
         type: DT_STRING
         type: DT_INT32
@@ -254,7 +237,7 @@ node {
   op: "Add"
   input: "in_0/read"
   input: "in_1/read"
-  input: "^assert_equal/Assert/Assert"
+  input: "^assert_equal_1/Assert/Assert"
   attr {
     key: "T"
     value {

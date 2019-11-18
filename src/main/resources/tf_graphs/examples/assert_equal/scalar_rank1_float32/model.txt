@@ -75,6 +75,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "in_0"
@@ -235,6 +241,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "in_1"
@@ -320,7 +332,7 @@ node {
   }
 }
 node {
-  name: "assert_equal/Equal"
+  name: "assert_equal_1/Equal"
   op: "Equal"
   input: "in_0/read"
   input: "in_1/read"
@@ -330,9 +342,15 @@ node {
       type: DT_FLOAT
     }
   }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
+    }
+  }
 }
 node {
-  name: "assert_equal/Const"
+  name: "assert_equal_1/Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -356,10 +374,10 @@ node {
   }
 }
 node {
-  name: "assert_equal/All"
+  name: "assert_equal_1/All"
   op: "All"
-  input: "assert_equal/Equal"
-  input: "assert_equal/Const"
+  input: "assert_equal_1/Equal"
+  input: "assert_equal_1/Const"
   attr {
     key: "Tidx"
     value {
@@ -374,28 +392,7 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_STRING
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_STRING
-        tensor_shape {
-        }
-        string_val: ""
-      }
-    }
-  }
-}
-node {
-  name: "assert_equal/Assert/Const_1"
+  name: "assert_equal_1/Assert/Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -416,7 +413,7 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/Const_2"
+  name: "assert_equal_1/Assert/Const_1"
   op: "Const"
   attr {
     key: "dtype"
@@ -437,7 +434,7 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/Const_3"
+  name: "assert_equal_1/Assert/Const_2"
   op: "Const"
   attr {
     key: "dtype"
@@ -458,10 +455,10 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Switch"
+  name: "assert_equal_1/Assert/AssertGuard/Switch"
   op: "Switch"
-  input: "assert_equal/All"
-  input: "assert_equal/All"
+  input: "assert_equal_1/All"
+  input: "assert_equal_1/All"
   attr {
     key: "T"
     value {
@@ -470,9 +467,9 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/switch_t"
+  name: "assert_equal_1/Assert/AssertGuard/switch_t"
   op: "Identity"
-  input: "assert_equal/Assert/AssertGuard/Switch:1"
+  input: "assert_equal_1/Assert/AssertGuard/Switch:1"
   attr {
     key: "T"
     value {
@@ -481,9 +478,9 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/switch_f"
+  name: "assert_equal_1/Assert/AssertGuard/switch_f"
   op: "Identity"
-  input: "assert_equal/Assert/AssertGuard/Switch"
+  input: "assert_equal_1/Assert/AssertGuard/Switch"
   attr {
     key: "T"
     value {
@@ -492,9 +489,9 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/pred_id"
+  name: "assert_equal_1/Assert/AssertGuard/pred_id"
   op: "Identity"
-  input: "assert_equal/All"
+  input: "assert_equal_1/All"
   attr {
     key: "T"
     value {
@@ -503,15 +500,15 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/NoOp"
+  name: "assert_equal_1/Assert/AssertGuard/NoOp"
   op: "NoOp"
-  input: "^assert_equal/Assert/AssertGuard/switch_t"
+  input: "^assert_equal_1/Assert/AssertGuard/switch_t"
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/control_dependency"
+  name: "assert_equal_1/Assert/AssertGuard/control_dependency"
   op: "Identity"
-  input: "assert_equal/Assert/AssertGuard/switch_t"
-  input: "^assert_equal/Assert/AssertGuard/NoOp"
+  input: "assert_equal_1/Assert/AssertGuard/switch_t"
+  input: "^assert_equal_1/Assert/AssertGuard/NoOp"
   attr {
     key: "T"
     value {
@@ -522,37 +519,15 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@assert_equal/Assert/AssertGuard/switch_t"
+        s: "loc:@assert_equal_1/Assert/AssertGuard/switch_t"
       }
     }
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Assert/data_0"
+  name: "assert_equal_1/Assert/AssertGuard/Assert/data_0"
   op: "Const"
-  input: "^assert_equal/Assert/AssertGuard/switch_f"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_STRING
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_STRING
-        tensor_shape {
-        }
-        string_val: ""
-      }
-    }
-  }
-}
-node {
-  name: "assert_equal/Assert/AssertGuard/Assert/data_1"
-  op: "Const"
-  input: "^assert_equal/Assert/AssertGuard/switch_f"
+  input: "^assert_equal_1/Assert/AssertGuard/switch_f"
   attr {
     key: "dtype"
     value {
@@ -572,9 +547,9 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Assert/data_2"
+  name: "assert_equal_1/Assert/AssertGuard/Assert/data_1"
   op: "Const"
-  input: "^assert_equal/Assert/AssertGuard/switch_f"
+  input: "^assert_equal_1/Assert/AssertGuard/switch_f"
   attr {
     key: "dtype"
     value {
@@ -594,9 +569,9 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Assert/data_4"
+  name: "assert_equal_1/Assert/AssertGuard/Assert/data_3"
   op: "Const"
-  input: "^assert_equal/Assert/AssertGuard/switch_f"
+  input: "^assert_equal_1/Assert/AssertGuard/switch_f"
   attr {
     key: "dtype"
     value {
@@ -616,20 +591,18 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Assert"
+  name: "assert_equal_1/Assert/AssertGuard/Assert"
   op: "Assert"
-  input: "assert_equal/Assert/AssertGuard/Assert/Switch"
-  input: "assert_equal/Assert/AssertGuard/Assert/data_0"
-  input: "assert_equal/Assert/AssertGuard/Assert/data_1"
-  input: "assert_equal/Assert/AssertGuard/Assert/data_2"
-  input: "assert_equal/Assert/AssertGuard/Assert/Switch_1"
-  input: "assert_equal/Assert/AssertGuard/Assert/data_4"
-  input: "assert_equal/Assert/AssertGuard/Assert/Switch_2"
+  input: "assert_equal_1/Assert/AssertGuard/Assert/Switch"
+  input: "assert_equal_1/Assert/AssertGuard/Assert/data_0"
+  input: "assert_equal_1/Assert/AssertGuard/Assert/data_1"
+  input: "assert_equal_1/Assert/AssertGuard/Assert/Switch_1"
+  input: "assert_equal_1/Assert/AssertGuard/Assert/data_3"
+  input: "assert_equal_1/Assert/AssertGuard/Assert/Switch_2"
   attr {
     key: "T"
     value {
       list {
-        type: DT_STRING
         type: DT_STRING
         type: DT_STRING
         type: DT_FLOAT
@@ -646,10 +619,10 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Assert/Switch"
+  name: "assert_equal_1/Assert/AssertGuard/Assert/Switch"
   op: "Switch"
-  input: "assert_equal/All"
-  input: "assert_equal/Assert/AssertGuard/pred_id"
+  input: "assert_equal_1/All"
+  input: "assert_equal_1/Assert/AssertGuard/pred_id"
   attr {
     key: "T"
     value {
@@ -660,16 +633,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@assert_equal/All"
+        s: "loc:@assert_equal_1/All"
       }
     }
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Assert/Switch_1"
+  name: "assert_equal_1/Assert/AssertGuard/Assert/Switch_1"
   op: "Switch"
   input: "in_0/read"
-  input: "assert_equal/Assert/AssertGuard/pred_id"
+  input: "assert_equal_1/Assert/AssertGuard/pred_id"
   attr {
     key: "T"
     value {
@@ -686,10 +659,10 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Assert/Switch_2"
+  name: "assert_equal_1/Assert/AssertGuard/Assert/Switch_2"
   op: "Switch"
   input: "in_1/read"
-  input: "assert_equal/Assert/AssertGuard/pred_id"
+  input: "assert_equal_1/Assert/AssertGuard/pred_id"
   attr {
     key: "T"
     value {
@@ -706,10 +679,10 @@ node {
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/control_dependency_1"
+  name: "assert_equal_1/Assert/AssertGuard/control_dependency_1"
   op: "Identity"
-  input: "assert_equal/Assert/AssertGuard/switch_f"
-  input: "^assert_equal/Assert/AssertGuard/Assert"
+  input: "assert_equal_1/Assert/AssertGuard/switch_f"
+  input: "^assert_equal_1/Assert/AssertGuard/Assert"
   attr {
     key: "T"
     value {
@@ -720,16 +693,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@assert_equal/Assert/AssertGuard/switch_f"
+        s: "loc:@assert_equal_1/Assert/AssertGuard/switch_f"
       }
     }
   }
 }
 node {
-  name: "assert_equal/Assert/AssertGuard/Merge"
+  name: "assert_equal_1/Assert/AssertGuard/Merge"
   op: "Merge"
-  input: "assert_equal/Assert/AssertGuard/control_dependency_1"
-  input: "assert_equal/Assert/AssertGuard/control_dependency"
+  input: "assert_equal_1/Assert/AssertGuard/control_dependency_1"
+  input: "assert_equal_1/Assert/AssertGuard/control_dependency"
   attr {
     key: "N"
     value {
@@ -748,7 +721,7 @@ node {
   op: "Add"
   input: "in_0/read"
   input: "in_1/read"
-  input: "^assert_equal/Assert/AssertGuard/Merge"
+  input: "^assert_equal_1/Assert/AssertGuard/Merge"
   attr {
     key: "T"
     value {
@@ -757,7 +730,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -773,6 +746,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -1011,5 +1020,5 @@ node {
   input: "^in_1/Assign"
 }
 versions {
-  producer: 26
+  producer: 134
 }
