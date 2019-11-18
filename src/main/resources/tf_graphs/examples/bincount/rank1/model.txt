@@ -179,7 +179,7 @@ node {
   }
 }
 node {
-  name: "Shape"
+  name: "bincount/Shape"
   op: "Const"
   attr {
     key: "dtype"
@@ -203,7 +203,7 @@ node {
   }
 }
 node {
-  name: "Const"
+  name: "bincount/Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -227,10 +227,10 @@ node {
   }
 }
 node {
-  name: "Prod"
+  name: "bincount/Prod"
   op: "Prod"
-  input: "Shape"
-  input: "Const"
+  input: "bincount/Shape"
+  input: "bincount/Const"
   attr {
     key: "T"
     value {
@@ -251,7 +251,7 @@ node {
   }
 }
 node {
-  name: "Greater/y"
+  name: "bincount/Greater/y"
   op: "Const"
   attr {
     key: "dtype"
@@ -272,10 +272,10 @@ node {
   }
 }
 node {
-  name: "Greater"
+  name: "bincount/Greater"
   op: "Greater"
-  input: "Prod"
-  input: "Greater/y"
+  input: "bincount/Prod"
+  input: "bincount/Greater/y"
   attr {
     key: "T"
     value {
@@ -284,9 +284,9 @@ node {
   }
 }
 node {
-  name: "Cast"
+  name: "bincount/Cast"
   op: "Cast"
-  input: "Greater"
+  input: "bincount/Greater"
   attr {
     key: "DstT"
     value {
@@ -299,9 +299,15 @@ node {
       type: DT_BOOL
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
-  name: "Const_1"
+  name: "bincount/Const_1"
   op: "Const"
   attr {
     key: "dtype"
@@ -325,10 +331,10 @@ node {
   }
 }
 node {
-  name: "Max"
+  name: "bincount/Max"
   op: "Max"
   input: "in_0/read"
-  input: "Const_1"
+  input: "bincount/Const_1"
   attr {
     key: "T"
     value {
@@ -349,7 +355,7 @@ node {
   }
 }
 node {
-  name: "add/y"
+  name: "bincount/add/y"
   op: "Const"
   attr {
     key: "dtype"
@@ -370,10 +376,10 @@ node {
   }
 }
 node {
-  name: "add"
-  op: "Add"
-  input: "Max"
-  input: "add/y"
+  name: "bincount/add"
+  op: "AddV2"
+  input: "bincount/Max"
+  input: "bincount/add/y"
   attr {
     key: "T"
     value {
@@ -382,10 +388,10 @@ node {
   }
 }
 node {
-  name: "mul"
+  name: "bincount/mul"
   op: "Mul"
-  input: "Cast"
-  input: "add"
+  input: "bincount/Cast"
+  input: "bincount/add"
   attr {
     key: "T"
     value {
@@ -394,7 +400,7 @@ node {
   }
 }
 node {
-  name: "Const_2"
+  name: "bincount/Const_2"
   op: "Const"
   attr {
     key: "dtype"
@@ -416,11 +422,11 @@ node {
   }
 }
 node {
-  name: "Bincount"
+  name: "bincount/Bincount"
   op: "Bincount"
   input: "in_0/read"
-  input: "mul"
-  input: "Const_2"
+  input: "bincount/mul"
+  input: "bincount/Const_2"
   attr {
     key: "T"
     value {
@@ -429,7 +435,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -445,6 +451,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -642,5 +684,5 @@ node {
   input: "^in_0/Assign"
 }
 versions {
-  producer: 26
+  producer: 134
 }
