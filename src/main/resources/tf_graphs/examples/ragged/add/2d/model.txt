@@ -1,0 +1,2568 @@
+node {
+  name: "in_0/initial_value"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 8
+          }
+        }
+        tensor_content: "\001\000\000\000\002\000\000\000\003\000\000\000\004\000\000\000\005\000\000\000\006\000\000\000\007\000\000\000\010\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "in_0"
+  op: "VariableV2"
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 8
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "in_0/Assign"
+  op: "Assign"
+  input: "in_0"
+  input: "in_0/initial_value"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/row_splits"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+            size: 6
+          }
+        }
+        tensor_content: "\000\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000\007\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int64_val: 8
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/Shape"
+  input: "RaggedFromRowSplits/strided_slice/stack"
+  input: "RaggedFromRowSplits/strided_slice/stack_1"
+  input: "RaggedFromRowSplits/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank/rank"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 6
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank/assert_type/statically_determined_correct_type"
+  op: "NoOp"
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank/static_checks_determined_all_ok"
+  op: "NoOp"
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_1/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_1/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_1/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_1"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "RaggedFromRowSplits/strided_slice_1/stack"
+  input: "RaggedFromRowSplits/strided_slice_1/stack_1"
+  input: "RaggedFromRowSplits/strided_slice_1/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+        }
+        int64_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Equal"
+  op: "Equal"
+  input: "RaggedFromRowSplits/strided_slice_1"
+  input: "RaggedFromRowSplits/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/All"
+  op: "All"
+  input: "RaggedFromRowSplits/assert_equal_1/Equal"
+  input: "RaggedFromRowSplits/assert_equal_1/Const"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x == y did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/Const_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/strided_slice_1:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/Const_3"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "y (RaggedFromRowSplits/Const:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_equal_1/All"
+  input: "RaggedFromRowSplits/assert_equal_1/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_t"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Switch:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/pred_id"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/NoOp"
+  op: "NoOp"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_t"
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/control_dependency"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_t"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/NoOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_t"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_0"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_1"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x == y did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_2"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/strided_slice_1:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_4"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "y (RaggedFromRowSplits/Const:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert"
+  op: "Assert"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_0"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_1"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_2"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch_1"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_4"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch_2"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_INT64
+        type: DT_STRING
+        type: DT_INT64
+      }
+    }
+  }
+  attr {
+    key: "summarize"
+    value {
+      i: 3
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_equal_1/All"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_1/All"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch_1"
+  op: "Switch"
+  input: "RaggedFromRowSplits/strided_slice_1"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/strided_slice_1"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch_2"
+  op: "Switch"
+  input: "RaggedFromRowSplits/Const"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/Const"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/control_dependency_1"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Merge"
+  op: "Merge"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/control_dependency_1"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/control_dependency"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_2/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_2/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_2/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_2"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "RaggedFromRowSplits/strided_slice_2/stack"
+  input: "RaggedFromRowSplits/strided_slice_2/stack_1"
+  input: "RaggedFromRowSplits/strided_slice_2/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_3/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_3/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_3/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_3"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "RaggedFromRowSplits/strided_slice_3/stack"
+  input: "RaggedFromRowSplits/strided_slice_3/stack_1"
+  input: "RaggedFromRowSplits/strided_slice_3/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/sub"
+  op: "Sub"
+  input: "RaggedFromRowSplits/strided_slice_2"
+  input: "RaggedFromRowSplits/strided_slice_3"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+        }
+        int64_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/LessEqual"
+  op: "LessEqual"
+  input: "RaggedFromRowSplits/assert_non_negative/Const"
+  input: "RaggedFromRowSplits/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  op: "All"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/LessEqual"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Const"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x >= 0 did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/Const_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/sub:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_t"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Switch:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/pred_id"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/NoOp"
+  op: "NoOp"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_t"
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/control_dependency"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_t"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/NoOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_t"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_0"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_1"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x >= 0 did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_2"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/sub:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert"
+  op: "Assert"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/Switch"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_0"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_1"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_2"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/Switch_1"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_INT64
+      }
+    }
+  }
+  attr {
+    key: "summarize"
+    value {
+      i: 3
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/Switch_1"
+  op: "Switch"
+  input: "RaggedFromRowSplits/sub"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/sub"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/control_dependency_1"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Merge"
+  op: "Merge"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/control_dependency_1"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/control_dependency"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_4/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_4/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_4/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_4"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "RaggedFromRowSplits/strided_slice_4/stack"
+  input: "RaggedFromRowSplits/strided_slice_4/stack_1"
+  input: "RaggedFromRowSplits/strided_slice_4/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Equal"
+  op: "Equal"
+  input: "RaggedFromRowSplits/strided_slice_4"
+  input: "RaggedFromRowSplits/strided_slice"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/All"
+  op: "All"
+  input: "RaggedFromRowSplits/assert_equal_3/Equal"
+  input: "RaggedFromRowSplits/assert_equal_3/Const"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x == y did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/Const_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/strided_slice_4:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/Const_3"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "y (RaggedFromRowSplits/strided_slice:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_equal_3/All"
+  input: "RaggedFromRowSplits/assert_equal_3/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_t"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Switch:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/pred_id"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/NoOp"
+  op: "NoOp"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_t"
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/control_dependency"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_t"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/NoOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_t"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_0"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_1"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x == y did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_2"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/strided_slice_4:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_4"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "y (RaggedFromRowSplits/strided_slice:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert"
+  op: "Assert"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_0"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_1"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_2"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch_1"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_4"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch_2"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_INT64
+        type: DT_STRING
+        type: DT_INT64
+      }
+    }
+  }
+  attr {
+    key: "summarize"
+    value {
+      i: 3
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_equal_3/All"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_3/All"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch_1"
+  op: "Switch"
+  input: "RaggedFromRowSplits/strided_slice_4"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/strided_slice_4"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch_2"
+  op: "Switch"
+  input: "RaggedFromRowSplits/strided_slice"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/strided_slice"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/control_dependency_1"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Merge"
+  op: "Merge"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/control_dependency_1"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/control_dependency"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank_at_least/rank"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank_at_least/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 8
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank_at_least/assert_type/statically_determined_correct_type"
+  op: "NoOp"
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank_at_least/static_checks_determined_all_ok"
+  op: "NoOp"
+}
+node {
+  name: "RaggedFromRowSplits/control_dependency"
+  op: "Identity"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Merge"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Merge"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Merge"
+  input: "^RaggedFromRowSplits/assert_rank/static_checks_determined_all_ok"
+  input: "^RaggedFromRowSplits/assert_rank_at_least/static_checks_determined_all_ok"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/row_splits"
+      }
+    }
+  }
+}
+node {
+  name: "ones"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "in_1"
+  op: "VariableV2"
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "in_1/Assign"
+  op: "Assign"
+  input: "in_1"
+  input: "ones"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "in_1/read"
+  op: "Identity"
+  input: "in_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+}
+node {
+  name: "Add_1"
+  op: "Add"
+  input: "in_0/read"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "save/filename/input"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/SaveV2/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        string_val: "in_0"
+        string_val: "in_1"
+      }
+    }
+  }
+}
+node {
+  name: "save/SaveV2/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        string_val: ""
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save/SaveV2"
+  op: "SaveV2"
+  input: "save/Const"
+  input: "save/SaveV2/tensor_names"
+  input: "save/SaveV2/shape_and_slices"
+  input: "in_0"
+  input: "in_1"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_INT32
+        type: DT_INT32
+      }
+    }
+  }
+}
+node {
+  name: "save/control_dependency"
+  op: "Identity"
+  input: "save/Const"
+  input: "^save/SaveV2"
+  attr {
+    key: "T"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@save/Const"
+      }
+    }
+  }
+}
+node {
+  name: "save/RestoreV2/tensor_names"
+  op: "Const"
+  device: "/device:CPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        string_val: "in_0"
+        string_val: "in_1"
+      }
+    }
+  }
+}
+node {
+  name: "save/RestoreV2/shape_and_slices"
+  op: "Const"
+  device: "/device:CPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        string_val: ""
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save/RestoreV2"
+  op: "RestoreV2"
+  input: "save/Const"
+  input: "save/RestoreV2/tensor_names"
+  input: "save/RestoreV2/shape_and_slices"
+  device: "/device:CPU:0"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_INT32
+        type: DT_INT32
+      }
+    }
+  }
+}
+node {
+  name: "save/Assign"
+  op: "Assign"
+  input: "in_0"
+  input: "save/RestoreV2"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/Assign_1"
+  op: "Assign"
+  input: "in_1"
+  input: "save/RestoreV2:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/restore_all"
+  op: "NoOp"
+  input: "^save/Assign"
+  input: "^save/Assign_1"
+}
+node {
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+  input: "^in_1/Assign"
+}
+versions {
+  producer: 134
+}
