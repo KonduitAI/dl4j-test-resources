@@ -143,6 +143,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "confusion_matrix/Cast_1"
@@ -158,6 +164,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -962,7 +974,7 @@ node {
 }
 node {
   name: "confusion_matrix/add"
-  op: "Add"
+  op: "AddV2"
   input: "confusion_matrix/Maximum"
   input: "confusion_matrix/add/y"
   attr {
@@ -986,6 +998,12 @@ node {
     key: "SrcT"
     value {
       type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -1038,7 +1056,7 @@ node {
   }
 }
 node {
-  name: "confusion_matrix/ToInt32"
+  name: "confusion_matrix/Cast_3"
   op: "Cast"
   input: "confusion_matrix/stack"
   attr {
@@ -1051,6 +1069,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT64
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -1078,7 +1102,7 @@ node {
 node {
   name: "confusion_matrix/zeros"
   op: "Fill"
-  input: "confusion_matrix/ToInt32"
+  input: "confusion_matrix/Cast_3"
   input: "confusion_matrix/zeros/Const"
   attr {
     key: "T"

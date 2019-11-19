@@ -140,6 +140,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
+    }
+  }
 }
 node {
   name: "assert_rank/assert_rank/static_checks_determined_all_ok"
@@ -271,6 +277,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }

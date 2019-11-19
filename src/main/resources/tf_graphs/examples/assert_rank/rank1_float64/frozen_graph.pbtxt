@@ -4,20 +4,20 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_FLOAT
+        dtype: DT_DOUBLE
         tensor_shape {
           dim {
             size: 3
           }
         }
-        tensor_content: "~^G?L\033M?\236p9?"
+        tensor_content: "0m4\347\376y\315?\344\033;\004\236p\351?\026..t\357%\352?"
       }
     }
   }
@@ -29,7 +29,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
@@ -135,6 +135,12 @@ node {
     key: "T"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
     }
   }
 }
@@ -261,13 +267,19 @@ node {
   attr {
     key: "DstT"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -279,7 +291,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
 }

@@ -1,0 +1,5392 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 8
+          }
+        }
+        tensor_content: "\000\000\200?\000\000\000@\000\000@@\000\000\200@\000\000\240@\000\000\300@\000\000\340@\000\000\000A"
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/row_splits"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+            size: 6
+          }
+        }
+        tensor_content: "\000\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000\007\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int64_val: 8
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/Shape"
+  input: "RaggedFromRowSplits/strided_slice/stack"
+  input: "RaggedFromRowSplits/strided_slice/stack_1"
+  input: "RaggedFromRowSplits/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank/static_checks_determined_all_ok"
+  op: "NoOp"
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_1/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_1/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_1/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_1"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "RaggedFromRowSplits/strided_slice_1/stack"
+  input: "RaggedFromRowSplits/strided_slice_1/stack_1"
+  input: "RaggedFromRowSplits/strided_slice_1/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+        }
+        int64_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Equal"
+  op: "Equal"
+  input: "RaggedFromRowSplits/strided_slice_1"
+  input: "RaggedFromRowSplits/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/All"
+  op: "All"
+  input: "RaggedFromRowSplits/assert_equal_1/Equal"
+  input: "RaggedFromRowSplits/assert_equal_1/Const"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_equal_1/All"
+  input: "RaggedFromRowSplits/assert_equal_1/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_t"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Switch:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/pred_id"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/NoOp"
+  op: "NoOp"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_t"
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/control_dependency"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_t"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/NoOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_t"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_0"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_1"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x == y did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_2"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/strided_slice_1:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_4"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "y (RaggedFromRowSplits/Const:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert"
+  op: "Assert"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_0"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_1"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_2"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch_1"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/data_4"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch_2"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_INT64
+        type: DT_STRING
+        type: DT_INT64
+      }
+    }
+  }
+  attr {
+    key: "summarize"
+    value {
+      i: 3
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_equal_1/All"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_1/All"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch_1"
+  op: "Switch"
+  input: "RaggedFromRowSplits/strided_slice_1"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/strided_slice_1"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert/Switch_2"
+  op: "Switch"
+  input: "RaggedFromRowSplits/Const"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/Const"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/control_dependency_1"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Assert"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/switch_f"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Merge"
+  op: "Merge"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/control_dependency_1"
+  input: "RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/control_dependency"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_2/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_2/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_2/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_2"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "RaggedFromRowSplits/strided_slice_2/stack"
+  input: "RaggedFromRowSplits/strided_slice_2/stack_1"
+  input: "RaggedFromRowSplits/strided_slice_2/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_3/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_3/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_3/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_3"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "RaggedFromRowSplits/strided_slice_3/stack"
+  input: "RaggedFromRowSplits/strided_slice_3/stack_1"
+  input: "RaggedFromRowSplits/strided_slice_3/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/sub"
+  op: "Sub"
+  input: "RaggedFromRowSplits/strided_slice_2"
+  input: "RaggedFromRowSplits/strided_slice_3"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+        }
+        int64_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/LessEqual"
+  op: "LessEqual"
+  input: "RaggedFromRowSplits/assert_non_negative/Const"
+  input: "RaggedFromRowSplits/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  op: "All"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/LessEqual"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Const"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_t"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Switch:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/pred_id"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/NoOp"
+  op: "NoOp"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_t"
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/control_dependency"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_t"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/NoOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_t"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_0"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_1"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x >= 0 did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_2"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/sub:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert"
+  op: "Assert"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/Switch"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_0"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_1"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/data_2"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/Switch_1"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_INT64
+      }
+    }
+  }
+  attr {
+    key: "summarize"
+    value {
+      i: 3
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_non_negative/assert_less_equal/All"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert/Switch_1"
+  op: "Switch"
+  input: "RaggedFromRowSplits/sub"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/sub"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/control_dependency_1"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/switch_f"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Merge"
+  op: "Merge"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/control_dependency_1"
+  input: "RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/control_dependency"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_4/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_4/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_4/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/strided_slice_4"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "RaggedFromRowSplits/strided_slice_4/stack"
+  input: "RaggedFromRowSplits/strided_slice_4/stack_1"
+  input: "RaggedFromRowSplits/strided_slice_4/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Equal"
+  op: "Equal"
+  input: "RaggedFromRowSplits/strided_slice_4"
+  input: "RaggedFromRowSplits/strided_slice"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/All"
+  op: "All"
+  input: "RaggedFromRowSplits/assert_equal_3/Equal"
+  input: "RaggedFromRowSplits/assert_equal_3/Const"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_equal_3/All"
+  input: "RaggedFromRowSplits/assert_equal_3/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_t"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Switch:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/pred_id"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/All"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/NoOp"
+  op: "NoOp"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_t"
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/control_dependency"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_t"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/NoOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_t"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_0"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Arguments to from_row_splits do not form a valid RaggedTensor"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_1"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Condition x == y did not hold element-wise:"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_2"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "x (RaggedFromRowSplits/strided_slice_4:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_4"
+  op: "Const"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "y (RaggedFromRowSplits/strided_slice:0) = "
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert"
+  op: "Assert"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_0"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_1"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_2"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch_1"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/data_4"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch_2"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_STRING
+        type: DT_INT64
+        type: DT_STRING
+        type: DT_INT64
+      }
+    }
+  }
+  attr {
+    key: "summarize"
+    value {
+      i: 3
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch"
+  op: "Switch"
+  input: "RaggedFromRowSplits/assert_equal_3/All"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_3/All"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch_1"
+  op: "Switch"
+  input: "RaggedFromRowSplits/strided_slice_4"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/strided_slice_4"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert/Switch_2"
+  op: "Switch"
+  input: "RaggedFromRowSplits/strided_slice"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/strided_slice"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/control_dependency_1"
+  op: "Identity"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Assert"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/switch_f"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Merge"
+  op: "Merge"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/control_dependency_1"
+  input: "RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/control_dependency"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedFromRowSplits/assert_rank_at_least/static_checks_determined_all_ok"
+  op: "NoOp"
+}
+node {
+  name: "RaggedFromRowSplits/control_dependency"
+  op: "Identity"
+  input: "RaggedFromRowSplits/row_splits"
+  input: "^RaggedFromRowSplits/assert_equal_1/Assert/AssertGuard/Merge"
+  input: "^RaggedFromRowSplits/assert_equal_3/Assert/AssertGuard/Merge"
+  input: "^RaggedFromRowSplits/assert_non_negative/assert_less_equal/Assert/AssertGuard/Merge"
+  input: "^RaggedFromRowSplits/assert_rank/static_checks_determined_all_ok"
+  input: "^RaggedFromRowSplits/assert_rank_at_least/static_checks_determined_all_ok"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@RaggedFromRowSplits/row_splits"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 6
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/strided_slice"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum/Shape"
+  input: "RaggedReduceMean/RaggedReduceSum/strided_slice/stack"
+  input: "RaggedReduceMean/RaggedReduceSum/strided_slice/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/sub/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/sub"
+  op: "Sub"
+  input: "RaggedReduceMean/RaggedReduceSum/strided_slice"
+  input: "RaggedReduceMean/RaggedReduceSum/sub/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/control_dependency"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice/stack"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_1/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_1/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_1/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_1"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/control_dependency"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_1/stack"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_1/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_1/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/sub"
+  op: "Sub"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int64_val: 6
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_2/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_2/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_2/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_2"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Shape"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_2/stack"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_2/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_2/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/sub_1/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+        }
+        int64_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/sub_1"
+  op: "Sub"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/strided_slice_2"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/sub_1/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range/start"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range/delta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range/Cast"
+  op: "Cast"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range/start"
+  attr {
+    key: "DstT"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "SrcT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range/Cast_1"
+  op: "Cast"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range/delta"
+  attr {
+    key: "DstT"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "SrcT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range"
+  op: "Range"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range/Cast"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/sub_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range/Cast_1"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Cast"
+  op: "Cast"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/sub"
+  attr {
+    key: "DstT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "SrcT"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Max"
+  op: "Max"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Cast"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Maximum/x"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Maximum"
+  op: "Maximum"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Maximum/x"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Max"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Range"
+  op: "Range"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Const"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Maximum"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Const_1"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/ExpandDims/dim"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/ExpandDims"
+  op: "ExpandDims"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Cast"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/ExpandDims/dim"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tdim"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Cast"
+  op: "Cast"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/ExpandDims"
+  attr {
+    key: "DstT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "SrcT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Less"
+  op: "Less"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Range"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Cast"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/ExpandDims/dim"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/ExpandDims"
+  op: "ExpandDims"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/range"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/ExpandDims/dim"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tdim"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Tile/multiples/0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Tile/multiples"
+  op: "Pack"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Tile/multiples/0"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Maximum"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Tile"
+  op: "Tile"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/ExpandDims"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Tile/multiples"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tmultiples"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\005\000\000\000\004\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Prod/reduction_indices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Prod"
+  op: "Prod"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Prod/reduction_indices"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\005\000\000\000\004\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\005\000\000\000\004\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape_2"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat/values_1"
+  op: "Pack"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Prod"
+  attr {
+    key: "N"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat/axis"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat"
+  op: "ConcatV2"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat/values_1"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat/axis"
+  attr {
+    key: "N"
+    value {
+      i: 3
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape"
+  op: "Reshape"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/Tile"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape_1/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape_1"
+  op: "Reshape"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Less"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape_1/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Where"
+  op: "Where"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Squeeze"
+  op: "Squeeze"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Where"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "squeeze_dims"
+    value {
+      list {
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/GatherV2/axis"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/GatherV2"
+  op: "GatherV2"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Squeeze"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/GatherV2/axis"
+  attr {
+    key: "Taxis"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tindices"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tparams"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "batch_dims"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum/UnsortedSegmentSum"
+  op: "UnsortedSegmentSum"
+  input: "in_0/read"
+  input: "RaggedReduceMean/RaggedReduceSum/RaggedSplitsToSegmentIds/Repeat/boolean_mask/GatherV2"
+  input: "RaggedReduceMean/RaggedReduceSum/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tindices"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tnumsegments"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/ones_like/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 8
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/ones_like/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 1.0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/ones_like"
+  op: "Fill"
+  input: "RaggedReduceMean/ones_like/Shape"
+  input: "RaggedReduceMean/ones_like/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "index_type"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 6
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/strided_slice"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum_1/Shape"
+  input: "RaggedReduceMean/RaggedReduceSum_1/strided_slice/stack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/strided_slice/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/sub/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/sub"
+  op: "Sub"
+  input: "RaggedReduceMean/RaggedReduceSum_1/strided_slice"
+  input: "RaggedReduceMean/RaggedReduceSum_1/sub/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/control_dependency"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice/stack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_1/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_1/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_1/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_1"
+  op: "StridedSlice"
+  input: "RaggedFromRowSplits/control_dependency"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_1/stack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_1/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_1/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/sub"
+  op: "Sub"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int64_val: 6
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_2/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_2/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_2/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_2"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Shape"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_2/stack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_2/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_2/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/sub_1/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+        }
+        int64_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/sub_1"
+  op: "Sub"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/strided_slice_2"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/sub_1/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range/start"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range/delta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range/Cast"
+  op: "Cast"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range/start"
+  attr {
+    key: "DstT"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "SrcT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range/Cast_1"
+  op: "Cast"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range/delta"
+  attr {
+    key: "DstT"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "SrcT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range"
+  op: "Range"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range/Cast"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/sub_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range/Cast_1"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Cast"
+  op: "Cast"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/sub"
+  attr {
+    key: "DstT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "SrcT"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Max"
+  op: "Max"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Cast"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Maximum/x"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Maximum"
+  op: "Maximum"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Maximum/x"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Max"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Range"
+  op: "Range"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Const"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Maximum"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Const_1"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/ExpandDims/dim"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/ExpandDims"
+  op: "ExpandDims"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Cast"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/ExpandDims/dim"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tdim"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Cast"
+  op: "Cast"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/ExpandDims"
+  attr {
+    key: "DstT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "SrcT"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Less"
+  op: "Less"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Range"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Cast"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/ExpandDims/dim"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/ExpandDims"
+  op: "ExpandDims"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/range"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/ExpandDims/dim"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tdim"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Tile/multiples/0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Tile/multiples"
+  op: "Pack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Tile/multiples/0"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Maximum"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Tile"
+  op: "Tile"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/ExpandDims"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Tile/multiples"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tmultiples"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\005\000\000\000\004\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Prod/reduction_indices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Prod"
+  op: "Prod"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Prod/reduction_indices"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\005\000\000\000\004\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\005\000\000\000\004\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2"
+  op: "StridedSlice"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Shape_2"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat/values_1"
+  op: "Pack"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Prod"
+  attr {
+    key: "N"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat/axis"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat"
+  op: "ConcatV2"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat/values_1"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/strided_slice_2"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat/axis"
+  attr {
+    key: "N"
+    value {
+      i: 3
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape"
+  op: "Reshape"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/Tile"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/concat"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape_1/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape_1"
+  op: "Reshape"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/SequenceMask/Less"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape_1/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Where"
+  op: "Where"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Squeeze"
+  op: "Squeeze"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Where"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "squeeze_dims"
+    value {
+      list {
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/GatherV2/axis"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/GatherV2"
+  op: "GatherV2"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Reshape"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/Squeeze"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/GatherV2/axis"
+  attr {
+    key: "Taxis"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tindices"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tparams"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "batch_dims"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/RaggedReduceSum_1/UnsortedSegmentSum"
+  op: "UnsortedSegmentSum"
+  input: "RaggedReduceMean/ones_like"
+  input: "RaggedReduceMean/RaggedReduceSum_1/RaggedSplitsToSegmentIds/Repeat/boolean_mask/GatherV2"
+  input: "RaggedReduceMean/RaggedReduceSum_1/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tindices"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "Tnumsegments"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "RaggedReduceMean/truediv"
+  op: "RealDiv"
+  input: "RaggedReduceMean/RaggedReduceSum/UnsortedSegmentSum"
+  input: "RaggedReduceMean/RaggedReduceSum_1/UnsortedSegmentSum"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+library {
+}

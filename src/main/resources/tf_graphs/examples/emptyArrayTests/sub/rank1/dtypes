@@ -1,8 +1,6 @@
 Sub.0 int64
-import____Variable.0 int64
-import____Variable____read.0 int64
-import____Variable_1.0 int64
-import____Variable_1____read.0 int64
-import____Sub____x.0 int64
-import____Sub____y.0 int64
-import____Sub.0 int64
+Const.0 int64
+Const_1.0 int64
+Sub____x.0 int64
+Sub____y.0 int64
+Sub.0 int64

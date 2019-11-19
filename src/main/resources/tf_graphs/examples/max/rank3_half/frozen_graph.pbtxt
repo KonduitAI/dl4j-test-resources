@@ -1,0 +1,254 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 2
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 12
+          }
+        }
+        half_val: 14974
+        half_val: 13976
+        half_val: 11504
+        half_val: 14280
+        half_val: 14830
+        half_val: 14870
+        half_val: 12528
+        half_val: 14434
+        half_val: 14996
+        half_val: 13104
+        half_val: 7424
+        half_val: 14636
+        half_val: 13144
+        half_val: 15086
+        half_val: 14680
+        half_val: 13360
+        half_val: 15080
+        half_val: 14416
+        half_val: 15250
+        half_val: 14454
+        half_val: 14284
+        half_val: 13988
+        half_val: 13548
+        half_val: 15196
+        half_val: 13136
+        half_val: 15116
+        half_val: 14372
+        half_val: 12456
+        half_val: 10368
+        half_val: 14440
+        half_val: 14120
+        half_val: 13324
+        half_val: 7936
+        half_val: 15094
+        half_val: 13888
+        half_val: 12928
+        half_val: 9280
+        half_val: 14448
+        half_val: 14478
+        half_val: 15238
+        half_val: 13496
+        half_val: 14784
+        half_val: 11904
+        half_val: 15288
+        half_val: 14664
+        half_val: 14510
+        half_val: 15030
+        half_val: 13920
+        half_val: 13668
+        half_val: 11520
+        half_val: 13800
+        half_val: 14690
+        half_val: 12304
+        half_val: 9280
+        half_val: 9984
+        half_val: 13812
+        half_val: 14978
+        half_val: 14994
+        half_val: 11776
+        half_val: 15000
+        half_val: 14876
+        half_val: 12504
+        half_val: 13332
+        half_val: 13728
+        half_val: 10528
+        half_val: 14598
+        half_val: 14316
+        half_val: 15050
+        half_val: 12648
+        half_val: 7424
+        half_val: 14280
+        half_val: 12520
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "in_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 2
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 12
+          }
+        }
+        half_val: 6656
+        half_val: 14978
+        half_val: 14284
+        half_val: 12720
+        half_val: 11440
+        half_val: 13952
+        half_val: 15006
+        half_val: 14152
+        half_val: 12000
+        half_val: 15096
+        half_val: 13536
+        half_val: 13732
+        half_val: 14016
+        half_val: 14552
+        half_val: 14084
+        half_val: 15288
+        half_val: 14772
+        half_val: 15220
+        half_val: 13716
+        half_val: 14770
+        half_val: 13908
+        half_val: 14948
+        half_val: 14972
+        half_val: 14808
+        half_val: 14940
+        half_val: 11168
+        half_val: 13708
+        half_val: 15046
+        half_val: 13472
+        half_val: 12928
+        half_val: 14686
+        half_val: 14630
+        half_val: 14946
+        half_val: 14694
+        half_val: 15348
+        half_val: 13828
+        half_val: 12752
+        half_val: 14842
+        half_val: 13484
+        half_val: 14488
+        half_val: 13776
+        half_val: 14844
+        half_val: 13608
+        half_val: 12976
+        half_val: 14570
+        half_val: 8960
+        half_val: 14652
+        half_val: 15272
+        half_val: 14744
+        half_val: 9088
+        half_val: 14546
+        half_val: 12432
+        half_val: 15280
+        half_val: 14048
+        half_val: 8320
+        half_val: 14476
+        half_val: 12352
+        half_val: 14622
+        half_val: 14408
+        half_val: 15318
+        half_val: 14842
+        half_val: 13584
+        half_val: 14316
+        half_val: 12368
+        half_val: 14838
+        half_val: 15242
+        half_val: 14674
+        half_val: 13616
+        half_val: 14900
+        half_val: 14934
+        half_val: 14594
+        half_val: 9216
+      }
+    }
+  }
+}
+node {
+  name: "in_1/read"
+  op: "Identity"
+  input: "in_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+}
+node {
+  name: "Maximum"
+  op: "Maximum"
+  input: "in_0/read"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+}
+library {
+}

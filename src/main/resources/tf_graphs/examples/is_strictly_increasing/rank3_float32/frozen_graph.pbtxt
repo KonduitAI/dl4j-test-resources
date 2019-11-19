@@ -1,0 +1,734 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 1
+          }
+          dim {
+            size: 1
+          }
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\220\275+\277\351\357d>"
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Reshape/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Reshape"
+  op: "Reshape"
+  input: "in_0/read"
+  input: "is_strictly_increasing/Reshape/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Size"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Less/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Less"
+  op: "Less"
+  input: "is_strictly_increasing/Size"
+  input: "is_strictly_increasing/Less/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/sub/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/sub"
+  op: "Sub"
+  input: "is_strictly_increasing/Shape"
+  input: "is_strictly_increasing/sub/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/Switch"
+  op: "Switch"
+  input: "is_strictly_increasing/Less"
+  input: "is_strictly_increasing/Less"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/switch_t"
+  op: "Identity"
+  input: "is_strictly_increasing/cond/Switch:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/switch_f"
+  op: "Identity"
+  input: "is_strictly_increasing/cond/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/pred_id"
+  op: "Identity"
+  input: "is_strictly_increasing/Less"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/Const"
+  op: "Const"
+  input: "^is_strictly_increasing/cond/switch_t"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/add/x"
+  op: "Const"
+  input: "^is_strictly_increasing/cond/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/add"
+  op: "AddV2"
+  input: "is_strictly_increasing/cond/add/x"
+  input: "is_strictly_increasing/cond/add/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/add/Switch"
+  op: "Switch"
+  input: "is_strictly_increasing/sub"
+  input: "is_strictly_increasing/cond/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@is_strictly_increasing/sub"
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/ones_like/Shape"
+  op: "Const"
+  input: "^is_strictly_increasing/cond/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/ones_like/Const"
+  op: "Const"
+  input: "^is_strictly_increasing/cond/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/ones_like"
+  op: "Fill"
+  input: "is_strictly_increasing/cond/ones_like/Shape"
+  input: "is_strictly_increasing/cond/ones_like/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "index_type"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/StridedSlice/begin"
+  op: "Const"
+  input: "^is_strictly_increasing/cond/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/StridedSlice"
+  op: "StridedSlice"
+  input: "is_strictly_increasing/cond/StridedSlice/Switch"
+  input: "is_strictly_increasing/cond/StridedSlice/begin"
+  input: "is_strictly_increasing/cond/add"
+  input: "is_strictly_increasing/cond/ones_like"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/StridedSlice/Switch"
+  op: "Switch"
+  input: "is_strictly_increasing/Reshape"
+  input: "is_strictly_increasing/cond/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@is_strictly_increasing/Reshape"
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/ones_like_1/Shape"
+  op: "Const"
+  input: "^is_strictly_increasing/cond/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/ones_like_1/Const"
+  op: "Const"
+  input: "^is_strictly_increasing/cond/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/ones_like_1"
+  op: "Fill"
+  input: "is_strictly_increasing/cond/ones_like_1/Shape"
+  input: "is_strictly_increasing/cond/ones_like_1/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "index_type"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/StridedSlice_1/begin"
+  op: "Const"
+  input: "^is_strictly_increasing/cond/switch_f"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/StridedSlice_1"
+  op: "StridedSlice"
+  input: "is_strictly_increasing/cond/StridedSlice/Switch"
+  input: "is_strictly_increasing/cond/StridedSlice_1/begin"
+  input: "is_strictly_increasing/cond/add/Switch"
+  input: "is_strictly_increasing/cond/ones_like_1"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/sub"
+  op: "Sub"
+  input: "is_strictly_increasing/cond/StridedSlice"
+  input: "is_strictly_increasing/cond/StridedSlice_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/cond/Merge"
+  op: "Merge"
+  input: "is_strictly_increasing/cond/sub"
+  input: "is_strictly_increasing/cond/Const"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Less_1"
+  op: "Less"
+  input: "is_strictly_increasing/Const"
+  input: "is_strictly_increasing/cond/Merge"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "is_strictly_increasing/All"
+  op: "All"
+  input: "is_strictly_increasing/Less_1"
+  input: "is_strictly_increasing/Const_1"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+library {
+}

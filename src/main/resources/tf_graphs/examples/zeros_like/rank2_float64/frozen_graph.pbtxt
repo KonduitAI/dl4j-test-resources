@@ -1,0 +1,29 @@
+node {
+  name: "zeros_like"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 12
+          }
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+library {
+}

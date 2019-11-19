@@ -17,26 +17,7 @@ node {
             size: 5
           }
         }
-        tensor_content: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\200?\000\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "in_0/read"
-  op: "Identity"
-  input: "in_0"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_0"
+        tensor_content: "\000\000\000\000\000\000\200?\000\000\200?\000\000\200?\000\000\200?"
       }
     }
   }
@@ -44,7 +25,7 @@ node {
 node {
   name: "Where"
   op: "Where"
-  input: "in_0/read"
+  input: "in_0"
   attr {
     key: "T"
     value {

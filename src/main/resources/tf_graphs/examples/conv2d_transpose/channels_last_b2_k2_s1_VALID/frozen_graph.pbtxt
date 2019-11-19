@@ -591,7 +591,7 @@ node {
 }
 node {
   name: "conv2d_transpose/add"
-  op: "Add"
+  op: "AddV2"
   input: "conv2d_transpose/mul"
   input: "conv2d_transpose/add/y"
   attr {
@@ -657,7 +657,7 @@ node {
 }
 node {
   name: "conv2d_transpose/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "conv2d_transpose/mul_1"
   input: "conv2d_transpose/add_1/y"
   attr {
@@ -740,6 +740,13 @@ node {
         i: 1
         i: 1
         i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
       }
     }
   }

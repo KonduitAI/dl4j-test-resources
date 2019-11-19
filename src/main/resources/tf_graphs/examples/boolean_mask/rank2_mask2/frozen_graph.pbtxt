@@ -800,6 +800,12 @@ node {
       type: DT_FLOAT
     }
   }
+  attr {
+    key: "batch_dims"
+    value {
+      i: 0
+    }
+  }
 }
 library {
 }

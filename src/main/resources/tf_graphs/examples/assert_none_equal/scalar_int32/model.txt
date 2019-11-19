@@ -251,6 +251,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
+    }
+  }
 }
 node {
   name: "assert_none_equal/Const"
@@ -308,7 +314,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: ""
+        string_val: "Condition x != y did not hold element-wise:"
       }
     }
   }
@@ -329,34 +335,13 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "Condition x != y did not hold for every single element:"
-      }
-    }
-  }
-}
-node {
-  name: "assert_none_equal/Assert/Const_2"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_STRING
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_STRING
-        tensor_shape {
-        }
         string_val: "x (in_0/read:0) = "
       }
     }
   }
 }
 node {
-  name: "assert_none_equal/Assert/Const_3"
+  name: "assert_none_equal/Assert/Const_2"
   op: "Const"
   attr {
     key: "dtype"
@@ -392,7 +377,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: ""
+        string_val: "Condition x != y did not hold element-wise:"
       }
     }
   }
@@ -413,34 +398,13 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "Condition x != y did not hold for every single element:"
-      }
-    }
-  }
-}
-node {
-  name: "assert_none_equal/Assert/Assert/data_2"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_STRING
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_STRING
-        tensor_shape {
-        }
         string_val: "x (in_0/read:0) = "
       }
     }
   }
 }
 node {
-  name: "assert_none_equal/Assert/Assert/data_4"
+  name: "assert_none_equal/Assert/Assert/data_3"
   op: "Const"
   attr {
     key: "dtype"
@@ -466,15 +430,13 @@ node {
   input: "assert_none_equal/All"
   input: "assert_none_equal/Assert/Assert/data_0"
   input: "assert_none_equal/Assert/Assert/data_1"
-  input: "assert_none_equal/Assert/Assert/data_2"
   input: "in_0/read"
-  input: "assert_none_equal/Assert/Assert/data_4"
+  input: "assert_none_equal/Assert/Assert/data_3"
   input: "in_1/read"
   attr {
     key: "T"
     value {
       list {
-        type: DT_STRING
         type: DT_STRING
         type: DT_STRING
         type: DT_INT32
@@ -504,7 +466,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -520,6 +482,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -758,5 +756,5 @@ node {
   input: "^in_1/Assign"
 }
 versions {
-  producer: 26
+  producer: 134
 }

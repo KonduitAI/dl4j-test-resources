@@ -80,6 +80,12 @@ node {
       type: DT_FLOAT
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "output"

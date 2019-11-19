@@ -1,5 +1,5 @@
 zeros.0 int64
-import____in_0.0 int32
-import____in_0____read.0 int32
-import____zeros____Const.0 int64
-import____zeros.0 int64
+in_0.0 int32
+in_0____read.0 int32
+zeros____Const.0 int64
+zeros.0 int64

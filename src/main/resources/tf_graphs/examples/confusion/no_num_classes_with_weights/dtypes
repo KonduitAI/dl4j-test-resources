@@ -1,3 +1,4 @@
+confusion_matrix/SparseTensorDenseAdd.0 int32
 in_0.0 int32
 in_0____read.0 int32
 in_1.0 int32
@@ -42,7 +43,7 @@ confusion_matrix____add.0 int64
 confusion_matrix____Cast_2.0 int32
 confusion_matrix____stack.0 int64
 confusion_matrix____stack_1.0 int64
-confusion_matrix____ToInt32.0 int32
+confusion_matrix____Cast_3.0 int32
 confusion_matrix____zeros____Const.0 int32
 confusion_matrix____zeros.0 int32
 confusion_matrix____SparseTensorDenseAdd.0 int32

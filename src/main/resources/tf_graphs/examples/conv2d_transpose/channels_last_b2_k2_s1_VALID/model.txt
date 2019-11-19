@@ -1077,7 +1077,7 @@ node {
 }
 node {
   name: "conv2d_transpose/add"
-  op: "Add"
+  op: "AddV2"
   input: "conv2d_transpose/mul"
   input: "conv2d_transpose/add/y"
   attr {
@@ -1143,7 +1143,7 @@ node {
 }
 node {
   name: "conv2d_transpose/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "conv2d_transpose/mul_1"
   input: "conv2d_transpose/add_1/y"
   attr {
@@ -1201,6 +1201,128 @@ node {
   }
 }
 node {
+  name: "conv2d_transpose/strided_slice_3/stack"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "conv2d_transpose/strided_slice_3/stack_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv2d_transpose/strided_slice_3/stack_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "conv2d_transpose/strided_slice_3"
+  op: "StridedSlice"
+  input: "conv2d_transpose/stack"
+  input: "conv2d_transpose/strided_slice_3/stack"
+  input: "conv2d_transpose/strided_slice_3/stack_1"
+  input: "conv2d_transpose/strided_slice_3/stack_2"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "begin_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "ellipsis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "end_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "new_axis_mask"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "shrink_axis_mask"
+    value {
+      i: 1
+    }
+  }
+}
+node {
   name: "conv2d_transpose/conv2d_transpose"
   op: "Conv2DBackpropInput"
   input: "conv2d_transpose/stack"
@@ -1226,6 +1348,13 @@ node {
         i: 1
         i: 1
         i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
       }
     }
   }
@@ -1272,7 +1401,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -1288,6 +1417,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -1567,5 +1732,5 @@ node {
   input: "^in_0/Assign"
 }
 versions {
-  producer: 26
+  producer: 134
 }

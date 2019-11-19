@@ -1,0 +1,131 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 4
+          }
+          dim {
+            size: 4
+          }
+          dim {
+            size: 4
+          }
+        }
+        half_val: 14974
+        half_val: 13976
+        half_val: 11504
+        half_val: 14280
+        half_val: 14830
+        half_val: 14870
+        half_val: 12528
+        half_val: 14434
+        half_val: 14996
+        half_val: 13104
+        half_val: 7424
+        half_val: 14636
+        half_val: 13144
+        half_val: 15086
+        half_val: 14680
+        half_val: 13360
+        half_val: 15080
+        half_val: 14416
+        half_val: 15250
+        half_val: 14454
+        half_val: 14284
+        half_val: 13988
+        half_val: 13548
+        half_val: 15196
+        half_val: 13136
+        half_val: 15116
+        half_val: 14372
+        half_val: 12456
+        half_val: 10368
+        half_val: 14440
+        half_val: 14120
+        half_val: 13324
+        half_val: 7936
+        half_val: 15094
+        half_val: 13888
+        half_val: 12928
+        half_val: 9280
+        half_val: 14448
+        half_val: 14478
+        half_val: 15238
+        half_val: 13496
+        half_val: 14784
+        half_val: 11904
+        half_val: 15288
+        half_val: 14664
+        half_val: 14510
+        half_val: 15030
+        half_val: 13920
+        half_val: 13668
+        half_val: 11520
+        half_val: 13800
+        half_val: 14690
+        half_val: 12304
+        half_val: 9280
+        half_val: 9984
+        half_val: 13812
+        half_val: 14978
+        half_val: 14994
+        half_val: 11776
+        half_val: 15000
+        half_val: 14876
+        half_val: 12504
+        half_val: 13332
+        half_val: 13728
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "Bitcast"
+  op: "Bitcast"
+  input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "type"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+library {
+}

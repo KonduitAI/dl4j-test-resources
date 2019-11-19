@@ -1,86 +1,49 @@
 node {
-  name: "Fill/dims"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 2
-          }
-        }
-        tensor_content: "\000\000\000\000\002\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "Fill/value"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: 0
-      }
-    }
-  }
-}
-node {
-  name: "Fill"
-  op: "Fill"
-  input: "Fill/dims"
-  input: "Fill/value"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "index_type"
-    value {
-      type: DT_INT32
-    }
-  }
-}
-node {
-  name: "Cast"
-  op: "Cast"
-  input: "Fill"
-  attr {
-    key: "DstT"
     value {
       type: DT_DOUBLE
     }
   }
   attr {
-    key: "SrcT"
+    key: "value"
     value {
-      type: DT_INT32
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+          }
+          dim {
+            size: 2
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "Variable/initial_value"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
     }
   }
   attr {
-    key: "Truncate"
+    key: "value"
     value {
-      b: false
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        float_val: 1.0
+      }
     }
   }
 }
@@ -96,7 +59,7 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_DOUBLE
+      type: DT_FLOAT
     }
   }
   attr {
@@ -104,9 +67,7 @@ node {
     value {
       shape {
         dim {
-        }
-        dim {
-          size: 2
+          size: 1
         }
       }
     }
@@ -122,11 +83,11 @@ node {
   name: "Variable/Assign"
   op: "Assign"
   input: "Variable"
-  input: "Cast"
+  input: "Variable/initial_value"
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_FLOAT
     }
   }
   attr {
@@ -157,7 +118,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_FLOAT
     }
   }
   attr {
@@ -172,7 +133,7 @@ node {
 node {
   name: "Abs/x"
   op: "Pack"
-  input: "Variable/read"
+  input: "Const"
   attr {
     key: "N"
     value {
@@ -204,7 +165,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -220,6 +181,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -283,7 +280,7 @@ node {
     key: "dtypes"
     value {
       list {
-        type: DT_DOUBLE
+        type: DT_FLOAT
       }
     }
   }
@@ -369,7 +366,7 @@ node {
     key: "dtypes"
     value {
       list {
-        type: DT_DOUBLE
+        type: DT_FLOAT
       }
     }
   }
@@ -382,7 +379,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_FLOAT
     }
   }
   attr {
@@ -417,5 +414,5 @@ node {
   input: "^Variable/Assign"
 }
 versions {
-  producer: 27
+  producer: 134
 }

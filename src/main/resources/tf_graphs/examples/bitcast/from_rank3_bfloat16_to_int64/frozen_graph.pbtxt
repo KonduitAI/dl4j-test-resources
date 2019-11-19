@@ -1,0 +1,131 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_BFLOAT16
+        tensor_shape {
+          dim {
+            size: 4
+          }
+          dim {
+            size: 4
+          }
+          dim {
+            size: 4
+          }
+        }
+        half_val: 16124
+        half_val: 16024
+        half_val: 16158
+        half_val: 16228
+        half_val: 16238
+        half_val: 15792
+        half_val: 15984
+        half_val: 16068
+        half_val: 16148
+        half_val: 16204
+        half_val: 15648
+        half_val: 15920
+        half_val: 16214
+        half_val: 16238
+        half_val: 16048
+        half_val: 15808
+        half_val: 16232
+        half_val: 16032
+        half_val: 16146
+        half_val: 16108
+        half_val: 16230
+        half_val: 16036
+        half_val: 16108
+        half_val: 16056
+        half_val: 16212
+        half_val: 15680
+        half_val: 15888
+        half_val: 15912
+        half_val: 16016
+        half_val: 16080
+        half_val: 16148
+        half_val: 15552
+        half_val: 15712
+        half_val: 16246
+        half_val: 15872
+        half_val: 16160
+        half_val: 15880
+        half_val: 16096
+        half_val: 16142
+        half_val: 16134
+        half_val: 16056
+        half_val: 16192
+        half_val: 16208
+        half_val: 16184
+        half_val: 16016
+        half_val: 16174
+        half_val: 16182
+        half_val: 15936
+        half_val: 16178
+        half_val: 16160
+        half_val: 16244
+        half_val: 16068
+        half_val: 15488
+        half_val: 15880
+        half_val: 15968
+        half_val: 16250
+        half_val: 16130
+        half_val: 16146
+        half_val: 16192
+        half_val: 16152
+        half_val: 15840
+        half_val: 15960
+        half_val: 15648
+        half_val: 16208
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "Bitcast"
+  op: "Bitcast"
+  input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_BFLOAT16
+    }
+  }
+  attr {
+    key: "type"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+library {
+}

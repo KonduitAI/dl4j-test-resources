@@ -588,6 +588,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "confusion_matrix/Cast_1"
@@ -603,6 +609,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT32
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -1533,7 +1545,7 @@ node {
 }
 node {
   name: "confusion_matrix/add"
-  op: "Add"
+  op: "AddV2"
   input: "confusion_matrix/Maximum"
   input: "confusion_matrix/add/y"
   attr {
@@ -1557,6 +1569,12 @@ node {
     key: "SrcT"
     value {
       type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -1609,7 +1627,7 @@ node {
   }
 }
 node {
-  name: "confusion_matrix/ToInt32"
+  name: "confusion_matrix/Cast_3"
   op: "Cast"
   input: "confusion_matrix/stack"
   attr {
@@ -1622,6 +1640,12 @@ node {
     key: "SrcT"
     value {
       type: DT_INT64
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -1649,7 +1673,7 @@ node {
 node {
   name: "confusion_matrix/zeros"
   op: "Fill"
-  input: "confusion_matrix/ToInt32"
+  input: "confusion_matrix/Cast_3"
   input: "confusion_matrix/zeros/Const"
   attr {
     key: "T"
@@ -1685,7 +1709,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -1701,6 +1725,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -1980,5 +2040,5 @@ node {
   input: "^in_2/Assign"
 }
 versions {
-  producer: 26
+  producer: 134
 }

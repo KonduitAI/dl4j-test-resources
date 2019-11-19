@@ -43,7 +43,7 @@ node {
   }
 }
 node {
-  name: "Variable"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -65,28 +65,9 @@ node {
   }
 }
 node {
-  name: "Variable/read"
-  op: "Identity"
-  input: "Variable"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@Variable"
-      }
-    }
-  }
-}
-node {
   name: "GatherV2/indices"
   op: "Pack"
-  input: "Variable/read"
+  input: "Const"
   attr {
     key: "N"
     value {
@@ -149,6 +130,12 @@ node {
     key: "Tparams"
     value {
       type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "batch_dims"
+    value {
+      i: 0
     }
   }
 }
