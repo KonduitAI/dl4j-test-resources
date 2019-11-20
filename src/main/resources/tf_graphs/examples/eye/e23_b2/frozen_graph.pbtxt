@@ -42,7 +42,7 @@ node {
   }
 }
 node {
-  name: "eye/Minimum/x"
+  name: "eye/concat/values_1"
   op: "Const"
   attr {
     key: "dtype"
@@ -56,65 +56,12 @@ node {
       tensor {
         dtype: DT_INT32
         tensor_shape {
+          dim {
+            size: 1
+          }
         }
         int_val: 2
       }
-    }
-  }
-}
-node {
-  name: "eye/Minimum/y"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: 3
-      }
-    }
-  }
-}
-node {
-  name: "eye/Minimum"
-  op: "Minimum"
-  input: "eye/Minimum/x"
-  input: "eye/Minimum/y"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-}
-node {
-  name: "eye/concat/values_1"
-  op: "Pack"
-  input: "eye/Minimum"
-  attr {
-    key: "N"
-    value {
-      i: 1
-    }
-  }
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "axis"
-    value {
-      i: 0
     }
   }
 }
@@ -313,7 +260,7 @@ node {
   }
 }
 node {
-  name: "eye/MatrixSetDiag"
+  name: "eye/set_diag"
   op: "MatrixSetDiag"
   input: "eye/zeros"
   input: "eye/ones"
