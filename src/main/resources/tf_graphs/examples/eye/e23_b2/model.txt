@@ -145,7 +145,7 @@ node {
   }
 }
 node {
-  name: "eye/Minimum/x"
+  name: "eye/concat/values_1"
   op: "Const"
   attr {
     key: "dtype"
@@ -159,65 +159,12 @@ node {
       tensor {
         dtype: DT_INT32
         tensor_shape {
+          dim {
+            size: 1
+          }
         }
         int_val: 2
       }
-    }
-  }
-}
-node {
-  name: "eye/Minimum/y"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: 3
-      }
-    }
-  }
-}
-node {
-  name: "eye/Minimum"
-  op: "Minimum"
-  input: "eye/Minimum/x"
-  input: "eye/Minimum/y"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-}
-node {
-  name: "eye/concat/values_1"
-  op: "Pack"
-  input: "eye/Minimum"
-  attr {
-    key: "N"
-    value {
-      i: 1
-    }
-  }
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "axis"
-    value {
-      i: 0
     }
   }
 }
@@ -416,7 +363,7 @@ node {
   }
 }
 node {
-  name: "eye/MatrixSetDiag"
+  name: "eye/set_diag"
   op: "MatrixSetDiag"
   input: "eye/zeros"
   input: "eye/ones"
@@ -428,7 +375,7 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -444,6 +391,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -641,5 +624,5 @@ node {
   input: "^in_0/Assign"
 }
 versions {
-  producer: 27
+  producer: 134
 }
