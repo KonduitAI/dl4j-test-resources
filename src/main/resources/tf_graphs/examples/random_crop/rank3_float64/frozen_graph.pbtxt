@@ -1,0 +1,410 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 8
+          }
+          dim {
+            size: 8
+          }
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "h\261d\252\301T\372\277\233\346R\032\371\230\336?\246\305T\207I\273\306?Z\244\246Z\365\206\343?mG\255\2474\266\364\277\017j\226\252\211\016\342\277B\363M\225=l\371?\226+\254.\216n\321\277\236dz\275_c\340\277Y\306sw\016\326\371?N\220\327?\234\037\351?\376_Yq\2209\361\277\305\306\271_I\311\356\277\031IS+c\331\355\277\030\251\026\320y\225\321?{I\221~0^\343?\"\262\036&8\302\355?\030\241\006\351Q\234\322\277\365Y\246\202\233\365\376?b\232g\375\303\234\301\277\216\207\370\r,\356\335\277k\360\025\325\270\244\343\277\206c=M\333\356\325\277\361J\306&\365\333\342\277\301\361\005\366\2562\360?00\326b\022\214\373\277\374\000E\370~1\360?\311II\342P\000\360\277\004\304#\227\361\375\372?wN\371\027\345\"\341\277\257\365 \237Ho\340\277\350\253Os\377\030\364\277\207[\221t\322)\340?\312\322\365\276\343\321\343?\322kS\310\360\363\365?\250(\214\366$V\350\277\257\211:\302Z\251\365\277\305\345~n\335\023\352\277\036{\361\353\210\211\344\277\254\273\374\013HC\366?i\247}0\0301\005@\032\020\004FB]\345\277\230U\317\322\233\372\317\277i9])]\254\360?^\360\356\355A\324\353?\251\034\n\352\022\275\357\277\334\027`\036\375\365\366\277\261\3313\037R@\347\277\277f\r\372\201b\327\277\356\275\323\340\004\361\325?eG5\326\374\205\352?\363\334\206\324R\352\322?\321\336U u\366\366\277{#\321\266,/\340?\025\371.\027\320+\271?\236\t\301\356\274\327\324\277\371\003/\324\3064\363?\017cF\357~n\000@\21797\345\225~\353?{?8\365\255\242\001\300\301X\030\313t?\350\277\326\247\006\325\022\025\365?O\016\016S\267u\002\300\331\206f\003\360\327\340\277_\333~i\203\236\341?O\006P\243\371\315\351\277\257\265\326[S\226\346?\r\027\331F\303\341\350\277\2700>N\331\305\316?ms\274\356\363\346\370?\241(\376+\235\302\337\277\200\322Fi\013%\354?\0036IN$\260\324\277\266e4\035\343S\343\2779K\315A\307\007\365?\337]\311%\337\003\327?a\035\314\367\304\245\354?\273m\022\324\322\365\310?;\277\223\352>\002\352\277sAno\251\271\337\277lT\032\207\374\211\352?r\306i\353\010#\233\277\371\225\374O\314S\243\277Z\013\233\242\016\207\253\277\021>\352\236\366\013\366\277cH(\232\347\317\332\277-\315\177)\202\226\360\277A\340\205\330\207\016\312?{]d\3120i\320?\320Z\250\351\321\321\364?_I:\203\230\354\321?\220\177\230\203\013=\365?A\264\352f}>\370\277\220\003\323/\306.\326?\235\021RE\224T\321?\2146x0\316\372\370?\257%\332\350V\305\003@Y}g\252/5\350\277\215\357}X\272H\365?#,\350N\240\237\350\277&V?\232\373\336\335\277\377\227\277\000\2606\245\277vx\273\355\000/\333?\257\327\237\004\226<\361\277\006&=\265\241X\313\277\370\347\316\220\355\360\347?\223\016\322\237\374y\327?P\305\002yVf\362?3\256\"\307V\344\246?\201J\354\271=\343\243\277\224\233\326K\313K\310\277\217\353G\244\224`\303\277!sT\317Uo\366\277\327\306(K\241j\365\277\336\2766\352\025\003\255?C\327\201\355,\317\316?\362W\365\203\2061\000\300\301$\253\263t\034\341\277\365\210\327x\355`\357?`6\243\227\221\247\344?P<s\353)\336\003\300\2364(\2738\262\344\277E\242\200\322\204\213\341\277$\363\202w\022\310\341?\362\257\'\244\321\375\351?!\326\321\364LC\353\277>WZ\213ox\336?2q\336B\326\247\344?\303\352^Tp1\235\277\366\360w\034\344\324\373?\301_\270!J\255\364?\264?cX\\Z\377\277\270V).\267\330\342?\370\343\007\236\230\330\242\2770\006Rr\276\317\367\277\241\027\021Q\224\246\362\277nEu\205\250 \341?f\021\367\301\204\022\337\277DC\346\302\034|\270?\376\024\361\251\034m\345?B\351\325h [\300\277\177\355\337$|\020\331?\317@\352L\237\333\211?\003N\2623\362\275\316\277\031\363\244]\323@\320?\030\200G\364u\212\361?o\203T7P\322\273\277Cyd\347#z\321\277\340\310lE\013\332\306\277R!\232\037Gi\356\277\037\376\2334\016\302\365\277\022\241&#\373\316\355\277\203J\222\3506\243\001\300\335r(AAe\375\277\211\366o\217\232\221\306\277\321\311\245\22329\377\277\251\240]\233\263~\343\277\010\017I\346\320\272\370?4\375X8\250}\335\277\301j#+\250U\335\277\312\234*\220\227\031\345\277g\226\020\307\257\201\361?\302\023\0337\207\271\364?\211w2\n\203\222\352\277\333\244,\222`\235\312\277F\245!\361\365\010\350\277\246\334P)1\203\007\3002Ov\r\203\216\320\2775R\177^S\352\341?4\316a\301\"\362\274\277\236h\215\010\036\324\346\277_\264\253\216?\200\221?\307\375\363\003\263\032\221?F$#\366\275\204a\277\t\246\277\374\231\271\327\277\251\324\222i\220S\267?\271\037Br\013\214\341\277\263\345\235\212:\352\300\277\374\211\210b\312\362\342\277u\253\303\323\374\241\361\277K[\354k\355\322\346\277\244\246\006a\346\236\351\277\307\345\025 \305_\372?\344b\2709\254(\364?J\317\232\023\270f\266\277IE\334T\023\036\003\300T^j(V\250\226\277\252\334\365\027\362,\371\277\235\031\341\325\204\314\000\300\240,\351\223\350\216\004\300\205\023\263n\035\022\320?0\272i\177\362\n\311\277"
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "in_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "\001\000\000\000\000\000\000\000\000\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "in_1/read"
+  op: "Identity"
+  input: "in_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "\010\000\000\000\010\000\000\000\003\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/GreaterEqual"
+  op: "GreaterEqual"
+  input: "random_crop/Shape"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "random_crop/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/All"
+  op: "All"
+  input: "random_crop/GreaterEqual"
+  input: "random_crop/Const"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "random_crop/Assert/Assert/data_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Need value.shape >= size, got "
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/Assert/Assert"
+  op: "Assert"
+  input: "random_crop/All"
+  input: "random_crop/Assert/Assert/data_0"
+  input: "random_crop/Shape"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_STRING
+        type: DT_INT32
+        type: DT_INT32
+      }
+    }
+  }
+  attr {
+    key: "summarize"
+    value {
+      i: 1000
+    }
+  }
+}
+node {
+  name: "random_crop/control_dependency"
+  op: "Identity"
+  input: "random_crop/Shape"
+  input: "^random_crop/Assert/Assert"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@random_crop/Shape"
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/sub"
+  op: "Sub"
+  input: "random_crop/control_dependency"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "random_crop/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/add"
+  op: "AddV2"
+  input: "random_crop/sub"
+  input: "random_crop/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "random_crop/Shape_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 3
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/random_uniform/min"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/random_uniform/max"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2147483647
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/random_uniform"
+  op: "RandomUniformInt"
+  input: "random_crop/Shape_1"
+  input: "random_crop/random_uniform/min"
+  input: "random_crop/random_uniform/max"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tout"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 30
+    }
+  }
+}
+node {
+  name: "random_crop/mod"
+  op: "FloorMod"
+  input: "random_crop/random_uniform"
+  input: "random_crop/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "random_crop"
+  op: "Slice"
+  input: "in_0/read"
+  input: "random_crop/mod"
+  input: "in_1/read"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+library {
+}
