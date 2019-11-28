@@ -1,0 +1,360 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 4
+          }
+          dim {
+            size: 5
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 4
+          }
+        }
+        half_val: 14974
+        half_val: 13976
+        half_val: 11504
+        half_val: 14280
+        half_val: 14830
+        half_val: 14870
+        half_val: 12528
+        half_val: 14434
+        half_val: 14996
+        half_val: 13104
+        half_val: 7424
+        half_val: 14636
+        half_val: 13144
+        half_val: 15086
+        half_val: 14680
+        half_val: 13360
+        half_val: 15080
+        half_val: 14416
+        half_val: 15250
+        half_val: 14454
+        half_val: 14284
+        half_val: 13988
+        half_val: 13548
+        half_val: 15196
+        half_val: 13136
+        half_val: 15116
+        half_val: 14372
+        half_val: 12456
+        half_val: 10368
+        half_val: 14440
+        half_val: 14120
+        half_val: 13324
+        half_val: 7936
+        half_val: 15094
+        half_val: 13888
+        half_val: 12928
+        half_val: 9280
+        half_val: 14448
+        half_val: 14478
+        half_val: 15238
+        half_val: 13496
+        half_val: 14784
+        half_val: 11904
+        half_val: 15288
+        half_val: 14664
+        half_val: 14510
+        half_val: 15030
+        half_val: 13920
+        half_val: 13668
+        half_val: 11520
+        half_val: 13800
+        half_val: 14690
+        half_val: 12304
+        half_val: 9280
+        half_val: 9984
+        half_val: 13812
+        half_val: 14978
+        half_val: 14994
+        half_val: 11776
+        half_val: 15000
+        half_val: 14876
+        half_val: 12504
+        half_val: 13332
+        half_val: 13728
+        half_val: 10528
+        half_val: 14598
+        half_val: 14316
+        half_val: 15050
+        half_val: 12648
+        half_val: 7424
+        half_val: 14280
+        half_val: 12520
+        half_val: 14992
+        half_val: 15322
+        half_val: 14732
+        half_val: 15266
+        half_val: 14444
+        half_val: 15196
+        half_val: 14474
+        half_val: 10528
+        half_val: 14406
+        half_val: 13176
+        half_val: 13208
+        half_val: 15320
+        half_val: 14714
+        half_val: 14838
+        half_val: 14644
+        half_val: 15216
+        half_val: 15356
+        half_val: 13796
+        half_val: 14706
+        half_val: 14864
+        half_val: 15042
+        half_val: 14316
+        half_val: 14570
+        half_val: 14012
+        half_val: 12944
+        half_val: 14252
+        half_val: 14974
+        half_val: 11680
+        half_val: 13376
+        half_val: 12944
+        half_val: 12712
+        half_val: 15284
+        half_val: 14810
+        half_val: 13732
+        half_val: 13048
+        half_val: 10592
+        half_val: 14044
+        half_val: 13896
+        half_val: 13008
+        half_val: 14682
+        half_val: 14088
+        half_val: 14780
+        half_val: 12864
+        half_val: 14918
+        half_val: 13676
+        half_val: 13748
+        half_val: 14052
+        half_val: 12864
+        half_val: 14458
+        half_val: 14664
+        half_val: 15246
+        half_val: 14360
+        half_val: 13080
+        half_val: 13372
+        half_val: 14124
+        half_val: 14794
+        half_val: 14784
+        half_val: 13964
+        half_val: 13780
+        half_val: 15194
+        half_val: 15284
+        half_val: 14986
+        half_val: 15098
+        half_val: 15166
+        half_val: 13556
+        half_val: 12856
+        half_val: 15312
+        half_val: 13120
+        half_val: 15278
+        half_val: 14918
+        half_val: 13432
+        half_val: 14830
+        half_val: 15010
+        half_val: 14902
+        half_val: 11648
+        half_val: 13708
+        half_val: 14614
+        half_val: 14788
+        half_val: 14236
+        half_val: 13588
+        half_val: 15346
+        half_val: 13712
+        half_val: 10720
+        half_val: 15138
+        half_val: 15090
+        half_val: 15252
+        half_val: 14836
+        half_val: 11520
+        half_val: 14860
+        half_val: 15106
+        half_val: 12944
+        half_val: 13808
+        half_val: 14934
+        half_val: 13476
+        half_val: 14874
+        half_val: 15324
+        half_val: 15344
+        half_val: 11760
+        half_val: 15148
+        half_val: 13968
+        half_val: 7680
+        half_val: 13296
+        half_val: 14536
+        half_val: 14940
+        half_val: 15284
+        half_val: 14984
+        half_val: 14764
+        half_val: 14300
+        half_val: 15348
+        half_val: 12144
+        half_val: 15130
+        half_val: 11552
+        half_val: 15246
+        half_val: 15288
+        half_val: 14640
+        half_val: 15238
+        half_val: 14960
+        half_val: 13040
+        half_val: 15336
+        half_val: 15224
+        half_val: 13472
+        half_val: 13024
+        half_val: 13972
+        half_val: 14678
+        half_val: 13876
+        half_val: 14032
+        half_val: 14200
+        half_val: 14514
+        half_val: 14410
+        half_val: 11680
+        half_val: 14478
+        half_val: 13732
+        half_val: 14820
+        half_val: 15196
+        half_val: 14936
+        half_val: 14728
+        half_val: 14452
+        half_val: 14426
+        half_val: 14678
+        half_val: 13504
+        half_val: 12984
+        half_val: 14856
+        half_val: 13608
+        half_val: 15164
+        half_val: 12944
+        half_val: 13288
+        half_val: 14486
+        half_val: 15036
+        half_val: 13352
+        half_val: 15270
+        half_val: 13428
+        half_val: 13216
+        half_val: 14028
+        half_val: 15040
+        half_val: 14916
+        half_val: 13720
+        half_val: 12624
+        half_val: 12592
+        half_val: 14706
+        half_val: 14720
+        half_val: 13996
+        half_val: 15118
+        half_val: 15172
+        half_val: 13208
+        half_val: 11680
+        half_val: 14392
+        half_val: 12288
+        half_val: 14388
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "Roll/shift"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "Roll/axis"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2
+      }
+    }
+  }
+}
+node {
+  name: "Roll"
+  op: "Roll"
+  input: "in_0/read"
+  input: "Roll/shift"
+  input: "Roll/axis"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "Taxis"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tshift"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+library {
+}
