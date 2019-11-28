@@ -529,208 +529,6 @@ node {
   }
 }
 node {
-  name: "zeros_1"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_HALF
-        tensor_shape {
-        }
-        half_val: 0
-      }
-    }
-  }
-}
-node {
-  name: "in_3"
-  op: "VariableV2"
-  attr {
-    key: "container"
-    value {
-      s: ""
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "shape"
-    value {
-      shape {
-      }
-    }
-  }
-  attr {
-    key: "shared_name"
-    value {
-      s: ""
-    }
-  }
-}
-node {
-  name: "in_3/Assign"
-  op: "Assign"
-  input: "in_3"
-  input: "zeros_1"
-  attr {
-    key: "T"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_3"
-      }
-    }
-  }
-  attr {
-    key: "use_locking"
-    value {
-      b: true
-    }
-  }
-  attr {
-    key: "validate_shape"
-    value {
-      b: true
-    }
-  }
-}
-node {
-  name: "in_3/read"
-  op: "Identity"
-  input: "in_3"
-  attr {
-    key: "T"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_3"
-      }
-    }
-  }
-}
-node {
-  name: "zeros_2"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_HALF
-        tensor_shape {
-        }
-        half_val: 0
-      }
-    }
-  }
-}
-node {
-  name: "in_4"
-  op: "VariableV2"
-  attr {
-    key: "container"
-    value {
-      s: ""
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "shape"
-    value {
-      shape {
-      }
-    }
-  }
-  attr {
-    key: "shared_name"
-    value {
-      s: ""
-    }
-  }
-}
-node {
-  name: "in_4/Assign"
-  op: "Assign"
-  input: "in_4"
-  input: "zeros_2"
-  attr {
-    key: "T"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_4"
-      }
-    }
-  }
-  attr {
-    key: "use_locking"
-    value {
-      b: true
-    }
-  }
-  attr {
-    key: "validate_shape"
-    value {
-      b: true
-    }
-  }
-}
-node {
-  name: "in_4/read"
-  op: "Identity"
-  input: "in_4"
-  attr {
-    key: "T"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_4"
-      }
-    }
-  }
-}
-node {
   name: "non_max_suppression/iou_threshold"
   op: "Const"
   attr {
@@ -866,14 +664,12 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 5
+            size: 3
           }
         }
         string_val: "in_0"
         string_val: "in_1"
         string_val: "in_2"
-        string_val: "in_3"
-        string_val: "in_4"
       }
     }
   }
@@ -894,11 +690,9 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 5
+            size: 3
           }
         }
-        string_val: ""
-        string_val: ""
         string_val: ""
         string_val: ""
         string_val: ""
@@ -915,8 +709,6 @@ node {
   input: "in_0"
   input: "in_1"
   input: "in_2"
-  input: "in_3"
-  input: "in_4"
   attr {
     key: "dtypes"
     value {
@@ -924,8 +716,6 @@ node {
         type: DT_HALF
         type: DT_HALF
         type: DT_INT32
-        type: DT_HALF
-        type: DT_HALF
       }
     }
   }
@@ -967,14 +757,12 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 5
+            size: 3
           }
         }
         string_val: "in_0"
         string_val: "in_1"
         string_val: "in_2"
-        string_val: "in_3"
-        string_val: "in_4"
       }
     }
   }
@@ -996,11 +784,9 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 5
+            size: 3
           }
         }
-        string_val: ""
-        string_val: ""
         string_val: ""
         string_val: ""
         string_val: ""
@@ -1022,8 +808,6 @@ node {
         type: DT_HALF
         type: DT_HALF
         type: DT_INT32
-        type: DT_HALF
-        type: DT_HALF
       }
     }
   }
@@ -1125,77 +909,11 @@ node {
   }
 }
 node {
-  name: "save/Assign_3"
-  op: "Assign"
-  input: "in_3"
-  input: "save/RestoreV2:3"
-  attr {
-    key: "T"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_3"
-      }
-    }
-  }
-  attr {
-    key: "use_locking"
-    value {
-      b: true
-    }
-  }
-  attr {
-    key: "validate_shape"
-    value {
-      b: true
-    }
-  }
-}
-node {
-  name: "save/Assign_4"
-  op: "Assign"
-  input: "in_4"
-  input: "save/RestoreV2:4"
-  attr {
-    key: "T"
-    value {
-      type: DT_HALF
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_4"
-      }
-    }
-  }
-  attr {
-    key: "use_locking"
-    value {
-      b: true
-    }
-  }
-  attr {
-    key: "validate_shape"
-    value {
-      b: true
-    }
-  }
-}
-node {
   name: "save/restore_all"
   op: "NoOp"
   input: "^save/Assign"
   input: "^save/Assign_1"
   input: "^save/Assign_2"
-  input: "^save/Assign_3"
-  input: "^save/Assign_4"
 }
 node {
   name: "init"
@@ -1203,8 +921,6 @@ node {
   input: "^in_0/Assign"
   input: "^in_1/Assign"
   input: "^in_2/Assign"
-  input: "^in_3/Assign"
-  input: "^in_4/Assign"
 }
 versions {
   producer: 134
