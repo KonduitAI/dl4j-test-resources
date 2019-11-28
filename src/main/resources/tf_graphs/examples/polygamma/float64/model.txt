@@ -59,7 +59,7 @@ node {
         dtype: DT_DOUBLE
         tensor_shape {
         }
-        double_val: 1.0
+        double_val: 10.0
       }
     }
   }
