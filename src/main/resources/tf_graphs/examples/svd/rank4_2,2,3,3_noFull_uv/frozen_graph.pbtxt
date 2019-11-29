@@ -51,9 +51,62 @@ node {
   }
 }
 node {
+  name: "eye/ones"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 2
+          }
+          dim {
+            size: 2
+          }
+          dim {
+            size: 3
+          }
+        }
+        float_val: 1.0
+      }
+    }
+  }
+}
+node {
+  name: "eye/diag"
+  op: "MatrixDiag"
+  input: "eye/ones"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Add"
+  op: "Add"
+  input: "in_0/read"
+  input: "eye/diag"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
   name: "Svd"
   op: "Svd"
-  input: "in_0/read"
+  input: "Add"
   attr {
     key: "T"
     value {
@@ -74,48 +127,19 @@ node {
   }
 }
 node {
-  name: "ExpandDims/dim"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: -1
-      }
-    }
-  }
-}
-node {
-  name: "ExpandDims"
-  op: "ExpandDims"
+  name: "Abs"
+  op: "Abs"
   input: "Svd"
-  input: "ExpandDims/dim"
   attr {
     key: "T"
     value {
       type: DT_FLOAT
     }
   }
-  attr {
-    key: "Tdim"
-    value {
-      type: DT_INT32
-    }
-  }
 }
 node {
-  name: "add"
-  op: "Add"
-  input: "ExpandDims"
+  name: "Abs_1"
+  op: "Abs"
   input: "Svd:1"
   attr {
     key: "T"
@@ -125,9 +149,8 @@ node {
   }
 }
 node {
-  name: "add_1"
-  op: "Add"
-  input: "add"
+  name: "Abs_2"
+  op: "Abs"
   input: "Svd:2"
   attr {
     key: "T"
