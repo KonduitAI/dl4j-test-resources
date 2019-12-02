@@ -1,0 +1,7 @@
+adjust_hue/convert_image_1.0 float64
+in_0.0 float64
+in_0____read.0 float64
+adjust_hue____convert_image.0 float32
+adjust_hue____AdjustHue____delta.0 float32
+adjust_hue____AdjustHue.0 float32
+adjust_hue____convert_image_1.0 float64
