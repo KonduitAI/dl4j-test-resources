@@ -17,7 +17,7 @@ node {
             size: 3
           }
         }
-        tensor_content: "\000\001\000\000\000\001\000\000\003\000\000\000"
+        tensor_content: "\010\000\000\000\010\000\000\000\003\000\000\000"
       }
     }
   }
@@ -28,17 +28,17 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_FLOAT
+        dtype: DT_DOUBLE
         tensor_shape {
         }
-        float_val: 0.0
+        double_val: 0.0
       }
     }
   }
@@ -49,17 +49,17 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_FLOAT
+        dtype: DT_DOUBLE
         tensor_shape {
         }
-        float_val: 1.0
+        double_val: 1.0
       }
     }
   }
@@ -77,7 +77,7 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
@@ -101,7 +101,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
 }
@@ -113,7 +113,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
 }
@@ -125,7 +125,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
 }
@@ -141,7 +141,7 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
@@ -149,10 +149,10 @@ node {
     value {
       shape {
         dim {
-          size: 256
+          size: 8
         }
         dim {
-          size: 256
+          size: 8
         }
         dim {
           size: 3
@@ -175,7 +175,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
@@ -206,7 +206,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
@@ -219,50 +219,30 @@ node {
   }
 }
 node {
-  name: "random_uniform_1/shape"
-  op: "Const"
+  name: "adjust_contrast/convert_image"
+  op: "Cast"
+  input: "in_0/read"
   attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "random_uniform_1/min"
-  op: "Const"
-  attr {
-    key: "dtype"
+    key: "DstT"
     value {
       type: DT_FLOAT
     }
   }
   attr {
-    key: "value"
+    key: "SrcT"
     value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
 node {
-  name: "random_uniform_1/max"
+  name: "adjust_contrast/contrast_factor"
   op: "Const"
   attr {
     key: "dtype"
@@ -277,152 +257,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 1.0
-      }
-    }
-  }
-}
-node {
-  name: "random_uniform_1/RandomUniform"
-  op: "RandomUniform"
-  input: "random_uniform_1/shape"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "seed"
-    value {
-      i: 1
-    }
-  }
-  attr {
-    key: "seed2"
-    value {
-      i: 13
-    }
-  }
-}
-node {
-  name: "random_uniform_1/sub"
-  op: "Sub"
-  input: "random_uniform_1/max"
-  input: "random_uniform_1/min"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "random_uniform_1/mul"
-  op: "Mul"
-  input: "random_uniform_1/RandomUniform"
-  input: "random_uniform_1/sub"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "random_uniform_1"
-  op: "Add"
-  input: "random_uniform_1/mul"
-  input: "random_uniform_1/min"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "in_1"
-  op: "VariableV2"
-  attr {
-    key: "container"
-    value {
-      s: ""
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "shape"
-    value {
-      shape {
-      }
-    }
-  }
-  attr {
-    key: "shared_name"
-    value {
-      s: ""
-    }
-  }
-}
-node {
-  name: "in_1/Assign"
-  op: "Assign"
-  input: "in_1"
-  input: "random_uniform_1"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_1"
-      }
-    }
-  }
-  attr {
-    key: "use_locking"
-    value {
-      b: true
-    }
-  }
-  attr {
-    key: "validate_shape"
-    value {
-      b: true
-    }
-  }
-}
-node {
-  name: "in_1/read"
-  op: "Identity"
-  input: "in_1"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_1"
+        float_val: 2.0
       }
     }
   }
@@ -430,8 +265,8 @@ node {
 node {
   name: "adjust_contrast"
   op: "AdjustContrastv2"
-  input: "in_0/read"
-  input: "in_1/read"
+  input: "adjust_contrast/convert_image"
+  input: "adjust_contrast/contrast_factor"
   attr {
     key: "T"
     value {
@@ -440,13 +275,25 @@ node {
   }
 }
 node {
-  name: "adjust_contrast/Identity"
-  op: "Identity"
+  name: "adjust_contrast/convert_image_1"
+  op: "Cast"
   input: "adjust_contrast"
   attr {
-    key: "T"
+    key: "DstT"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "SrcT"
     value {
       type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
     }
   }
 }
@@ -523,11 +370,10 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 2
+            size: 1
           }
         }
         string_val: "in_0"
-        string_val: "in_1"
       }
     }
   }
@@ -548,10 +394,9 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 2
+            size: 1
           }
         }
-        string_val: ""
         string_val: ""
       }
     }
@@ -564,13 +409,11 @@ node {
   input: "save/SaveV2/tensor_names"
   input: "save/SaveV2/shape_and_slices"
   input: "in_0"
-  input: "in_1"
   attr {
     key: "dtypes"
     value {
       list {
-        type: DT_FLOAT
-        type: DT_FLOAT
+        type: DT_DOUBLE
       }
     }
   }
@@ -612,11 +455,10 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 2
+            size: 1
           }
         }
         string_val: "in_0"
-        string_val: "in_1"
       }
     }
   }
@@ -638,10 +480,9 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 2
+            size: 1
           }
         }
-        string_val: ""
         string_val: ""
       }
     }
@@ -658,8 +499,7 @@ node {
     key: "dtypes"
     value {
       list {
-        type: DT_FLOAT
-        type: DT_FLOAT
+        type: DT_DOUBLE
       }
     }
   }
@@ -672,7 +512,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
@@ -697,48 +537,14 @@ node {
   }
 }
 node {
-  name: "save/Assign_1"
-  op: "Assign"
-  input: "in_1"
-  input: "save/RestoreV2:1"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_1"
-      }
-    }
-  }
-  attr {
-    key: "use_locking"
-    value {
-      b: true
-    }
-  }
-  attr {
-    key: "validate_shape"
-    value {
-      b: true
-    }
-  }
-}
-node {
   name: "save/restore_all"
   op: "NoOp"
   input: "^save/Assign"
-  input: "^save/Assign_1"
 }
 node {
   name: "init"
   op: "NoOp"
   input: "^in_0/Assign"
-  input: "^in_1/Assign"
 }
 versions {
   producer: 134
