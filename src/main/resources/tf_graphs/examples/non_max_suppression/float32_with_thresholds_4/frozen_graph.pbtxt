@@ -1,0 +1,287 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 19
+          }
+          dim {
+            size: 4
+          }
+        }
+        half_val: 14974
+        half_val: 13976
+        half_val: 11504
+        half_val: 14280
+        half_val: 14830
+        half_val: 14870
+        half_val: 12528
+        half_val: 14434
+        half_val: 14996
+        half_val: 13104
+        half_val: 7424
+        half_val: 14636
+        half_val: 13144
+        half_val: 15086
+        half_val: 14680
+        half_val: 13360
+        half_val: 15080
+        half_val: 14416
+        half_val: 15250
+        half_val: 14454
+        half_val: 14284
+        half_val: 13988
+        half_val: 13548
+        half_val: 15196
+        half_val: 13136
+        half_val: 15116
+        half_val: 14372
+        half_val: 12456
+        half_val: 10368
+        half_val: 14440
+        half_val: 14120
+        half_val: 13324
+        half_val: 7936
+        half_val: 15094
+        half_val: 13888
+        half_val: 12928
+        half_val: 9280
+        half_val: 14448
+        half_val: 14478
+        half_val: 15238
+        half_val: 13496
+        half_val: 14784
+        half_val: 11904
+        half_val: 15288
+        half_val: 14664
+        half_val: 14510
+        half_val: 15030
+        half_val: 13920
+        half_val: 13668
+        half_val: 11520
+        half_val: 13800
+        half_val: 14690
+        half_val: 12304
+        half_val: 9280
+        half_val: 9984
+        half_val: 13812
+        half_val: 14978
+        half_val: 14994
+        half_val: 11776
+        half_val: 15000
+        half_val: 14876
+        half_val: 12504
+        half_val: 13332
+        half_val: 13728
+        half_val: 10528
+        half_val: 14598
+        half_val: 14316
+        half_val: 15050
+        half_val: 12648
+        half_val: 7424
+        half_val: 14280
+        half_val: 12520
+        half_val: 14992
+        half_val: 15322
+        half_val: 14732
+        half_val: 15266
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "in_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 19
+          }
+        }
+        half_val: 6656
+        half_val: 14978
+        half_val: 14284
+        half_val: 12720
+        half_val: 11440
+        half_val: 13952
+        half_val: 15006
+        half_val: 14152
+        half_val: 12000
+        half_val: 15096
+        half_val: 13536
+        half_val: 13732
+        half_val: 14016
+        half_val: 14552
+        half_val: 14084
+        half_val: 15288
+        half_val: 14772
+        half_val: 15220
+        half_val: 13716
+      }
+    }
+  }
+}
+node {
+  name: "in_1/read"
+  op: "Identity"
+  input: "in_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+}
+node {
+  name: "in_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "in_2/read"
+  op: "Identity"
+  input: "in_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_2"
+      }
+    }
+  }
+}
+node {
+  name: "non_max_suppression/iou_threshold"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: -1.0
+      }
+    }
+  }
+}
+node {
+  name: "non_max_suppression/score_threshold"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 100.0
+      }
+    }
+  }
+}
+node {
+  name: "non_max_suppression/NonMaxSuppressionV3"
+  op: "NonMaxSuppressionV3"
+  input: "in_0/read"
+  input: "in_1/read"
+  input: "in_2/read"
+  input: "non_max_suppression/iou_threshold"
+  input: "non_max_suppression/score_threshold"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "T_threshold"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+library {
+}
