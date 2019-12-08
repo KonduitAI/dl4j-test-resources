@@ -365,8 +365,8 @@ node {
   }
 }
 node {
-  name: "BitwiseOr"
-  op: "BitwiseOr"
+  name: "BitwiseAnd"
+  op: "BitwiseAnd"
   input: "in_0/read"
   input: "in_1/read"
   attr {
