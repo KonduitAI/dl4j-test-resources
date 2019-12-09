@@ -38,7 +38,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 0.0
+        float_val: 1.0
       }
     }
   }
@@ -59,7 +59,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 1.0
+        float_val: 10.0
       }
     }
   }
@@ -255,7 +255,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 0.0
+        float_val: 1.0
       }
     }
   }
@@ -276,7 +276,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 1.0
+        float_val: 10.0
       }
     }
   }

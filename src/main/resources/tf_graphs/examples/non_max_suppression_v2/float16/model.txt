@@ -641,7 +641,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: -inf
+        float_val: 0.5
       }
     }
   }
