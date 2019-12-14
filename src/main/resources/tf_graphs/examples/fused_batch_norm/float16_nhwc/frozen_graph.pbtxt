@@ -1,0 +1,246 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 1
+          }
+          dim {
+            size: 2
+          }
+          dim {
+            size: 3
+          }
+          dim {
+            size: 4
+          }
+        }
+        half_val: 14974
+        half_val: 13976
+        half_val: 11504
+        half_val: 14280
+        half_val: 14830
+        half_val: 14870
+        half_val: 12528
+        half_val: 14434
+        half_val: 14996
+        half_val: 13104
+        half_val: 7424
+        half_val: 14636
+        half_val: 13144
+        half_val: 15086
+        half_val: 14680
+        half_val: 13360
+        half_val: 15080
+        half_val: 14416
+        half_val: 15250
+        half_val: 14454
+        half_val: 14284
+        half_val: 13988
+        half_val: 13548
+        half_val: 15196
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "in_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 4
+          }
+        }
+        tensor_content: "\006\220E?\202\226m?\346\013|?\330\262\367>"
+      }
+    }
+  }
+}
+node {
+  name: "in_1/read"
+  op: "Identity"
+  input: "in_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+}
+node {
+  name: "in_2"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 4
+          }
+        }
+        tensor_content: "\270\263q?\342~\030?\026\355]?\374O\263>"
+      }
+    }
+  }
+}
+node {
+  name: "in_2/read"
+  op: "Identity"
+  input: "in_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_2"
+      }
+    }
+  }
+}
+node {
+  name: "Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "in_0/read"
+  input: "in_1/read"
+  input: "in_2/read"
+  input: "Const"
+  input: "Const_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: true
+    }
+  }
+}
+library {
+}
