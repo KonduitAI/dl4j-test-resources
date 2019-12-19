@@ -13,6 +13,8 @@ node {
       tensor {
         dtype: DT_DOUBLE
         tensor_shape {
+          dim {
+          }
         }
       }
     }
@@ -33,6 +35,8 @@ node {
       tensor {
         dtype: DT_DOUBLE
         tensor_shape {
+          dim {
+          }
         }
       }
     }
@@ -53,6 +57,8 @@ node {
       tensor {
         dtype: DT_DOUBLE
         tensor_shape {
+          dim {
+          }
         }
       }
     }
