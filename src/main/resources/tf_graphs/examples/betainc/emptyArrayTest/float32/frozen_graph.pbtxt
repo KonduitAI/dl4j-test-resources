@@ -4,96 +4,62 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_FLOAT
+        dtype: DT_DOUBLE
         tensor_shape {
+          dim {
+          }
         }
       }
     }
   }
 }
 node {
-  name: "in_1"
+  name: "Const_1"
   op: "Const"
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_FLOAT
+        dtype: DT_DOUBLE
         tensor_shape {
+          dim {
+          }
         }
-        float_val: 0.302040696144104
       }
     }
   }
 }
 node {
-  name: "in_1/read"
-  op: "Identity"
-  input: "in_1"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_1"
-      }
-    }
-  }
-}
-node {
-  name: "in_2"
+  name: "Const_2"
   op: "Const"
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_FLOAT
+        dtype: DT_DOUBLE
         tensor_shape {
+          dim {
+          }
         }
-        float_val: 0.01365363597869873
-      }
-    }
-  }
-}
-node {
-  name: "in_2/read"
-  op: "Identity"
-  input: "in_2"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_class"
-    value {
-      list {
-        s: "loc:@in_2"
       }
     }
   }
@@ -111,7 +77,53 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "Betainc/b"
+  op: "Pack"
+  input: "Const_1"
+  attr {
+    key: "N"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "Betainc/x"
+  op: "Pack"
+  input: "Const_2"
+  attr {
+    key: "N"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
     }
   }
   attr {
@@ -125,12 +137,12 @@ node {
   name: "Betainc"
   op: "Betainc"
   input: "Betainc/a"
-  input: "in_1/read"
-  input: "in_2/read"
+  input: "Betainc/b"
+  input: "Betainc/x"
   attr {
     key: "T"
     value {
-      type: DT_FLOAT
+      type: DT_DOUBLE
     }
   }
 }

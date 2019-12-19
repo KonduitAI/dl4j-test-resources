@@ -1,0 +1,59 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 4
+          }
+        }
+        tensor_content: "k}\rb\237\224\010@\260?a\342XO @\354\371Y\261V\265 @\271/\204!\223}\366?\006\356I7gH\021@\322\233D\331\014\245\034@\230\373?\202#\242\013@\266\326\361\244\006\362\013@\264u\216z\212%\t@\002\006\030\010\303\036#@\274\325\363\016c\321\022@H\257\000\233\306c\022@"
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "Digamma"
+  op: "Digamma"
+  input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+library {
+}
