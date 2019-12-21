@@ -45,9 +45,56 @@ node {
   }
 }
 node {
+  name: "eye/ones"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        float_val: 1.0
+      }
+    }
+  }
+}
+node {
+  name: "eye/diag"
+  op: "MatrixDiag"
+  input: "eye/ones"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Add"
+  op: "Add"
+  input: "in_0/read"
+  input: "eye/diag"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
   name: "Svd"
   op: "Svd"
-  input: "in_0/read"
+  input: "Add"
   attr {
     key: "T"
     value {
@@ -64,6 +111,17 @@ node {
     key: "full_matrices"
     value {
       b: true
+    }
+  }
+}
+node {
+  name: "Abs"
+  op: "Abs"
+  input: "Svd"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
     }
   }
 }

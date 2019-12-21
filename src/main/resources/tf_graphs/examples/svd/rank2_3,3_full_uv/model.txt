@@ -216,9 +216,56 @@ node {
   }
 }
 node {
+  name: "eye/ones"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        float_val: 1.0
+      }
+    }
+  }
+}
+node {
+  name: "eye/diag"
+  op: "MatrixDiag"
+  input: "eye/ones"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Add"
+  op: "Add"
+  input: "in_0/read"
+  input: "eye/diag"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
   name: "Svd"
   op: "Svd"
-  input: "in_0/read"
+  input: "Add"
   attr {
     key: "T"
     value {
@@ -228,7 +275,7 @@ node {
   attr {
     key: "compute_uv"
     value {
-      b: true
+      b: false
     }
   }
   attr {
@@ -239,10 +286,9 @@ node {
   }
 }
 node {
-  name: "add"
-  op: "Add"
+  name: "Abs"
+  op: "Abs"
   input: "Svd"
-  input: "Svd:1"
   attr {
     key: "T"
     value {
@@ -251,19 +297,7 @@ node {
   }
 }
 node {
-  name: "add_1"
-  op: "Add"
-  input: "add"
-  input: "Svd:2"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "save/Const"
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -279,6 +313,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -476,5 +546,5 @@ node {
   input: "^in_0/Assign"
 }
 versions {
-  producer: 26
+  producer: 134
 }
