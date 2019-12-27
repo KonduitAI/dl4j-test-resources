@@ -1,0 +1,15 @@
+Tensordot.0 float64
+Const.0 float64
+images.0 float64
+kernel.0 float64
+Tensordot____transpose____perm.0 int32
+Tensordot____transpose.0 float64
+Tensordot____Reshape____shape.0 int32
+Tensordot____Reshape.0 float64
+Tensordot____transpose_1____perm.0 int32
+Tensordot____transpose_1.0 float64
+Tensordot____Reshape_1____shape.0 int32
+Tensordot____Reshape_1.0 float64
+Tensordot____MatMul.0 float64
+Tensordot____shape.0 int32
+Tensordot.0 float64
