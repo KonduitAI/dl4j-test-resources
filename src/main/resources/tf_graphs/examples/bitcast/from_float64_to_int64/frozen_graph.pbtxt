@@ -17,7 +17,7 @@ node {
             size: 1
           }
         }
-        double_val: 0.23028551377579154
+        double_val: 2.0
       }
     }
   }
