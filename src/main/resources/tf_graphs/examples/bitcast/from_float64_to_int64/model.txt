@@ -59,7 +59,7 @@ node {
         dtype: DT_DOUBLE
         tensor_shape {
         }
-        double_val: 1.0
+        double_val: 10.0
       }
     }
   }
@@ -130,6 +130,17 @@ node {
   }
 }
 node {
+  name: "Floor"
+  op: "Floor"
+  input: "random_uniform"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
   name: "in_0"
   op: "VariableV2"
   attr {
@@ -165,7 +176,7 @@ node {
   name: "in_0/Assign"
   op: "Assign"
   input: "in_0"
-  input: "random_uniform"
+  input: "Floor"
   attr {
     key: "T"
     value {
@@ -216,6 +227,23 @@ node {
   name: "Bitcast"
   op: "Bitcast"
   input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "type"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Bitcast_1"
+  op: "Bitcast"
+  input: "Bitcast"
   attr {
     key: "T"
     value {

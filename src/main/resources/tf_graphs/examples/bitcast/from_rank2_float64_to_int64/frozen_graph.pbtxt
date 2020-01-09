@@ -20,7 +20,7 @@ node {
             size: 1
           }
         }
-        double_val: 0.23028551377579154
+        double_val: 2.0
       }
     }
   }
@@ -48,6 +48,23 @@ node {
   name: "Bitcast"
   op: "Bitcast"
   input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "type"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Bitcast_1"
+  op: "Bitcast"
+  input: "Bitcast"
   attr {
     key: "T"
     value {

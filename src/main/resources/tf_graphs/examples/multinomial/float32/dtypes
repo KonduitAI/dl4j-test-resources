@@ -1,0 +1,5 @@
+multinomial/Multinomial.0 int64
+in_0.0 float32
+in_0____read.0 float32
+multinomial____Multinomial____num_samples.0 int32
+multinomial____Multinomial.0 int64
