@@ -4,20 +4,20 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_DOUBLE
+        dtype: DT_INT64
         tensor_shape {
           dim {
             size: 1
           }
         }
-        double_val: 2.0
+        int64_val: 9
       }
     }
   }
@@ -29,7 +29,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {
@@ -45,6 +45,23 @@ node {
   name: "Bitcast"
   op: "Bitcast"
   input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "type"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Bitcast_1"
+  op: "Bitcast"
+  input: "Bitcast"
   attr {
     key: "T"
     value {

@@ -1,4 +1,5 @@
-Bitcast.0 uint64
-in_0.0 float64
-in_0____read.0 float64
-Bitcast.0 uint64
+Bitcast_1.0 uint64
+in_0.0 int64
+in_0____read.0 int64
+Bitcast.0 float64
+Bitcast_1.0 uint64

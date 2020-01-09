@@ -28,17 +28,17 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_DOUBLE
+        dtype: DT_INT64
         tensor_shape {
         }
-        double_val: 0.0
+        int64_val: 0
       }
     }
   }
@@ -49,25 +49,27 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_DOUBLE
+        dtype: DT_INT64
         tensor_shape {
         }
-        double_val: 10.0
+        int64_val: 10
       }
     }
   }
 }
 node {
-  name: "random_uniform/RandomUniform"
-  op: "RandomUniform"
+  name: "random_uniform"
+  op: "RandomUniformInt"
   input: "random_uniform/shape"
+  input: "random_uniform/min"
+  input: "random_uniform/max"
   attr {
     key: "T"
     value {
@@ -75,9 +77,9 @@ node {
     }
   }
   attr {
-    key: "dtype"
+    key: "Tout"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {
@@ -94,53 +96,6 @@ node {
   }
 }
 node {
-  name: "random_uniform/sub"
-  op: "Sub"
-  input: "random_uniform/max"
-  input: "random_uniform/min"
-  attr {
-    key: "T"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-}
-node {
-  name: "random_uniform/mul"
-  op: "Mul"
-  input: "random_uniform/RandomUniform"
-  input: "random_uniform/sub"
-  attr {
-    key: "T"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-}
-node {
-  name: "random_uniform"
-  op: "Add"
-  input: "random_uniform/mul"
-  input: "random_uniform/min"
-  attr {
-    key: "T"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-}
-node {
-  name: "Floor"
-  op: "Floor"
-  input: "random_uniform"
-  attr {
-    key: "T"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-}
-node {
   name: "in_0"
   op: "VariableV2"
   attr {
@@ -152,7 +107,7 @@ node {
   attr {
     key: "dtype"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {
@@ -176,11 +131,11 @@ node {
   name: "in_0/Assign"
   op: "Assign"
   input: "in_0"
-  input: "Floor"
+  input: "random_uniform"
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {
@@ -211,7 +166,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {
@@ -227,6 +182,23 @@ node {
   name: "Bitcast"
   op: "Bitcast"
   input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "type"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Bitcast_1"
+  op: "Bitcast"
+  input: "Bitcast"
   attr {
     key: "T"
     value {
@@ -356,7 +328,7 @@ node {
     key: "dtypes"
     value {
       list {
-        type: DT_DOUBLE
+        type: DT_INT64
       }
     }
   }
@@ -442,7 +414,7 @@ node {
     key: "dtypes"
     value {
       list {
-        type: DT_DOUBLE
+        type: DT_INT64
       }
     }
   }
@@ -455,7 +427,7 @@ node {
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_INT64
     }
   }
   attr {

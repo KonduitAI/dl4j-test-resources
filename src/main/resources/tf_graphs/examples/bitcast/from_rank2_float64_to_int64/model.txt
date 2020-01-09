@@ -239,6 +239,23 @@ node {
   attr {
     key: "type"
     value {
+      type: DT_DOUBLE
+    }
+  }
+}
+node {
+  name: "Bitcast_1"
+  op: "Bitcast"
+  input: "Bitcast"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "type"
+    value {
       type: DT_INT64
     }
   }
