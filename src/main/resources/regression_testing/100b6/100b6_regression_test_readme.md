@@ -72,16 +72,16 @@ public class LSTMCharModellingExample {
         MultiLayerNetwork net = new MultiLayerNetwork(conf);
         net.init();
 
-        net.save(new File("output/GravesLSTMCharModelingExample_100b4.bin"));
+        net.save(new File("output/GravesLSTMCharModelingExample_100b6.bin"));
         Nd4j.getRandom().setSeed(12345);
         INDArray input = Nd4j.rand(new int[]{3, iter.inputColumns(), 10});
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/GravesLSTMCharModelingExample_Input_100b4.bin")))) {
+                new FileOutputStream(new File("output/GravesLSTMCharModelingExample_Input_100b6.bin")))) {
             Nd4j.write(input, dos);
         }
         INDArray output = net.output(input);
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/GravesLSTMCharModelingExample_Output_100b4.bin")))) {
+                new FileOutputStream(new File("output/GravesLSTMCharModelingExample_Output_100b6.bin")))) {
             Nd4j.write(output, dos);
         }
     }
@@ -443,16 +443,16 @@ public class CustomLayerExample {
         MultiLayerNetwork net = new MultiLayerNetwork(config);
         net.init();
 
-        net.save(new File("output/CustomLayerExample_100b4_" + dtypeName + ".bin"));
+        net.save(new File("output/CustomLayerExample_100b6_" + dtypeName + ".bin"));
         Nd4j.getRandom().setSeed(12345);
         INDArray input = Nd4j.rand(new int[]{3, nIn});
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/CustomLayerExample_Input_100b4_" + dtypeName + ".bin")))) {
+                new FileOutputStream(new File("output/CustomLayerExample_Input_100b6_" + dtypeName + ".bin")))) {
             Nd4j.write(input, dos);
         }
         INDArray output = net.output(input);
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/CustomLayerExample_Output_100b4_" + dtypeName + ".bin")))) {
+                new FileOutputStream(new File("output/CustomLayerExample_Output_100b6_" + dtypeName + ".bin")))) {
             Nd4j.write(output, dos);
         }
     }
@@ -782,16 +782,16 @@ public class VaeMNISTAnomaly {
         MultiLayerNetwork net = new MultiLayerNetwork(conf);
         net.init();
 
-        net.save(new File("output/VaeMNISTAnomaly_100b4.bin"));
+        net.save(new File("output/VaeMNISTAnomaly_100b6.bin"));
         Nd4j.getRandom().setSeed(12345);
         INDArray input = Nd4j.rand(3, 28*28);
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/VaeMNISTAnomaly_Input_100b4.bin")))) {
+                new FileOutputStream(new File("output/VaeMNISTAnomaly_Input_100b6.bin")))) {
             Nd4j.write(input, dos);
         }
         INDArray output = net.output(input);
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/VaeMNISTAnomaly_Output_100b4.bin")))) {
+                new FileOutputStream(new File("output/VaeMNISTAnomaly_Output_100b6.bin")))) {
             Nd4j.write(output, dos);
         }
     }
@@ -935,16 +935,16 @@ public class HouseNumberDetection {
                     .setOutputs("outputs")
                     .build();
 
-            model.save(new File("output/HouseNumberDetection_100b4.bin"));
+            model.save(new File("output/HouseNumberDetection_100b6.bin"));
             Nd4j.getRandom().setSeed(12345);
             INDArray input = Nd4j.rand(new int[]{3, 3, 416, 416});
             try (DataOutputStream dos = new DataOutputStream(
-                    new FileOutputStream(new File("output/HouseNumberDetection_Input_100b4.bin")))) {
+                    new FileOutputStream(new File("output/HouseNumberDetection_Input_100b6.bin")))) {
                 Nd4j.write(input, dos);
             }
             INDArray output = model.outputSingle(input);
             try (DataOutputStream dos = new DataOutputStream(
-                    new FileOutputStream(new File("output/HouseNumberDetection_Output_100b4.bin")))) {
+                    new FileOutputStream(new File("output/HouseNumberDetection_Output_100b6.bin")))) {
                 Nd4j.write(output, dos);
             }
         }
@@ -1027,16 +1027,16 @@ public class SyntheticCNN {
         MultiLayerNetwork net = new MultiLayerNetwork(conf);
         net.init();
 
-        net.save(new File("output/SyntheticCNN_100b4.bin"));
+        net.save(new File("output/SyntheticCNN_100b6.bin"));
         Nd4j.getRandom().setSeed(12345);
         INDArray input = Nd4j.rand(new int[]{4, 1, 28, 28});
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/SyntheticCNN_Input_100b4.bin")))) {
+                new FileOutputStream(new File("output/SyntheticCNN_Input_100b6.bin")))) {
             Nd4j.write(input, dos);
         }
         INDArray output = net.output(input);
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/SyntheticCNN_Output_100b4.bin")))) {
+                new FileOutputStream(new File("output/SyntheticCNN_Output_100b6.bin")))) {
             Nd4j.write(output, dos);
         }
     }
@@ -1104,16 +1104,16 @@ public class SyntheticBidirectionalRNNGraph {
         ComputationGraph net = new ComputationGraph(conf);
         net.init();
 
-        net.save(new File("output/SyntheticBidirectionalRNNGraph_100b4.bin"));
+        net.save(new File("output/SyntheticBidirectionalRNNGraph_100b6.bin"));
         Nd4j.getRandom().setSeed(12345);
         INDArray input = Nd4j.rand(new int[]{4, 10, 10});
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/SyntheticBidirectionalRNNGraph_Input_100b4.bin")))) {
+                new FileOutputStream(new File("output/SyntheticBidirectionalRNNGraph_Input_100b6.bin")))) {
             Nd4j.write(input, dos);
         }
         INDArray output = net.output(input)[0];
         try (DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(new File("output/SyntheticBidirectionalRNNGraph_Output_100b4.bin")))) {
+                new FileOutputStream(new File("output/SyntheticBidirectionalRNNGraph_Output_100b6.bin")))) {
             Nd4j.write(output, dos);
         }
     }
