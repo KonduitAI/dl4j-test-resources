@@ -1,0 +1,112 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "0m4\347\376y\315?\344\033;\004\236p\351?\026..t\357%\352? \306G>\322\023\247?\230\303\330E)\235\327?,5\313k\013\350\345?\334m\034\311\255s\321?0\024\236\222\260\272\321?@\321\340\331\240{\316?"
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "in_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_DOUBLE
+        tensor_shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "\010Z\266\327\037@\306?l\331{-\346\013\354?\000\215j\032X\302\302?\220n\013\207~\272\311?\300w(S\352\206\265?\322*\334\341p\002\343?\260\371\311u\303F\323?\2707\267\t\202\273\346?t7\316\031\264\025\344?"
+      }
+    }
+  }
+}
+node {
+  name: "in_1/read"
+  op: "Identity"
+  input: "in_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+}
+node {
+  name: "MatrixSolve"
+  op: "MatrixSolve"
+  input: "in_0/read"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_DOUBLE
+    }
+  }
+  attr {
+    key: "adjoint"
+    value {
+      b: true
+    }
+  }
+}
+library {
+}
