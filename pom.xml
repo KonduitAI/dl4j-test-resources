@@ -17,6 +17,7 @@
         <junit.version>4.12</junit.version>
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
         <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
+        <dl4j-test-resources.classifier></dl4j-test-resources.classifier>
     </properties>
 
     <build>
@@ -28,6 +29,7 @@
                     <archive>
                         <compress>${resources.jar.compression}</compress>
                     </archive>
+                    <classifier>${dl4j-test-resources.classifier}</classifier>
                 </configuration>
             </plugin>
             <plugin>
