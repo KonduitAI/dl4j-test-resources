@@ -1,9 +1,9 @@
-#atuzhykov - 1586182318097
-#Mon Apr 06 16:11:58 CEST 2020
+#atuzhykov - 1586253490146
+#Tue Apr 07 11:58:10 CEST 2020
 blas.vendor=OPENBLAS
-memory.free=32177778868
+memory.free=32176585832
 blas.threads=32
-memoryBandwidth={0\={HOST_TO_DEVICE\=0, HOST_TO_HOST\=0, DEVICE_TO_HOST\=0, DEVICE_TO_DEVICE\=0}}
+memoryBandwidth={0\={DEVICE_TO_DEVICE\=0, HOST_TO_HOST\=0, HOST_TO_DEVICE\=0, DEVICE_TO_HOST\=0}}
 cores=64
 os=Linux
 backend=CPU
