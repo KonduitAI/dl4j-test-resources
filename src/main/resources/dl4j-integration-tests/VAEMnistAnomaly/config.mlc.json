@@ -9,8 +9,7 @@
     "layer" : {
       "@class" : "org.deeplearning4j.nn.conf.layers.variational.VariationalAutoencoder",
       "activationFn" : {
-        "@class" : "org.nd4j.linalg.activations.impl.ActivationLReLU",
-        "alpha" : 0.01
+        "@class" : "org.nd4j.linalg.activations.impl.ActivationTanH"
       },
       "biasInit" : 0.0,
       "biasUpdater" : null,
@@ -26,7 +25,7 @@
         "beta1" : 0.9,
         "beta2" : 0.999,
         "epsilon" : 1.0E-8,
-        "learningRate" : 0.05
+        "learningRate" : 0.001
       },
       "layerName" : "layer0",
       "lossFunction" : "RECONSTRUCTION_CROSSENTROPY",

@@ -24,10 +24,11 @@
       "helperAllowFallback" : true,
       "idropout" : null,
       "iupdater" : {
-        "@class" : "org.nd4j.linalg.learning.config.RmsProp",
+        "@class" : "org.nd4j.linalg.learning.config.Adam",
+        "beta1" : 0.9,
+        "beta2" : 0.999,
         "epsilon" : 1.0E-8,
-        "learningRate" : 0.1,
-        "rmsDecay" : 0.95
+        "learningRate" : 0.001
       },
       "layerName" : "layer0",
       "nin" : 77,
@@ -76,10 +77,11 @@
       "helperAllowFallback" : true,
       "idropout" : null,
       "iupdater" : {
-        "@class" : "org.nd4j.linalg.learning.config.RmsProp",
+        "@class" : "org.nd4j.linalg.learning.config.Adam",
+        "beta1" : 0.9,
+        "beta2" : 0.999,
         "epsilon" : 1.0E-8,
-        "learningRate" : 0.1,
-        "rmsDecay" : 0.95
+        "learningRate" : 0.001
       },
       "layerName" : "layer1",
       "nin" : 200,
@@ -124,10 +126,11 @@
       "hasBias" : true,
       "idropout" : null,
       "iupdater" : {
-        "@class" : "org.nd4j.linalg.learning.config.RmsProp",
+        "@class" : "org.nd4j.linalg.learning.config.Adam",
+        "beta1" : 0.9,
+        "beta2" : 0.999,
         "epsilon" : 1.0E-8,
-        "learningRate" : 0.1,
-        "rmsDecay" : 0.95
+        "learningRate" : 0.001
       },
       "layerName" : "layer2",
       "lossFn" : {
