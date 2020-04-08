@@ -1,25 +1,22 @@
 {
-  "backprop" : false,
   "backpropType" : "Standard",
   "cacheMode" : "NONE",
   "confs" : [ {
     "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
     "epochCount" : 0,
     "iterationCount" : 0,
-    "l1ByParam" : { },
-    "l2ByParam" : { },
     "layer" : {
       "@class" : "org.deeplearning4j.nn.conf.layers.variational.VariationalAutoencoder",
       "activationFn" : {
-        "@class" : "org.nd4j.linalg.activations.impl.ActivationLReLU",
-        "alpha" : 0.01
+        "@class" : "org.nd4j.linalg.activations.impl.ActivationTanH"
       },
       "biasInit" : 0.0,
       "biasUpdater" : null,
       "constraints" : null,
       "decoderLayerSizes" : [ 256, 256 ],
-      "dist" : null,
       "encoderLayerSizes" : [ 256, 256 ],
+      "gainInit" : 1.0,
       "gradientNormalization" : "None",
       "gradientNormalizationThreshold" : 1.0,
       "idropout" : null,
@@ -28,12 +25,8 @@
         "beta1" : 0.9,
         "beta2" : 0.999,
         "epsilon" : 1.0E-8,
-        "learningRate" : 0.05
+        "learningRate" : 0.001
       },
-      "l1" : 0.0,
-      "l1Bias" : 0.0,
-      "l2" : 1.0E-4,
-      "l2Bias" : 0.0,
       "layerName" : "layer0",
       "lossFunction" : "RECONSTRUCTION_CROSSENTROPY",
       "nin" : 784,
@@ -48,25 +41,35 @@
       "pzxActivationFn" : {
         "@class" : "org.nd4j.linalg.activations.impl.ActivationIdentity"
       },
+      "regularization" : [ {
+        "@class" : "org.nd4j.linalg.learning.regularization.L2Regularization",
+        "l2" : {
+          "@class" : "org.nd4j.linalg.schedule.FixedSchedule",
+          "value" : 1.0E-4
+        }
+      } ],
+      "regularizationBias" : [ ],
       "visibleBiasInit" : 0.0,
-      "weightInit" : "XAVIER",
+      "weightInitFn" : {
+        "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+      },
       "weightNoise" : null
     },
     "maxNumLineSearchIterations" : 5,
     "miniBatch" : true,
     "minimize" : true,
     "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-    "pretrain" : true,
     "seed" : 12345,
     "stepFunction" : null,
     "variables" : [ ]
   } ],
+  "dataType" : "FLOAT",
   "epochCount" : 0,
   "inferenceWorkspaceMode" : "ENABLED",
   "inputPreProcessors" : { },
   "iterationCount" : 0,
-  "pretrain" : true,
   "tbpttBackLength" : 20,
   "tbpttFwdLength" : 20,
-  "trainingWorkspaceMode" : "ENABLED"
+  "trainingWorkspaceMode" : "ENABLED",
+  "validateOutputLayerConfig" : true
 }

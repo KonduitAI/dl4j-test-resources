@@ -1,11 +1,11 @@
-#Alex - 1532940252730
-#Mon Jul 30 18:44:12 AEST 2018
-cores=16
-os=Windows 10
-backend=CPU
-blas.threads=8
-memory.available=7611613184
-omp.threads=8
-memory.free=7611613183
-memoryBandwidth={0\={DEVICE_TO_DEVICE\=0, DEVICE_TO_HOST\=0, HOST_TO_HOST\=0, HOST_TO_DEVICE\=0}}
+#atuzhykov - 1586180922051
+#Mon Apr 06 15:48:42 CEST 2020
 blas.vendor=OPENBLAS
+memory.free=32159390300
+blas.threads=32
+memoryBandwidth={0\={DEVICE_TO_HOST\=0, DEVICE_TO_DEVICE\=0, HOST_TO_HOST\=0, HOST_TO_DEVICE\=0}}
+cores=64
+os=Linux
+backend=CPU
+omp.threads=32
+memory.available=32178700288

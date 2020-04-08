@@ -1,13 +1,11 @@
 {
-  "backprop" : true,
   "backpropType" : "Standard",
   "cacheMode" : "NONE",
   "confs" : [ {
     "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
     "epochCount" : 0,
     "iterationCount" : 0,
-    "l1ByParam" : { },
-    "l2ByParam" : { },
     "layer" : {
       "@class" : "org.deeplearning4j.nn.conf.layers.ConvolutionLayer",
       "activationFn" : {
@@ -23,7 +21,7 @@
       "cudnnBwdFilterAlgo" : null,
       "cudnnFwdAlgo" : null,
       "dilation" : [ 1, 1 ],
-      "dist" : null,
+      "gainInit" : 1.0,
       "gradientNormalization" : "None",
       "gradientNormalizationThreshold" : 1.0,
       "hasBias" : true,
@@ -34,35 +32,39 @@
         "momentum" : 0.9
       },
       "kernelSize" : [ 5, 5 ],
-      "l1" : 0.0,
-      "l1Bias" : 0.0,
-      "l2" : 5.0E-4,
-      "l2Bias" : 0.0,
       "layerName" : "layer0",
       "nin" : 1,
       "nout" : 20,
       "padding" : [ 0, 0 ],
-      "pretrain" : false,
+      "regularization" : [ {
+        "@class" : "org.nd4j.linalg.learning.regularization.L2Regularization",
+        "l2" : {
+          "@class" : "org.nd4j.linalg.schedule.FixedSchedule",
+          "value" : 5.0E-4
+        }
+      } ],
+      "regularizationBias" : [ ],
       "stride" : [ 1, 1 ],
-      "weightInit" : "XAVIER",
+      "weightInitFn" : {
+        "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+      },
       "weightNoise" : null
     },
     "maxNumLineSearchIterations" : 5,
     "miniBatch" : true,
     "minimize" : true,
     "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-    "pretrain" : false,
     "seed" : 123,
     "stepFunction" : null,
     "variables" : [ ]
   }, {
     "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
     "epochCount" : 0,
     "iterationCount" : 0,
-    "l1ByParam" : { },
-    "l2ByParam" : { },
     "layer" : {
       "@class" : "org.deeplearning4j.nn.conf.layers.SubsamplingLayer",
+      "avgPoolIncludePadInDivisor" : false,
       "constraints" : null,
       "convolutionMode" : "Truncate",
       "cudnnAllowFallback" : true,
@@ -76,23 +78,20 @@
       "padding" : [ 0, 0 ],
       "pnorm" : 0,
       "poolingType" : "MAX",
-      "pretrain" : false,
       "stride" : [ 2, 2 ]
     },
     "maxNumLineSearchIterations" : 5,
     "miniBatch" : true,
     "minimize" : true,
     "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-    "pretrain" : false,
     "seed" : 123,
     "stepFunction" : null,
     "variables" : [ ]
   }, {
     "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
     "epochCount" : 0,
     "iterationCount" : 0,
-    "l1ByParam" : { },
-    "l2ByParam" : { },
     "layer" : {
       "@class" : "org.deeplearning4j.nn.conf.layers.ConvolutionLayer",
       "activationFn" : {
@@ -108,7 +107,7 @@
       "cudnnBwdFilterAlgo" : null,
       "cudnnFwdAlgo" : null,
       "dilation" : [ 1, 1 ],
-      "dist" : null,
+      "gainInit" : 1.0,
       "gradientNormalization" : "None",
       "gradientNormalizationThreshold" : 1.0,
       "hasBias" : true,
@@ -119,35 +118,39 @@
         "momentum" : 0.9
       },
       "kernelSize" : [ 5, 5 ],
-      "l1" : 0.0,
-      "l1Bias" : 0.0,
-      "l2" : 5.0E-4,
-      "l2Bias" : 0.0,
       "layerName" : "layer2",
       "nin" : 20,
       "nout" : 50,
       "padding" : [ 0, 0 ],
-      "pretrain" : false,
+      "regularization" : [ {
+        "@class" : "org.nd4j.linalg.learning.regularization.L2Regularization",
+        "l2" : {
+          "@class" : "org.nd4j.linalg.schedule.FixedSchedule",
+          "value" : 5.0E-4
+        }
+      } ],
+      "regularizationBias" : [ ],
       "stride" : [ 1, 1 ],
-      "weightInit" : "XAVIER",
+      "weightInitFn" : {
+        "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+      },
       "weightNoise" : null
     },
     "maxNumLineSearchIterations" : 5,
     "miniBatch" : true,
     "minimize" : true,
     "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-    "pretrain" : false,
     "seed" : 123,
     "stepFunction" : null,
     "variables" : [ ]
   }, {
     "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
     "epochCount" : 0,
     "iterationCount" : 0,
-    "l1ByParam" : { },
-    "l2ByParam" : { },
     "layer" : {
       "@class" : "org.deeplearning4j.nn.conf.layers.SubsamplingLayer",
+      "avgPoolIncludePadInDivisor" : false,
       "constraints" : null,
       "convolutionMode" : "Truncate",
       "cudnnAllowFallback" : true,
@@ -161,66 +164,70 @@
       "padding" : [ 0, 0 ],
       "pnorm" : 0,
       "poolingType" : "MAX",
-      "pretrain" : false,
       "stride" : [ 2, 2 ]
     },
     "maxNumLineSearchIterations" : 5,
     "miniBatch" : true,
     "minimize" : true,
     "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-    "pretrain" : false,
     "seed" : 123,
     "stepFunction" : null,
     "variables" : [ ]
   }, {
     "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
     "epochCount" : 0,
     "iterationCount" : 0,
-    "l1ByParam" : { },
-    "l2ByParam" : { },
     "layer" : {
       "@class" : "org.deeplearning4j.nn.conf.layers.DenseLayer",
       "activationFn" : {
-        "@class" : "org.nd4j.linalg.activations.impl.ActivationReLU"
+        "@class" : "org.nd4j.linalg.activations.impl.ActivationReLU",
+        "max" : null,
+        "negativeSlope" : null,
+        "threshold" : null
       },
       "biasInit" : 0.0,
       "biasUpdater" : null,
       "constraints" : null,
-      "dist" : null,
+      "gainInit" : 1.0,
       "gradientNormalization" : "None",
       "gradientNormalizationThreshold" : 1.0,
       "hasBias" : true,
+      "hasLayerNorm" : false,
       "idropout" : null,
       "iupdater" : {
         "@class" : "org.nd4j.linalg.learning.config.Nesterovs",
         "learningRate" : 0.01,
         "momentum" : 0.9
       },
-      "l1" : 0.0,
-      "l1Bias" : 0.0,
-      "l2" : 5.0E-4,
-      "l2Bias" : 0.0,
       "layerName" : "layer4",
       "nin" : 800,
       "nout" : 500,
-      "pretrain" : false,
-      "weightInit" : "XAVIER",
+      "regularization" : [ {
+        "@class" : "org.nd4j.linalg.learning.regularization.L2Regularization",
+        "l2" : {
+          "@class" : "org.nd4j.linalg.schedule.FixedSchedule",
+          "value" : 5.0E-4
+        }
+      } ],
+      "regularizationBias" : [ ],
+      "weightInitFn" : {
+        "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+      },
       "weightNoise" : null
     },
     "maxNumLineSearchIterations" : 5,
     "miniBatch" : true,
     "minimize" : true,
     "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-    "pretrain" : false,
     "seed" : 123,
     "stepFunction" : null,
     "variables" : [ ]
   }, {
     "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
     "epochCount" : 0,
     "iterationCount" : 0,
-    "l1ByParam" : { },
-    "l2ByParam" : { },
     "layer" : {
       "@class" : "org.deeplearning4j.nn.conf.layers.OutputLayer",
       "activationFn" : {
@@ -229,7 +236,7 @@
       "biasInit" : 0.0,
       "biasUpdater" : null,
       "constraints" : null,
-      "dist" : null,
+      "gainInit" : 1.0,
       "gradientNormalization" : "None",
       "gradientNormalizationThreshold" : 1.0,
       "hasBias" : true,
@@ -239,32 +246,35 @@
         "learningRate" : 0.01,
         "momentum" : 0.9
       },
-      "l1" : 0.0,
-      "l1Bias" : 0.0,
-      "l2" : 5.0E-4,
-      "l2Bias" : 0.0,
       "layerName" : "layer5",
       "lossFn" : {
         "@class" : "org.nd4j.linalg.lossfunctions.impl.LossNegativeLogLikelihood",
-        "configProperties" : false,
-        "numOutputs" : -1,
         "softmaxClipEps" : 1.0E-10
       },
       "nin" : 500,
       "nout" : 10,
-      "pretrain" : false,
-      "weightInit" : "XAVIER",
+      "regularization" : [ {
+        "@class" : "org.nd4j.linalg.learning.regularization.L2Regularization",
+        "l2" : {
+          "@class" : "org.nd4j.linalg.schedule.FixedSchedule",
+          "value" : 5.0E-4
+        }
+      } ],
+      "regularizationBias" : [ ],
+      "weightInitFn" : {
+        "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+      },
       "weightNoise" : null
     },
     "maxNumLineSearchIterations" : 5,
     "miniBatch" : true,
     "minimize" : true,
     "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-    "pretrain" : false,
     "seed" : 123,
     "stepFunction" : null,
     "variables" : [ ]
   } ],
+  "dataType" : "FLOAT",
   "epochCount" : 0,
   "inferenceWorkspaceMode" : "ENABLED",
   "inputPreProcessors" : {
@@ -282,8 +292,8 @@
     }
   },
   "iterationCount" : 0,
-  "pretrain" : false,
   "tbpttBackLength" : 20,
   "tbpttFwdLength" : 20,
-  "trainingWorkspaceMode" : "ENABLED"
+  "trainingWorkspaceMode" : "ENABLED",
+  "validateOutputLayerConfig" : true
 }

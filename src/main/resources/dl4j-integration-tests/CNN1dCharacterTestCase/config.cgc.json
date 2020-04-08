@@ -1,19 +1,17 @@
 {
-  "backprop" : true,
   "backpropType" : "Standard",
   "cacheMode" : "NONE",
+  "dataType" : "FLOAT",
   "defaultConfiguration" : {
     "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
     "epochCount" : 0,
     "iterationCount" : 0,
-    "l1ByParam" : { },
-    "l2ByParam" : { },
     "layer" : null,
     "maxNumLineSearchIterations" : 5,
     "miniBatch" : true,
     "minimize" : true,
     "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-    "pretrain" : false,
     "seed" : 12345,
     "stepFunction" : null,
     "variables" : [ ]
@@ -23,12 +21,12 @@
   "iterationCount" : 0,
   "networkInputs" : [ "in" ],
   "networkOutputs" : [ "out" ],
-  "pretrain" : false,
   "tbpttBackLength" : 20,
   "tbpttFwdLength" : 20,
   "topologicalOrder" : null,
   "topologicalOrderStr" : null,
   "trainingWorkspaceMode" : "ENABLED",
+  "validateOutputLayerConfig" : true,
   "vertexInputs" : {
     "0" : [ "in" ],
     "1" : [ "0" ],
@@ -41,10 +39,9 @@
       "@class" : "org.deeplearning4j.nn.conf.graph.LayerVertex",
       "layerConf" : {
         "cacheMode" : "NONE",
+        "dataType" : "FLOAT",
         "epochCount" : 0,
         "iterationCount" : 0,
-        "l1ByParam" : { },
-        "l2ByParam" : { },
         "layer" : {
           "@class" : "org.deeplearning4j.nn.conf.layers.Convolution1DLayer",
           "activationFn" : {
@@ -60,7 +57,7 @@
           "cudnnBwdFilterAlgo" : null,
           "cudnnFwdAlgo" : null,
           "dilation" : [ 1, 1 ],
-          "dist" : null,
+          "gainInit" : 1.0,
           "gradientNormalization" : "None",
           "gradientNormalizationThreshold" : 1.0,
           "hasBias" : true,
@@ -73,24 +70,22 @@
             "learningRate" : 0.01
           },
           "kernelSize" : [ 3, 1 ],
-          "l1" : 0.0,
-          "l1Bias" : 0.0,
-          "l2" : 0.0,
-          "l2Bias" : 0.0,
           "layerName" : "0",
           "nin" : 77,
           "nout" : 32,
           "padding" : [ 0, 0 ],
-          "pretrain" : false,
+          "regularization" : [ ],
+          "regularizationBias" : [ ],
           "stride" : [ 1, 1 ],
-          "weightInit" : "XAVIER",
+          "weightInitFn" : {
+            "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+          },
           "weightNoise" : null
         },
         "maxNumLineSearchIterations" : 5,
         "miniBatch" : true,
         "minimize" : true,
         "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-        "pretrain" : false,
         "seed" : 12345,
         "stepFunction" : null,
         "variables" : [ ]
@@ -102,12 +97,12 @@
       "@class" : "org.deeplearning4j.nn.conf.graph.LayerVertex",
       "layerConf" : {
         "cacheMode" : "NONE",
+        "dataType" : "FLOAT",
         "epochCount" : 0,
         "iterationCount" : 0,
-        "l1ByParam" : { },
-        "l2ByParam" : { },
         "layer" : {
           "@class" : "org.deeplearning4j.nn.conf.layers.Subsampling1DLayer",
+          "avgPoolIncludePadInDivisor" : false,
           "constraints" : null,
           "convolutionMode" : "Same",
           "cudnnAllowFallback" : true,
@@ -121,14 +116,12 @@
           "padding" : [ 0, 0 ],
           "pnorm" : 0,
           "poolingType" : "MAX",
-          "pretrain" : false,
-          "stride" : [ 1, 1 ]
+          "stride" : [ 1, 2 ]
         },
         "maxNumLineSearchIterations" : 5,
         "miniBatch" : true,
         "minimize" : true,
         "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-        "pretrain" : false,
         "seed" : 12345,
         "stepFunction" : null,
         "variables" : [ ]
@@ -140,10 +133,9 @@
       "@class" : "org.deeplearning4j.nn.conf.graph.LayerVertex",
       "layerConf" : {
         "cacheMode" : "NONE",
+        "dataType" : "FLOAT",
         "epochCount" : 0,
         "iterationCount" : 0,
-        "l1ByParam" : { },
-        "l2ByParam" : { },
         "layer" : {
           "@class" : "org.deeplearning4j.nn.conf.layers.convolutional.Cropping1D",
           "constraints" : null,
@@ -151,14 +143,12 @@
           "gradientNormalization" : "None",
           "gradientNormalizationThreshold" : 0.0,
           "idropout" : null,
-          "layerName" : "2",
-          "pretrain" : false
+          "layerName" : "2"
         },
         "maxNumLineSearchIterations" : 5,
         "miniBatch" : true,
         "minimize" : true,
         "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-        "pretrain" : false,
         "seed" : 12345,
         "stepFunction" : null,
         "variables" : [ ]
@@ -170,10 +160,9 @@
       "@class" : "org.deeplearning4j.nn.conf.graph.LayerVertex",
       "layerConf" : {
         "cacheMode" : "NONE",
+        "dataType" : "FLOAT",
         "epochCount" : 0,
         "iterationCount" : 0,
-        "l1ByParam" : { },
-        "l2ByParam" : { },
         "layer" : {
           "@class" : "org.deeplearning4j.nn.conf.layers.ZeroPadding1DLayer",
           "constraints" : null,
@@ -181,14 +170,12 @@
           "gradientNormalizationThreshold" : 0.0,
           "idropout" : null,
           "layerName" : "3",
-          "padding" : [ 1, 1 ],
-          "pretrain" : false
+          "padding" : [ 1, 1 ]
         },
         "maxNumLineSearchIterations" : 5,
         "miniBatch" : true,
         "minimize" : true,
         "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-        "pretrain" : false,
         "seed" : 12345,
         "stepFunction" : null,
         "variables" : [ ]
@@ -200,10 +187,9 @@
       "@class" : "org.deeplearning4j.nn.conf.graph.LayerVertex",
       "layerConf" : {
         "cacheMode" : "NONE",
+        "dataType" : "FLOAT",
         "epochCount" : 0,
         "iterationCount" : 0,
-        "l1ByParam" : { },
-        "l2ByParam" : { },
         "layer" : {
           "@class" : "org.deeplearning4j.nn.conf.layers.RnnOutputLayer",
           "activationFn" : {
@@ -212,7 +198,7 @@
           "biasInit" : 0.0,
           "biasUpdater" : null,
           "constraints" : null,
-          "dist" : null,
+          "gainInit" : 1.0,
           "gradientNormalization" : "None",
           "gradientNormalizationThreshold" : 1.0,
           "hasBias" : true,
@@ -224,28 +210,24 @@
             "epsilon" : 1.0E-8,
             "learningRate" : 0.01
           },
-          "l1" : 0.0,
-          "l1Bias" : 0.0,
-          "l2" : 0.0,
-          "l2Bias" : 0.0,
           "layerName" : "out",
           "lossFn" : {
             "@class" : "org.nd4j.linalg.lossfunctions.impl.LossMCXENT",
-            "softmaxClipEps" : 1.0E-10,
-            "configProperties" : false,
-            "numOutputs" : -1
+            "softmaxClipEps" : 1.0E-10
           },
           "nin" : 32,
           "nout" : 77,
-          "pretrain" : false,
-          "weightInit" : "XAVIER",
+          "regularization" : [ ],
+          "regularizationBias" : [ ],
+          "weightInitFn" : {
+            "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+          },
           "weightNoise" : null
         },
         "maxNumLineSearchIterations" : 5,
         "miniBatch" : true,
         "minimize" : true,
         "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
-        "pretrain" : false,
         "seed" : 12345,
         "stepFunction" : null,
         "variables" : [ ]
