@@ -1,0 +1,9 @@
+random_uniform_1.0 float16
+in_0.0 int32
+in_0____read.0 int32
+random_uniform_1____min.0 float16
+random_uniform_1____max.0 float16
+random_uniform_1____RandomUniform.0 float16
+random_uniform_1____sub.0 float16
+random_uniform_1____mul.0 float16
+random_uniform_1.0 float16

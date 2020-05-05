@@ -1,0 +1,29 @@
+node {
+  name: "zeros_like"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT64
+        tensor_shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 10
+          }
+        }
+        int64_val: 0
+      }
+    }
+  }
+}
+library {
+}

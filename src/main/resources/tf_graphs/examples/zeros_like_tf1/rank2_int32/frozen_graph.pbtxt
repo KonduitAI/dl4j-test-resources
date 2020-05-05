@@ -1,0 +1,29 @@
+node {
+  name: "zeros_like"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 10
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+library {
+}

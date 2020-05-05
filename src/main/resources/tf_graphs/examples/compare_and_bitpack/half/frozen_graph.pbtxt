@@ -1,0 +1,85 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 8
+          }
+        }
+        half_val: 14974
+        half_val: 13976
+        half_val: 11504
+        half_val: 14280
+        half_val: 14830
+        half_val: 14870
+        half_val: 12528
+        half_val: 14434
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "CompareAndBitpack/threshold"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+        }
+        half_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "CompareAndBitpack"
+  op: "CompareAndBitpack"
+  input: "in_0/read"
+  input: "CompareAndBitpack/threshold"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+}
+library {
+}

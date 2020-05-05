@@ -1,0 +1,11 @@
+random_gamma/Maximum.0 float32
+in_0.0 int32
+in_0____read.0 int32
+random_gamma____alpha.0 float32
+random_gamma____beta.0 float32
+random_gamma____zeros_like.0 float32
+random_gamma____add.0 float32
+random_gamma____RandomGamma.0 float32
+random_gamma____truediv.0 float32
+random_gamma____Maximum____x.0 float32
+random_gamma____Maximum.0 float32

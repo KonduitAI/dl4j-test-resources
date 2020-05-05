@@ -1,0 +1,601 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 8
+          }
+          dim {
+            size: 8
+          }
+          dim {
+            size: 3
+          }
+        }
+        half_val: 47454
+        half_val: 13095
+        half_val: 14945
+        half_val: 11816
+        half_val: 14793
+        half_val: 13673
+        half_val: 47575
+        half_val: 15179
+        half_val: 47123
+        half_val: 15309
+        half_val: 49221
+        half_val: 14545
+        half_val: 46335
+        half_val: 47837
+        half_val: 16166
+        half_val: 47496
+        half_val: 13793
+        half_val: 49046
+        half_val: 44175
+        half_val: 44396
+        half_val: 14950
+        half_val: 13830
+        half_val: 15105
+        half_val: 12418
+        half_val: 14553
+        half_val: 49338
+        half_val: 14563
+        half_val: 11062
+        half_val: 45605
+        half_val: 12131
+        half_val: 14956
+        half_val: 48574
+        half_val: 47789
+        half_val: 11787
+        half_val: 48230
+        half_val: 45550
+        half_val: 11269
+        half_val: 15994
+        half_val: 15391
+        half_val: 16591
+        half_val: 47278
+        half_val: 39130
+        half_val: 48745
+        half_val: 48755
+        half_val: 47500
+        half_val: 48409
+        half_val: 15280
+        half_val: 14075
+        half_val: 47033
+        half_val: 14967
+        half_val: 15574
+        half_val: 48060
+        half_val: 48734
+        half_val: 15363
+        half_val: 14316
+        half_val: 15321
+        half_val: 46618
+        half_val: 46083
+        half_val: 15698
+        half_val: 10727
+        half_val: 45500
+        half_val: 48431
+        half_val: 10965
+        half_val: 47823
+        half_val: 47061
+        half_val: 16058
+        half_val: 16015
+        half_val: 15487
+        half_val: 11781
+        half_val: 15475
+        half_val: 15411
+        half_val: 14965
+        half_val: 15702
+        half_val: 8914
+        half_val: 15788
+        half_val: 46837
+        half_val: 14574
+        half_val: 47439
+        half_val: 14325
+        half_val: 12890
+        half_val: 47598
+        half_val: 45132
+        half_val: 47924
+        half_val: 45103
+        half_val: 15415
+        half_val: 44812
+        half_val: 12995
+        half_val: 14822
+        half_val: 12454
+        half_val: 48681
+        half_val: 13856
+        half_val: 14442
+        half_val: 43061
+        half_val: 47506
+        half_val: 49049
+        half_val: 15519
+        half_val: 13270
+        half_val: 48053
+        half_val: 47657
+        half_val: 14607
+        half_val: 48228
+        half_val: 47290
+        half_val: 15896
+        half_val: 14367
+        half_val: 48436
+        half_val: 13379
+        half_val: 43186
+        half_val: 48586
+        half_val: 48955
+        half_val: 15365
+        half_val: 48674
+        half_val: 15391
+        half_val: 13845
+        half_val: 48232
+        half_val: 48132
+        half_val: 47268
+        half_val: 16014
+        half_val: 12614
+        half_val: 15102
+        half_val: 44376
+        half_val: 13028
+        half_val: 48220
+        half_val: 14705
+        half_val: 14776
+        half_val: 14880
+        half_val: 15829
+        half_val: 15419
+        half_val: 14633
+        half_val: 15610
+        half_val: 48417
+        half_val: 16389
+        half_val: 48525
+        half_val: 14400
+        half_val: 15183
+        half_val: 14229
+        half_val: 15589
+        half_val: 12660
+        half_val: 48234
+        half_val: 15862
+        half_val: 14801
+        half_val: 48501
+        half_val: 16201
+        half_val: 15700
+        half_val: 47078
+        half_val: 48298
+        half_val: 46561
+        half_val: 45148
+        half_val: 48395
+        half_val: 15893
+        half_val: 48216
+        half_val: 45865
+        half_val: 14697
+        half_val: 16117
+        half_val: 13731
+        half_val: 15077
+        half_val: 46433
+        half_val: 13445
+        half_val: 12137
+        half_val: 13371
+        half_val: 12308
+        half_val: 10093
+        half_val: 46165
+        half_val: 14927
+        half_val: 46973
+        half_val: 41517
+        half_val: 42260
+        half_val: 12549
+        half_val: 15402
+        half_val: 46020
+        half_val: 48686
+        half_val: 48148
+        half_val: 45268
+        half_val: 47927
+        half_val: 15936
+        half_val: 44855
+        half_val: 12960
+        half_val: 16545
+        half_val: 47609
+        half_val: 49827
+        half_val: 13590
+        half_val: 14852
+        half_val: 47707
+        half_val: 15475
+        half_val: 47797
+        half_val: 48614
+        half_val: 14469
+        half_val: 14134
+        half_val: 48268
+        half_val: 47168
+        half_val: 47595
+        half_val: 13378
+        half_val: 49848
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "in_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "\001\000\000\000\000\000\000\000\000\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "in_1/read"
+  op: "Identity"
+  input: "in_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_1"
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/Shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 3
+          }
+        }
+        tensor_content: "\010\000\000\000\010\000\000\000\003\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/GreaterEqual"
+  op: "GreaterEqual"
+  input: "random_crop/Shape"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "random_crop/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/All"
+  op: "All"
+  input: "random_crop/GreaterEqual"
+  input: "random_crop/Const"
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "random_crop/Assert/Assert/data_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "Need value.shape >= size, got "
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/Assert/Assert"
+  op: "Assert"
+  input: "random_crop/All"
+  input: "random_crop/Assert/Assert/data_0"
+  input: "random_crop/Shape"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      list {
+        type: DT_STRING
+        type: DT_INT32
+        type: DT_INT32
+      }
+    }
+  }
+  attr {
+    key: "summarize"
+    value {
+      i: 1000
+    }
+  }
+}
+node {
+  name: "random_crop/control_dependency"
+  op: "Identity"
+  input: "random_crop/Shape"
+  input: "^random_crop/Assert/Assert"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@random_crop/Shape"
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/sub"
+  op: "Sub"
+  input: "random_crop/control_dependency"
+  input: "in_1/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "random_crop/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/add"
+  op: "AddV2"
+  input: "random_crop/sub"
+  input: "random_crop/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "random_crop/Shape_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 3
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/random_uniform/min"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/random_uniform/max"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: 2147483647
+      }
+    }
+  }
+}
+node {
+  name: "random_crop/random_uniform"
+  op: "RandomUniformInt"
+  input: "random_crop/Shape_1"
+  input: "random_crop/random_uniform/min"
+  input: "random_crop/random_uniform/max"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tout"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 30
+    }
+  }
+}
+node {
+  name: "random_crop/mod"
+  op: "FloorMod"
+  input: "random_crop/random_uniform"
+  input: "random_crop/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "random_crop"
+  op: "Slice"
+  input: "in_0/read"
+  input: "random_crop/mod"
+  input: "in_1/read"
+  attr {
+    key: "Index"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+}
+library {
+}
