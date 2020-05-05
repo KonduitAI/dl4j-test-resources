@@ -196,6 +196,11 @@ node {
   }
 }
 node {
+  name: "init"
+  op: "NoOp"
+  input: "^Variable/Assign"
+}
+node {
   name: "save/filename/input"
   op: "Const"
   attr {
@@ -438,11 +443,6 @@ node {
   name: "save/restore_all"
   op: "NoOp"
   input: "^save/Assign"
-}
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^Variable/Assign"
 }
 versions {
   producer: 134

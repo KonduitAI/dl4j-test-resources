@@ -3,7 +3,7 @@ LogMatrixDeterminant.1 float32
 Variable.0 float32
 Variable____read.0 float32
 eye____ones.0 float32
-eye____MatrixDiag.0 float32
+eye____diag.0 float32
 add.0 float32
 LogMatrixDeterminant.0 float32
 LogMatrixDeterminant.1 float32

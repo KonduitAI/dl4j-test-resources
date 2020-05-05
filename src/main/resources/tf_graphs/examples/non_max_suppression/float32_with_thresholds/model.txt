@@ -546,7 +546,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 0.0
+        float_val: 0.10000000149011612
       }
     }
   }
@@ -592,6 +592,13 @@ node {
       type: DT_FLOAT
     }
   }
+}
+node {
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+  input: "^in_1/Assign"
+  input: "^in_2/Assign"
 }
 node {
   name: "save/filename/input"
@@ -916,13 +923,6 @@ node {
   input: "^save/Assign"
   input: "^save/Assign_1"
   input: "^save/Assign_2"
-}
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^in_0/Assign"
-  input: "^in_1/Assign"
-  input: "^in_2/Assign"
 }
 versions {
   producer: 134

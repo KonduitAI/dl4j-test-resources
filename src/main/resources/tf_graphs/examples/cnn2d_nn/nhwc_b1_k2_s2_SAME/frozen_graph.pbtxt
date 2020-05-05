@@ -131,6 +131,13 @@ node {
     }
   }
   attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
     key: "padding"
     value {
       s: "SAME"

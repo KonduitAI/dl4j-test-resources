@@ -592,6 +592,13 @@ node {
   }
 }
 node {
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+  input: "^in_1/Assign"
+  input: "^in_2/Assign"
+}
+node {
   name: "save/filename/input"
   op: "Const"
   attr {
@@ -914,13 +921,6 @@ node {
   input: "^save/Assign"
   input: "^save/Assign_1"
   input: "^save/Assign_2"
-}
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^in_0/Assign"
-  input: "^in_1/Assign"
-  input: "^in_2/Assign"
 }
 versions {
   producer: 134

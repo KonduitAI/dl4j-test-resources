@@ -14,10 +14,10 @@ node {
         dtype: DT_INT32
         tensor_shape {
           dim {
-            size: 2
+            size: 3
           }
         }
-        tensor_content: "\001\000\000\000\n\000\000\000"
+        tensor_content: "\001\000\000\000\002\000\000\000\003\000\000\000"
       }
     }
   }
@@ -152,7 +152,10 @@ node {
           size: 1
         }
         dim {
-          size: 10
+          size: 2
+        }
+        dim {
+          size: 3
         }
       }
     }
@@ -231,10 +234,10 @@ node {
         dtype: DT_INT32
         tensor_shape {
           dim {
-            size: 2
+            size: 3
           }
         }
-        tensor_content: "\001\000\000\000\n\000\000\000"
+        tensor_content: "\001\000\000\000\002\000\000\000\003\000\000\000"
       }
     }
   }
@@ -369,7 +372,10 @@ node {
           size: 1
         }
         dim {
-          size: 10
+          size: 2
+        }
+        dim {
+          size: 3
         }
       }
     }
@@ -433,8 +439,8 @@ node {
   }
 }
 node {
-  name: "truediv"
-  op: "RealDiv"
+  name: "Div"
+  op: "Div"
   input: "in_0/read"
   input: "in_1/read"
   attr {
@@ -443,6 +449,12 @@ node {
       type: DT_DOUBLE
     }
   }
+}
+node {
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+  input: "^in_1/Assign"
 }
 node {
   name: "save/filename/input"
@@ -727,12 +739,6 @@ node {
   op: "NoOp"
   input: "^save/Assign"
   input: "^save/Assign_1"
-}
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^in_0/Assign"
-  input: "^in_1/Assign"
 }
 versions {
   producer: 134

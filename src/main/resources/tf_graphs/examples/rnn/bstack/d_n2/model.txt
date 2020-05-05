@@ -2200,7 +2200,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/add"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/Identity"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/add/y"
   attr {
@@ -2910,7 +2910,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/Identity_1"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/add_1/y"
   attr {
@@ -4339,7 +4339,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/add"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/Identity"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/add/y"
   attr {
@@ -5049,7 +5049,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/Identity_1"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/add_1/y"
   attr {
@@ -6524,7 +6524,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/add"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/Identity"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/add/y"
   attr {
@@ -7234,7 +7234,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/Identity_1"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/add_1/y"
   attr {
@@ -8663,7 +8663,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/add"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/Identity"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/add/y"
   attr {
@@ -9373,7 +9373,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/Identity_1"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/add_1/y"
   attr {
@@ -9756,7 +9756,7 @@ node {
   }
 }
 node {
-  name: "concat"
+  name: "concat/concat"
   op: "Identity"
   input: "stack_bidirectional_rnn/cell_1/concat"
   attr {
@@ -9859,7 +9859,24 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+  input: "^in_1/Assign"
+  input: "^in_2/Assign"
+  input: "^in_3/Assign"
+  input: "^in_4/Assign"
+  input: "^stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/basic_rnn_cell/bias/Assign"
+  input: "^stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/basic_rnn_cell/kernel/Assign"
+  input: "^stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/basic_rnn_cell/bias/Assign"
+  input: "^stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/basic_rnn_cell/kernel/Assign"
+  input: "^stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/basic_rnn_cell/bias/Assign"
+  input: "^stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/basic_rnn_cell/kernel/Assign"
+  input: "^stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/basic_rnn_cell/bias/Assign"
+  input: "^stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/basic_rnn_cell/kernel/Assign"
+}
+node {
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -9875,6 +9892,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -10546,23 +10599,6 @@ node {
   input: "^save/Assign_8"
   input: "^save/Assign_9"
 }
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^in_0/Assign"
-  input: "^in_1/Assign"
-  input: "^in_2/Assign"
-  input: "^in_3/Assign"
-  input: "^in_4/Assign"
-  input: "^stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/basic_rnn_cell/bias/Assign"
-  input: "^stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/basic_rnn_cell/kernel/Assign"
-  input: "^stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/basic_rnn_cell/bias/Assign"
-  input: "^stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/basic_rnn_cell/kernel/Assign"
-  input: "^stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/basic_rnn_cell/bias/Assign"
-  input: "^stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/basic_rnn_cell/kernel/Assign"
-  input: "^stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/basic_rnn_cell/bias/Assign"
-  input: "^stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/basic_rnn_cell/kernel/Assign"
-}
 versions {
-  producer: 27
+  producer: 134
 }

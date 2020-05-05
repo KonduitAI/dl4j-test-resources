@@ -1212,7 +1212,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/add"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/Identity"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/add/y"
   attr {
@@ -1607,7 +1607,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/Identity_1"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/fw/fw/while/add_1/y"
   attr {
@@ -2833,7 +2833,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/add"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/Identity"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/add/y"
   attr {
@@ -3228,7 +3228,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/Identity_1"
   input: "stack_bidirectional_rnn/cell_0/bidirectional_rnn/bw/bw/while/add_1/y"
   attr {
@@ -4500,7 +4500,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/add"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/Identity"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/add/y"
   attr {
@@ -4895,7 +4895,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/Identity_1"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/fw/fw/while/add_1/y"
   attr {
@@ -6121,7 +6121,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/add"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/Identity"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/add/y"
   attr {
@@ -6516,7 +6516,7 @@ node {
 }
 node {
   name: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/Identity_1"
   input: "stack_bidirectional_rnn/cell_1/bidirectional_rnn/bw/bw/while/add_1/y"
   attr {
@@ -6808,7 +6808,7 @@ node {
   }
 }
 node {
-  name: "concat"
+  name: "concat/concat"
   op: "Identity"
   input: "stack_bidirectional_rnn/cell_1/concat"
   attr {

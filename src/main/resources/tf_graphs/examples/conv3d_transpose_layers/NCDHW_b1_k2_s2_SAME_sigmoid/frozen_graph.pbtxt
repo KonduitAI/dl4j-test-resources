@@ -866,51 +866,9 @@ node {
   }
 }
 node {
-  name: "conv3d_transpose/Reshape/shape"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\001\000\000\000\003\000\000\000\220\000\000\000\014\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "conv3d_transpose/Reshape"
-  op: "Reshape"
-  input: "conv3d_transpose/conv3d_transpose"
-  input: "conv3d_transpose/Reshape/shape"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "Tshape"
-    value {
-      type: DT_INT32
-    }
-  }
-}
-node {
   name: "conv3d_transpose/BiasAdd"
   op: "BiasAdd"
-  input: "conv3d_transpose/Reshape"
+  input: "conv3d_transpose/conv3d_transpose"
   input: "conv3d_transpose/bias/read"
   attr {
     key: "T"
@@ -926,51 +884,9 @@ node {
   }
 }
 node {
-  name: "conv3d_transpose/Reshape_1/shape"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 5
-          }
-        }
-        tensor_content: "\001\000\000\000\003\000\000\000\014\000\000\000\014\000\000\000\014\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "conv3d_transpose/Reshape_1"
-  op: "Reshape"
-  input: "conv3d_transpose/BiasAdd"
-  input: "conv3d_transpose/Reshape_1/shape"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "Tshape"
-    value {
-      type: DT_INT32
-    }
-  }
-}
-node {
   name: "conv3d_transpose/Sigmoid"
   op: "Sigmoid"
-  input: "conv3d_transpose/Reshape_1"
+  input: "conv3d_transpose/BiasAdd"
   attr {
     key: "T"
     value {

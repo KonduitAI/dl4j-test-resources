@@ -31,9 +31,5 @@ conv3d_transpose____mul_2.0 int32
 conv3d_transpose____stack____4.0 int32
 conv3d_transpose____stack.0 int32
 conv3d_transpose____conv3d_transpose.0 float32
-conv3d_transpose____Reshape____shape.0 int32
-conv3d_transpose____Reshape.0 float32
 conv3d_transpose____BiasAdd.0 float32
-conv3d_transpose____Reshape_1____shape.0 int32
-conv3d_transpose____Reshape_1.0 float32
 conv3d_transpose____Relu.0 float32

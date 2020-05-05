@@ -1,5 +1,5 @@
 node {
-  name: "Const"
+  name: "in_0"
   op: "Const"
   attr {
     key: "dtype"
@@ -21,15 +21,9 @@ node {
   }
 }
 node {
-  name: "is_strictly_increasing/Reshape/tensor"
-  op: "Pack"
-  input: "Const"
-  attr {
-    key: "N"
-    value {
-      i: 1
-    }
-  }
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
   attr {
     key: "T"
     value {
@@ -37,9 +31,11 @@ node {
     }
   }
   attr {
-    key: "axis"
+    key: "_class"
     value {
-      i: 0
+      list {
+        s: "loc:@in_0"
+      }
     }
   }
 }
@@ -70,7 +66,7 @@ node {
 node {
   name: "is_strictly_increasing/Reshape"
   op: "Reshape"
-  input: "is_strictly_increasing/Reshape/tensor"
+  input: "in_0/read"
   input: "is_strictly_increasing/Reshape/shape"
   attr {
     key: "T"
