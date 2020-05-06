@@ -402,7 +402,7 @@ node {
   }
 }
 node {
-  name: "resize/ResizeArea"
+  name: "ResizeArea"
   op: "ResizeArea"
   input: "in_0/read"
   input: "in_1/read"
@@ -415,7 +415,7 @@ node {
   attr {
     key: "align_corners"
     value {
-      b: false
+      b: true
     }
   }
 }

@@ -131,7 +131,7 @@ node {
   }
 }
 node {
-  name: "zeros_like/tensor"
+  name: "ZerosLike/x"
   op: "Pack"
   input: "Const"
   attr {
@@ -154,30 +154,13 @@ node {
   }
 }
 node {
-  name: "zeros_like"
-  op: "Const"
+  name: "ZerosLike"
+  op: "ZerosLike"
+  input: "ZerosLike/x"
   attr {
-    key: "dtype"
+    key: "T"
     value {
       type: DT_DOUBLE
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_DOUBLE
-        tensor_shape {
-          dim {
-            size: 1
-          }
-          dim {
-            size: 2
-          }
-          dim {
-          }
-        }
-      }
     }
   }
 }

@@ -216,29 +216,13 @@ node {
   }
 }
 node {
-  name: "zeros_like"
-  op: "Const"
+  name: "ZerosLike"
+  op: "ZerosLike"
+  input: "in_0/read"
   attr {
-    key: "dtype"
+    key: "T"
     value {
-      type: DT_DOUBLE
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_DOUBLE
-        tensor_shape {
-          dim {
-            size: 3
-          }
-          dim {
-            size: 12
-          }
-        }
-        double_val: 0.0
-      }
+      type: DT_FLOAT
     }
   }
 }

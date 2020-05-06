@@ -182,29 +182,13 @@ node {
   }
 }
 node {
-  name: "zeros_like"
-  op: "Const"
+  name: "ZerosLike"
+  op: "ZerosLike"
+  input: "in_0/read"
   attr {
-    key: "dtype"
+    key: "T"
     value {
       type: DT_INT64
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT64
-        tensor_shape {
-          dim {
-            size: 3
-          }
-          dim {
-            size: 10
-          }
-        }
-        int64_val: 0
-      }
     }
   }
 }

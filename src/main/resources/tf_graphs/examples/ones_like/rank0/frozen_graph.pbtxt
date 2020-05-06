@@ -1,27 +1,5 @@
 node {
-  name: "ones_like/Shape"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "ones_like/Const"
+  name: "in_0"
   op: "Const"
   attr {
     key: "dtype"
@@ -36,16 +14,15 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 1.0
+        float_val: 0.7787855863571167
       }
     }
   }
 }
 node {
-  name: "ones_like"
-  op: "Fill"
-  input: "ones_like/Shape"
-  input: "ones_like/Const"
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
   attr {
     key: "T"
     value {
@@ -53,9 +30,22 @@ node {
     }
   }
   attr {
-    key: "index_type"
+    key: "_class"
     value {
-      type: DT_INT32
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "OnesLike"
+  op: "OnesLike"
+  input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
     }
   }
 }
