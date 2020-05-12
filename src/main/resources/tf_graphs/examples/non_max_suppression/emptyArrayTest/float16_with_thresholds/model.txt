@@ -529,7 +529,7 @@ node {
   }
 }
 node {
-  name: "non_max_suppression/iou_threshold"
+  name: "NonMaxSuppressionV2/iou_threshold"
   op: "Const"
   attr {
     key: "dtype"
@@ -550,34 +550,12 @@ node {
   }
 }
 node {
-  name: "non_max_suppression/score_threshold"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.5
-      }
-    }
-  }
-}
-node {
-  name: "non_max_suppression/NonMaxSuppressionV3"
-  op: "NonMaxSuppressionV3"
+  name: "NonMaxSuppressionV2"
+  op: "NonMaxSuppressionV2"
   input: "in_0/read"
   input: "in_1/read"
   input: "in_2/read"
-  input: "non_max_suppression/iou_threshold"
-  input: "non_max_suppression/score_threshold"
+  input: "NonMaxSuppressionV2/iou_threshold"
   attr {
     key: "T"
     value {

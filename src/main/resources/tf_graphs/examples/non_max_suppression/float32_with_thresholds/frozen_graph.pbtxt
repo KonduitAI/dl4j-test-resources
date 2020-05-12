@@ -128,65 +128,15 @@ node {
   }
 }
 node {
-  name: "non_max_suppression/iou_threshold"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.10000000149011612
-      }
-    }
-  }
-}
-node {
-  name: "non_max_suppression/score_threshold"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
-    }
-  }
-}
-node {
-  name: "non_max_suppression/NonMaxSuppressionV3"
-  op: "NonMaxSuppressionV3"
+  name: "NonMaxSuppression"
+  op: "NonMaxSuppression"
   input: "in_0/read"
   input: "in_1/read"
   input: "in_2/read"
-  input: "non_max_suppression/iou_threshold"
-  input: "non_max_suppression/score_threshold"
   attr {
-    key: "T"
+    key: "iou_threshold"
     value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "T_threshold"
-    value {
-      type: DT_FLOAT
+      f: 0.0
     }
   }
 }

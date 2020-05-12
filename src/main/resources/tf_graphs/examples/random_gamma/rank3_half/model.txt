@@ -17,7 +17,7 @@ node {
             size: 1
           }
         }
-        int_val: 3
+        int_val: 6
       }
     }
   }
@@ -115,7 +115,7 @@ node {
     value {
       shape {
         dim {
-          size: 3
+          size: 6
         }
       }
     }
@@ -290,7 +290,7 @@ node {
   attr {
     key: "seed2"
     value {
-      i: 12
+      i: 123
     }
   }
 }

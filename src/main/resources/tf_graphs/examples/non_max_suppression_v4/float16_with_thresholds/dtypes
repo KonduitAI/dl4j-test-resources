@@ -1,0 +1,12 @@
+NonMaxSuppressionV4.0 int32
+NonMaxSuppressionV4.1 int32
+in_0.0 float16
+in_0____read.0 float16
+in_1.0 float16
+in_1____read.0 float16
+in_2.0 int32
+in_2____read.0 int32
+NonMaxSuppressionV4____iou_threshold.0 float32
+NonMaxSuppressionV4____score_threshold.0 float32
+NonMaxSuppressionV4.0 int32
+NonMaxSuppressionV4.1 int32
