@@ -1,52 +1,65 @@
 node {
-  name: "Size"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
     value {
-      type: DT_INT32
+      type: DT_FLOAT
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_INT32
+        dtype: DT_FLOAT
         tensor_shape {
+          dim {
+          }
+          dim {
+          }
+          dim {
+            size: 3
+          }
         }
-        int_val: 0
       }
     }
   }
 }
 node {
-  name: "Add_1/y"
-  op: "Const"
+  name: "Size/input"
+  op: "Pack"
+  input: "Const"
   attr {
-    key: "dtype"
+    key: "N"
     value {
-      type: DT_INT32
+      i: 1
     }
   }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: 1
-      }
-    }
-  }
-}
-node {
-  name: "Add_1"
-  op: "Add"
-  input: "Size"
-  input: "Add_1/y"
   attr {
     key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "axis"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "Size"
+  op: "Size"
+  input: "Size/input"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "out_type"
     value {
       type: DT_INT32
     }
