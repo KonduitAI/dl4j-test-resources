@@ -1,4 +1,4 @@
-Add_1.0 int32
 Size.0 int32
-Add_1____y.0 int32
-Add_1.0 int32
+Const.0 float32
+Size____input.0 float32
+Size.0 int32
