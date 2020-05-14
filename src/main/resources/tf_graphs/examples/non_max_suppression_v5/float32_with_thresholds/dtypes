@@ -1,0 +1,15 @@
+NonMaxSuppressionV5.0 int32
+NonMaxSuppressionV5.1 float32
+NonMaxSuppressionV5.2 int32
+in_0.0 float32
+in_0____read.0 float32
+in_1.0 float32
+in_1____read.0 float32
+in_2.0 int32
+in_2____read.0 int32
+NonMaxSuppressionV5____iou_threshold.0 float32
+NonMaxSuppressionV5____score_threshold.0 float32
+NonMaxSuppressionV5____soft_nms_sigma.0 float32
+NonMaxSuppressionV5.0 int32
+NonMaxSuppressionV5.1 float32
+NonMaxSuppressionV5.2 int32

@@ -128,7 +128,7 @@ node {
   }
 }
 node {
-  name: "ones_like/tensor"
+  name: "OnesLike/x"
   op: "Pack"
   input: "Const"
   attr {
@@ -151,67 +151,20 @@ node {
   }
 }
 node {
-  name: "ones_like/Shape"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 2
-          }
-        }
-        tensor_content: "\001\000\000\000\000\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "ones_like/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 1.0
-      }
-    }
-  }
-}
-node {
-  name: "ones_like"
-  op: "Fill"
-  input: "ones_like/Shape"
-  input: "ones_like/Const"
+  name: "OnesLike"
+  op: "OnesLike"
+  input: "OnesLike/x"
   attr {
     key: "T"
     value {
       type: DT_FLOAT
     }
   }
-  attr {
-    key: "index_type"
-    value {
-      type: DT_INT32
-    }
-  }
+}
+node {
+  name: "init"
+  op: "NoOp"
+  input: "^Variable/Assign"
 }
 node {
   name: "save/filename/input"
@@ -456,11 +409,6 @@ node {
   name: "save/restore_all"
   op: "NoOp"
   input: "^save/Assign"
-}
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^Variable/Assign"
 }
 versions {
   producer: 134

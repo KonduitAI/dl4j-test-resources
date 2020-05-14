@@ -276,7 +276,7 @@ node {
   }
 }
 node {
-  name: "eye/MatrixDiag"
+  name: "eye/diag"
   op: "MatrixDiag"
   input: "eye/ones"
   attr {
@@ -288,9 +288,9 @@ node {
 }
 node {
   name: "add"
-  op: "Add"
+  op: "AddV2"
   input: "stack"
-  input: "eye/MatrixDiag"
+  input: "eye/diag"
   attr {
     key: "T"
     value {
@@ -310,7 +310,13 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "init"
+  op: "NoOp"
+  input: "^Variable/Assign"
+  input: "^Variable_1/Assign"
+}
+node {
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -326,6 +332,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -557,12 +599,6 @@ node {
   input: "^save/Assign"
   input: "^save/Assign_1"
 }
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^Variable/Assign"
-  input: "^Variable_1/Assign"
-}
 versions {
-  producer: 27
+  producer: 134
 }

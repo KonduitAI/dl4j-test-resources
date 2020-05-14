@@ -1,0 +1,5 @@
+random_poisson/RandomPoissonV2.0 float16
+in_0.0 int32
+in_0____read.0 int32
+random_poisson____RandomPoissonV2____rate.0 float64
+random_poisson____RandomPoissonV2.0 float16

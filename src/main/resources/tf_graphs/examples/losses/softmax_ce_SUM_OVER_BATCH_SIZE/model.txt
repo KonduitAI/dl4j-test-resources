@@ -627,6 +627,12 @@ node {
       type: DT_BOOL
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "mul"
@@ -1566,6 +1572,12 @@ node {
       type: DT_INT32
     }
   }
+  attr {
+    key: "Truncate"
+    value {
+      b: false
+    }
+  }
 }
 node {
   name: "softmax_cross_entropy_loss/Const_1"
@@ -1615,189 +1627,10 @@ node {
   }
 }
 node {
-  name: "softmax_cross_entropy_loss/Greater/y"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_dims_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/Greater"
-  op: "Greater"
-  input: "softmax_cross_entropy_loss/num_elements/Cast"
-  input: "softmax_cross_entropy_loss/Greater/y"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/Equal/y"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_dims_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/Equal"
-  op: "Equal"
-  input: "softmax_cross_entropy_loss/num_elements/Cast"
-  input: "softmax_cross_entropy_loss/Equal/y"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/ones_like/Shape"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_dims_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/ones_like/Const"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_dims_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 1.0
-      }
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/ones_like"
-  op: "Fill"
-  input: "softmax_cross_entropy_loss/ones_like/Shape"
-  input: "softmax_cross_entropy_loss/ones_like/Const"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "index_type"
-    value {
-      type: DT_INT32
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/Select"
-  op: "Select"
-  input: "softmax_cross_entropy_loss/Equal"
-  input: "softmax_cross_entropy_loss/ones_like"
-  input: "softmax_cross_entropy_loss/num_elements/Cast"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/div"
-  op: "RealDiv"
-  input: "softmax_cross_entropy_loss/Sum_1"
-  input: "softmax_cross_entropy_loss/Select"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/zeros_like"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_dims_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
-    }
-  }
-}
-node {
   name: "softmax_cross_entropy_loss/value"
-  op: "Select"
-  input: "softmax_cross_entropy_loss/Greater"
-  input: "softmax_cross_entropy_loss/div"
-  input: "softmax_cross_entropy_loss/zeros_like"
+  op: "DivNoNan"
+  input: "softmax_cross_entropy_loss/Sum_1"
+  input: "softmax_cross_entropy_loss/num_elements/Cast"
   attr {
     key: "T"
     value {
@@ -1806,7 +1639,14 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+  input: "^in_1/Assign"
+  input: "^in_2/Assign"
+}
+node {
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -1822,6 +1662,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -2093,13 +1969,6 @@ node {
   input: "^save/Assign_1"
   input: "^save/Assign_2"
 }
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^in_0/Assign"
-  input: "^in_1/Assign"
-  input: "^in_2/Assign"
-}
 versions {
-  producer: 26
+  producer: 134
 }

@@ -17,10 +17,13 @@ node {
             size: 1
           }
           dim {
-            size: 10
+            size: 2
+          }
+          dim {
+            size: 3
           }
         }
-        tensor_content: "\007\000\000\000\002\000\000\000\t\000\000\000\004\000\000\000\003\000\000\000\003\000\000\000\010\000\000\000\003\000\000\000\004\000\000\000\002\000\000\000"
+        tensor_content: "\001\000\000\000\001\000\000\000\001\000\000\000\001\000\000\000\001\000\000\000\001\000\000\000"
       }
     }
   }
@@ -63,10 +66,13 @@ node {
             size: 1
           }
           dim {
-            size: 10
+            size: 2
+          }
+          dim {
+            size: 3
           }
         }
-        tensor_content: "\010\000\000\000\007\000\000\000\000\000\000\000\000\000\000\000\006\000\000\000\010\000\000\000\004\000\000\000\003\000\000\000\004\000\000\000\010\000\000\000"
+        tensor_content: "\001\000\000\000\001\000\000\000\001\000\000\000\001\000\000\000\001\000\000\000\001\000\000\000"
       }
     }
   }
@@ -91,60 +97,14 @@ node {
   }
 }
 node {
-  name: "truediv/Cast"
-  op: "Cast"
+  name: "Div"
+  op: "Div"
   input: "in_0/read"
-  attr {
-    key: "DstT"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-  attr {
-    key: "SrcT"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "Truncate"
-    value {
-      b: false
-    }
-  }
-}
-node {
-  name: "truediv/Cast_1"
-  op: "Cast"
   input: "in_1/read"
-  attr {
-    key: "DstT"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-  attr {
-    key: "SrcT"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "Truncate"
-    value {
-      b: false
-    }
-  }
-}
-node {
-  name: "truediv"
-  op: "RealDiv"
-  input: "truediv/Cast"
-  input: "truediv/Cast_1"
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_INT32
     }
   }
 }

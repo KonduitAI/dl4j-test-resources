@@ -719,7 +719,7 @@ node {
 }
 node {
   name: "conv3d_transpose/add"
-  op: "Add"
+  op: "AddV2"
   input: "conv3d_transpose/mul"
   input: "conv3d_transpose/add/y"
   attr {
@@ -785,7 +785,7 @@ node {
 }
 node {
   name: "conv3d_transpose/add_1"
-  op: "Add"
+  op: "AddV2"
   input: "conv3d_transpose/mul_1"
   input: "conv3d_transpose/add_1/y"
   attr {
@@ -851,7 +851,7 @@ node {
 }
 node {
   name: "conv3d_transpose/add_2"
-  op: "Add"
+  op: "AddV2"
   input: "conv3d_transpose/mul_2"
   input: "conv3d_transpose/add_2/y"
   attr {
@@ -965,51 +965,9 @@ node {
   }
 }
 node {
-  name: "conv3d_transpose/Reshape/shape"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\002\000\000\000$\000\000\000\006\000\000\000\002\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "conv3d_transpose/Reshape"
-  op: "Reshape"
-  input: "conv3d_transpose/conv3d_transpose"
-  input: "conv3d_transpose/Reshape/shape"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "Tshape"
-    value {
-      type: DT_INT32
-    }
-  }
-}
-node {
   name: "conv3d_transpose/BiasAdd"
   op: "BiasAdd"
-  input: "conv3d_transpose/Reshape"
+  input: "conv3d_transpose/conv3d_transpose"
   input: "conv3d_transpose/bias/read"
   attr {
     key: "T"
@@ -1021,48 +979,6 @@ node {
     key: "data_format"
     value {
       s: "NHWC"
-    }
-  }
-}
-node {
-  name: "conv3d_transpose/Reshape_1/shape"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 5
-          }
-        }
-        tensor_content: "\002\000\000\000\006\000\000\000\006\000\000\000\006\000\000\000\002\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "conv3d_transpose/Reshape_1"
-  op: "Reshape"
-  input: "conv3d_transpose/BiasAdd"
-  input: "conv3d_transpose/Reshape_1/shape"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "Tshape"
-    value {
-      type: DT_INT32
     }
   }
 }

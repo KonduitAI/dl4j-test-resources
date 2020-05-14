@@ -1,27 +1,29 @@
 node {
-  name: "Const"
+  name: "random_uniform/shape"
   op: "Const"
   attr {
     key: "dtype"
     value {
-      type: DT_FLOAT
+      type: DT_INT32
     }
   }
   attr {
     key: "value"
     value {
       tensor {
-        dtype: DT_FLOAT
+        dtype: DT_INT32
         tensor_shape {
           dim {
+            size: 1
           }
         }
+        int_val: 0
       }
     }
   }
 }
 node {
-  name: "Variable/initial_value"
+  name: "random_uniform/min"
   op: "Const"
   attr {
     key: "dtype"
@@ -35,9 +37,27 @@ node {
       tensor {
         dtype: DT_FLOAT
         tensor_shape {
-          dim {
-            size: 1
-          }
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "random_uniform/max"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
         }
         float_val: 1.0
       }
@@ -45,7 +65,72 @@ node {
   }
 }
 node {
-  name: "Variable"
+  name: "random_uniform/RandomUniform"
+  op: "RandomUniform"
+  input: "random_uniform/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 3
+    }
+  }
+}
+node {
+  name: "random_uniform/sub"
+  op: "Sub"
+  input: "random_uniform/max"
+  input: "random_uniform/min"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "random_uniform/mul"
+  op: "Mul"
+  input: "random_uniform/RandomUniform"
+  input: "random_uniform/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "random_uniform"
+  op: "Add"
+  input: "random_uniform/mul"
+  input: "random_uniform/min"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "in_0"
   op: "VariableV2"
   attr {
     key: "container"
@@ -64,7 +149,6 @@ node {
     value {
       shape {
         dim {
-          size: 1
         }
       }
     }
@@ -77,10 +161,10 @@ node {
   }
 }
 node {
-  name: "Variable/Assign"
+  name: "in_0/Assign"
   op: "Assign"
-  input: "Variable"
-  input: "Variable/initial_value"
+  input: "in_0"
+  input: "random_uniform"
   attr {
     key: "T"
     value {
@@ -91,7 +175,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@Variable"
+        s: "loc:@in_0"
       }
     }
   }
@@ -109,9 +193,9 @@ node {
   }
 }
 node {
-  name: "Variable/read"
+  name: "in_0/read"
   op: "Identity"
-  input: "Variable"
+  input: "in_0"
   attr {
     key: "T"
     value {
@@ -122,31 +206,8 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@Variable"
+        s: "loc:@in_0"
       }
-    }
-  }
-}
-node {
-  name: "is_strictly_increasing/Reshape/tensor"
-  op: "Pack"
-  input: "Const"
-  attr {
-    key: "N"
-    value {
-      i: 1
-    }
-  }
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "axis"
-    value {
-      i: 0
     }
   }
 }
@@ -177,7 +238,7 @@ node {
 node {
   name: "is_strictly_increasing/Reshape"
   op: "Reshape"
-  input: "is_strictly_increasing/Reshape/tensor"
+  input: "in_0/read"
   input: "is_strictly_increasing/Reshape/shape"
   attr {
     key: "T"
@@ -884,6 +945,11 @@ node {
   }
 }
 node {
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+}
+node {
   name: "save/filename/input"
   op: "Const"
   attr {
@@ -959,7 +1025,7 @@ node {
             size: 1
           }
         }
-        string_val: "Variable"
+        string_val: "in_0"
       }
     }
   }
@@ -994,7 +1060,7 @@ node {
   input: "save/Const"
   input: "save/SaveV2/tensor_names"
   input: "save/SaveV2/shape_and_slices"
-  input: "Variable"
+  input: "in_0"
   attr {
     key: "dtypes"
     value {
@@ -1044,7 +1110,7 @@ node {
             size: 1
           }
         }
-        string_val: "Variable"
+        string_val: "in_0"
       }
     }
   }
@@ -1093,7 +1159,7 @@ node {
 node {
   name: "save/Assign"
   op: "Assign"
-  input: "Variable"
+  input: "in_0"
   input: "save/RestoreV2"
   attr {
     key: "T"
@@ -1105,7 +1171,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@Variable"
+        s: "loc:@in_0"
       }
     }
   }
@@ -1126,11 +1192,6 @@ node {
   name: "save/restore_all"
   op: "NoOp"
   input: "^save/Assign"
-}
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^Variable/Assign"
 }
 versions {
   producer: 134

@@ -1,0 +1,94 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 3
+          }
+          dim {
+            size: 12
+          }
+        }
+        half_val: 14974
+        half_val: 13976
+        half_val: 11504
+        half_val: 14280
+        half_val: 14830
+        half_val: 14870
+        half_val: 12528
+        half_val: 14434
+        half_val: 14996
+        half_val: 13104
+        half_val: 7424
+        half_val: 14636
+        half_val: 13144
+        half_val: 15086
+        half_val: 14680
+        half_val: 13360
+        half_val: 15080
+        half_val: 14416
+        half_val: 15250
+        half_val: 14454
+        half_val: 14284
+        half_val: 13988
+        half_val: 13548
+        half_val: 15196
+        half_val: 13136
+        half_val: 15116
+        half_val: 14372
+        half_val: 12456
+        half_val: 10368
+        half_val: 14440
+        half_val: 14120
+        half_val: 13324
+        half_val: 7936
+        half_val: 15094
+        half_val: 13888
+        half_val: 12928
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "ZerosLike"
+  op: "ZerosLike"
+  input: "in_0/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+}
+library {
+}

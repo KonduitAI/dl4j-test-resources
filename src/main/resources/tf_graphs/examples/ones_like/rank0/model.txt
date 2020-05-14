@@ -208,68 +208,23 @@ node {
   }
 }
 node {
-  name: "ones_like/Shape"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "ones_like/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 1.0
-      }
-    }
-  }
-}
-node {
-  name: "ones_like"
-  op: "Fill"
-  input: "ones_like/Shape"
-  input: "ones_like/Const"
+  name: "OnesLike"
+  op: "OnesLike"
+  input: "in_0/read"
   attr {
     key: "T"
     value {
       type: DT_FLOAT
     }
   }
-  attr {
-    key: "index_type"
-    value {
-      type: DT_INT32
-    }
-  }
 }
 node {
-  name: "save/Const"
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+}
+node {
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -285,6 +240,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -476,11 +467,6 @@ node {
   op: "NoOp"
   input: "^save/Assign"
 }
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^in_0/Assign"
-}
 versions {
-  producer: 27
+  producer: 134
 }

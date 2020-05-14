@@ -1079,7 +1079,7 @@ node {
   op: "NoOp"
 }
 node {
-  name: "softmax_cross_entropy_loss/ToFloat_1/x"
+  name: "softmax_cross_entropy_loss/Cast_1/x"
   op: "Const"
   input: "^softmax_cross_entropy_loss/assert_broadcastable/static_scalar_check_success"
   attr {
@@ -1104,7 +1104,7 @@ node {
   name: "softmax_cross_entropy_loss/Mul"
   op: "Mul"
   input: "softmax_cross_entropy_loss/xentropy/Reshape_2"
-  input: "softmax_cross_entropy_loss/ToFloat_1/x"
+  input: "softmax_cross_entropy_loss/Cast_1/x"
   attr {
     key: "T"
     value {
@@ -1186,12 +1186,18 @@ node {
 node {
   name: "softmax_cross_entropy_loss/num_present/Equal"
   op: "Equal"
-  input: "softmax_cross_entropy_loss/ToFloat_1/x"
+  input: "softmax_cross_entropy_loss/Cast_1/x"
   input: "softmax_cross_entropy_loss/num_present/Equal/y"
   attr {
     key: "T"
     value {
       type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "incompatible_shape_error"
+    value {
+      b: true
     }
   }
 }
@@ -1566,189 +1572,10 @@ node {
   }
 }
 node {
-  name: "softmax_cross_entropy_loss/Greater/y"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_scalar_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/Greater"
-  op: "Greater"
-  input: "softmax_cross_entropy_loss/num_present"
-  input: "softmax_cross_entropy_loss/Greater/y"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/Equal/y"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_scalar_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/Equal"
-  op: "Equal"
-  input: "softmax_cross_entropy_loss/num_present"
-  input: "softmax_cross_entropy_loss/Equal/y"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/ones_like/Shape"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_scalar_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/ones_like/Const"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_scalar_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 1.0
-      }
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/ones_like"
-  op: "Fill"
-  input: "softmax_cross_entropy_loss/ones_like/Shape"
-  input: "softmax_cross_entropy_loss/ones_like/Const"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "index_type"
-    value {
-      type: DT_INT32
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/Select"
-  op: "Select"
-  input: "softmax_cross_entropy_loss/Equal"
-  input: "softmax_cross_entropy_loss/ones_like"
-  input: "softmax_cross_entropy_loss/num_present"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/div"
-  op: "RealDiv"
-  input: "softmax_cross_entropy_loss/Sum_1"
-  input: "softmax_cross_entropy_loss/Select"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-}
-node {
-  name: "softmax_cross_entropy_loss/zeros_like"
-  op: "Const"
-  input: "^softmax_cross_entropy_loss/assert_broadcastable/static_scalar_check_success"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
-    }
-  }
-}
-node {
   name: "softmax_cross_entropy_loss/value"
-  op: "Select"
-  input: "softmax_cross_entropy_loss/Greater"
-  input: "softmax_cross_entropy_loss/div"
-  input: "softmax_cross_entropy_loss/zeros_like"
+  op: "DivNoNan"
+  input: "softmax_cross_entropy_loss/Sum_1"
+  input: "softmax_cross_entropy_loss/num_present"
   attr {
     key: "T"
     value {
@@ -1757,7 +1584,13 @@ node {
   }
 }
 node {
-  name: "save/Const"
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+  input: "^in_1/Assign"
+}
+node {
+  name: "save/filename/input"
   op: "Const"
   attr {
     key: "dtype"
@@ -1773,6 +1606,42 @@ node {
         tensor_shape {
         }
         string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/filename"
+  op: "PlaceholderWithDefault"
+  input: "save/filename/input"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "PlaceholderWithDefault"
+  input: "save/filename"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
       }
     }
   }
@@ -2004,12 +1873,6 @@ node {
   input: "^save/Assign"
   input: "^save/Assign_1"
 }
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^in_0/Assign"
-  input: "^in_1/Assign"
-}
 versions {
-  producer: 26
+  producer: 134
 }

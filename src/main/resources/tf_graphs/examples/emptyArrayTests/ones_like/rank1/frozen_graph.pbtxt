@@ -1,29 +1,5 @@
 node {
-  name: "ones_like/Shape"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 2
-          }
-        }
-        tensor_content: "\001\000\000\000\000\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "ones_like/Const"
+  name: "Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -37,17 +13,23 @@ node {
       tensor {
         dtype: DT_FLOAT
         tensor_shape {
+          dim {
+          }
         }
-        float_val: 1.0
       }
     }
   }
 }
 node {
-  name: "ones_like"
-  op: "Fill"
-  input: "ones_like/Shape"
-  input: "ones_like/Const"
+  name: "OnesLike/x"
+  op: "Pack"
+  input: "Const"
+  attr {
+    key: "N"
+    value {
+      i: 1
+    }
+  }
   attr {
     key: "T"
     value {
@@ -55,9 +37,20 @@ node {
     }
   }
   attr {
-    key: "index_type"
+    key: "axis"
     value {
-      type: DT_INT32
+      i: 0
+    }
+  }
+}
+node {
+  name: "OnesLike"
+  op: "OnesLike"
+  input: "OnesLike/x"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
     }
   }
 }

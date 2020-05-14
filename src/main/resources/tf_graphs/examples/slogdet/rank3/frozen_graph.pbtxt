@@ -142,7 +142,7 @@ node {
   }
 }
 node {
-  name: "eye/MatrixDiag"
+  name: "eye/diag"
   op: "MatrixDiag"
   input: "eye/ones"
   attr {
@@ -154,9 +154,9 @@ node {
 }
 node {
   name: "add"
-  op: "Add"
+  op: "AddV2"
   input: "stack"
-  input: "eye/MatrixDiag"
+  input: "eye/diag"
   attr {
     key: "T"
     value {

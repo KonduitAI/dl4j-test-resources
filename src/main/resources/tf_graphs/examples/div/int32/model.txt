@@ -1,5 +1,5 @@
 node {
-  name: "random_uniform/shape"
+  name: "ones"
   op: "Const"
   attr {
     key: "dtype"
@@ -14,84 +14,17 @@ node {
         dtype: DT_INT32
         tensor_shape {
           dim {
+            size: 1
+          }
+          dim {
             size: 2
           }
+          dim {
+            size: 3
+          }
         }
-        tensor_content: "\001\000\000\000\n\000\000\000"
+        int_val: 1
       }
-    }
-  }
-}
-node {
-  name: "random_uniform/min"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: 0
-      }
-    }
-  }
-}
-node {
-  name: "random_uniform/max"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: 10
-      }
-    }
-  }
-}
-node {
-  name: "random_uniform"
-  op: "RandomUniformInt"
-  input: "random_uniform/shape"
-  input: "random_uniform/min"
-  input: "random_uniform/max"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "Tout"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "seed"
-    value {
-      i: 1
-    }
-  }
-  attr {
-    key: "seed2"
-    value {
-      i: 3
     }
   }
 }
@@ -118,7 +51,10 @@ node {
           size: 1
         }
         dim {
-          size: 10
+          size: 2
+        }
+        dim {
+          size: 3
         }
       }
     }
@@ -134,7 +70,7 @@ node {
   name: "in_0/Assign"
   op: "Assign"
   input: "in_0"
-  input: "random_uniform"
+  input: "ones"
   attr {
     key: "T"
     value {
@@ -182,7 +118,7 @@ node {
   }
 }
 node {
-  name: "random_uniform_1/shape"
+  name: "ones_1"
   op: "Const"
   attr {
     key: "dtype"
@@ -197,84 +133,17 @@ node {
         dtype: DT_INT32
         tensor_shape {
           dim {
+            size: 1
+          }
+          dim {
             size: 2
           }
+          dim {
+            size: 3
+          }
         }
-        tensor_content: "\001\000\000\000\n\000\000\000"
+        int_val: 1
       }
-    }
-  }
-}
-node {
-  name: "random_uniform_1/min"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: 0
-      }
-    }
-  }
-}
-node {
-  name: "random_uniform_1/max"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-        }
-        int_val: 10
-      }
-    }
-  }
-}
-node {
-  name: "random_uniform_1"
-  op: "RandomUniformInt"
-  input: "random_uniform_1/shape"
-  input: "random_uniform_1/min"
-  input: "random_uniform_1/max"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "Tout"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "seed"
-    value {
-      i: 1
-    }
-  }
-  attr {
-    key: "seed2"
-    value {
-      i: 10
     }
   }
 }
@@ -301,7 +170,10 @@ node {
           size: 1
         }
         dim {
-          size: 10
+          size: 2
+        }
+        dim {
+          size: 3
         }
       }
     }
@@ -317,7 +189,7 @@ node {
   name: "in_1/Assign"
   op: "Assign"
   input: "in_1"
-  input: "random_uniform_1"
+  input: "ones_1"
   attr {
     key: "T"
     value {
@@ -365,62 +237,22 @@ node {
   }
 }
 node {
-  name: "truediv/Cast"
-  op: "Cast"
+  name: "Div"
+  op: "Div"
   input: "in_0/read"
-  attr {
-    key: "DstT"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-  attr {
-    key: "SrcT"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "Truncate"
-    value {
-      b: false
-    }
-  }
-}
-node {
-  name: "truediv/Cast_1"
-  op: "Cast"
   input: "in_1/read"
-  attr {
-    key: "DstT"
-    value {
-      type: DT_DOUBLE
-    }
-  }
-  attr {
-    key: "SrcT"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "Truncate"
-    value {
-      b: false
-    }
-  }
-}
-node {
-  name: "truediv"
-  op: "RealDiv"
-  input: "truediv/Cast"
-  input: "truediv/Cast_1"
   attr {
     key: "T"
     value {
-      type: DT_DOUBLE
+      type: DT_INT32
     }
   }
+}
+node {
+  name: "init"
+  op: "NoOp"
+  input: "^in_0/Assign"
+  input: "^in_1/Assign"
 }
 node {
   name: "save/filename/input"
@@ -705,12 +537,6 @@ node {
   op: "NoOp"
   input: "^save/Assign"
   input: "^save/Assign_1"
-}
-node {
-  name: "init"
-  op: "NoOp"
-  input: "^in_0/Assign"
-  input: "^in_1/Assign"
 }
 versions {
   producer: 134
