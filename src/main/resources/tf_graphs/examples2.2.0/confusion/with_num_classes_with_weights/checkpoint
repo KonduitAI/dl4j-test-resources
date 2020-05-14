@@ -1,0 +1,2 @@
+model_checkpoint_path: "/dl4j-test-resources/src/main/resources/tf_graphs/examples2.2.0/confusion/with_num_classes_with_weights/data-all-1000"
+all_model_checkpoint_paths: "/dl4j-test-resources/src/main/resources/tf_graphs/examples2.2.0/confusion/with_num_classes_with_weights/data-all-1000"

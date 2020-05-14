@@ -1,0 +1,206 @@
+node {
+  name: "in_0"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 6
+          }
+        }
+        tensor_content: "\007\000\000\000\002\000\000\000\t\000\000\000\004\000\000\000\003\000\000\000\003\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "in_0/read"
+  op: "Identity"
+  input: "in_0"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@in_0"
+      }
+    }
+  }
+}
+node {
+  name: "random_gamma/alpha"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        half_val: 15872
+        half_val: 16640
+      }
+    }
+  }
+}
+node {
+  name: "random_gamma/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        half_val: 14336
+        half_val: 15872
+      }
+    }
+  }
+}
+node {
+  name: "random_gamma/zeros_like"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        half_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "random_gamma/add"
+  op: "AddV2"
+  input: "random_gamma/alpha"
+  input: "random_gamma/zeros_like"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+}
+node {
+  name: "random_gamma/RandomGamma"
+  op: "RandomGamma"
+  input: "in_0/read"
+  input: "random_gamma/add"
+  attr {
+    key: "S"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 123
+    }
+  }
+}
+node {
+  name: "random_gamma/truediv"
+  op: "RealDiv"
+  input: "random_gamma/RandomGamma"
+  input: "random_gamma/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+}
+node {
+  name: "random_gamma/Maximum/x"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_HALF
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_HALF
+        tensor_shape {
+        }
+        half_val: 1024
+      }
+    }
+  }
+}
+node {
+  name: "random_gamma/Maximum"
+  op: "Maximum"
+  input: "random_gamma/Maximum/x"
+  input: "random_gamma/truediv"
+  attr {
+    key: "T"
+    value {
+      type: DT_HALF
+    }
+  }
+}
+library {
+}
