@@ -1,0 +1,312 @@
+tf2onnx1.5.6:í¤
+Q
+in_0:0	unstack:0	unstack:1	unstack:2	unstack:3unstack"Split*
+axis 
+;
+	unstack:0unstack__9:0
+unstack__9"Squeeze*
+axes@ 
+³
+unstack__9:0
+in_1:0Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat:0Astack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat"Concat*
+axis 
+
+Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat:0
+9stack_bidirectional_rnn/cell_0/fw/basic_rnn_cell/kernel:0Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul:0Astack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul"MatMul
+
+Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd:0Bstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd"Add
+Ù
+Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd:0Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid:0Bstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid"Sigmoid
+=
+	unstack:3unstack__12:0unstack__12"Squeeze*
+axes@ 
+´
+unstack__12:0
+in_2:0Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat:0Astack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat"Concat*
+axis 
+
+Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat:0
+9stack_bidirectional_rnn/cell_0/bw/basic_rnn_cell/kernel:0Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul:0Astack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul"MatMul
+
+Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd:0Bstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd"Add
+Ù
+Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd:0Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid:0Bstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid"Sigmoid
+=
+	unstack:2unstack__11:0unstack__11"Squeeze*
+axes@ 
+ö
+unstack__11:0
+Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid:0Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_1:0Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_1"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_1:0
+9stack_bidirectional_rnn/cell_0/bw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_1:0Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_1"MatMul
+“
+Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_1:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_1:0Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_1"Add
+ß
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_1:0Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_1:0Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_1"Sigmoid
+=
+	unstack:1unstack__10:0unstack__10"Squeeze*
+axes@ 
+ö
+unstack__10:0
+Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid:0Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_1:0Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_1"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_1:0
+9stack_bidirectional_rnn/cell_0/fw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_1:0Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_1"MatMul
+“
+Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_1:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_1:0Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_1"Add
+ß
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_1:0Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_1:0Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_1"Sigmoid
+ø
+unstack__11:0
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_1:0Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_2:0Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_2"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_2:0
+9stack_bidirectional_rnn/cell_0/fw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_2:0Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_2"MatMul
+“
+Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_2:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_2:0Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_2"Add
+ß
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_2:0Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_2:0Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_2"Sigmoid
+ù
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_2:0
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_1:0)stack_bidirectional_rnn/cell_0/concat_2:0'stack_bidirectional_rnn/cell_0/concat_2"Concat*
+axis 
+ø
+unstack__12:0
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_2:0Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_3:0Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_3"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/concat_3:0
+9stack_bidirectional_rnn/cell_0/fw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_3:0Cstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_3"MatMul
+“
+Estack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/MatMul_3:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_3:0Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_3"Add
+ß
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/BiasAdd_3:0Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_3:0Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_3"Sigmoid
+÷
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_3:0
+Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid:0)stack_bidirectional_rnn/cell_0/concat_3:0'stack_bidirectional_rnn/cell_0/concat_3"Concat*
+axis 
+Ð
+)stack_bidirectional_rnn/cell_0/concat_3:0
+in_4:0Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat:0Astack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat"Concat*
+axis 
+
+Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat:0
+9stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/kernel:0Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul:0Astack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul"MatMul
+
+Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd:0Bstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd"Add
+Ù
+Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd:0Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid:0Bstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid"Sigmoid
+’
+)stack_bidirectional_rnn/cell_0/concat_2:0
+Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid:0Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_1:0Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_1"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_1:0
+9stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_1:0Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_1"MatMul
+“
+Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_1:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_1:0Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_1"Add
+ß
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_1:0Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_1:0Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_1"Sigmoid
+ø
+unstack__10:0
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_1:0Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_2:0Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_2"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_2:0
+9stack_bidirectional_rnn/cell_0/bw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_2:0Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_2"MatMul
+“
+Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_2:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_2:0Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_2"Add
+ß
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_2:0Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_2:0Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_2"Sigmoid
+ù
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_1:0
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_2:0)stack_bidirectional_rnn/cell_0/concat_1:0'stack_bidirectional_rnn/cell_0/concat_1"Concat*
+axis 
+”
+)stack_bidirectional_rnn/cell_0/concat_1:0
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_1:0Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_2:0Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_2"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_2:0
+9stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_2:0Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_2"MatMul
+“
+Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_2:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_2:0Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_2"Add
+ß
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_2:0Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_2:0Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_2"Sigmoid
+÷
+unstack__9:0
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_2:0Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_3:0Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_3"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/concat_3:0
+9stack_bidirectional_rnn/cell_0/bw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_3:0Cstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_3"MatMul
+“
+Estack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/MatMul_3:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_3:0Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_3"Add
+ß
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/BiasAdd_3:0Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_3:0Dstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_3"Sigmoid
+ó
+Dstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid:0
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_3:0'stack_bidirectional_rnn/cell_0/concat:0%stack_bidirectional_rnn/cell_0/concat"Concat*
+axis 
+Î
+'stack_bidirectional_rnn/cell_0/concat:0
+in_3:0Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat:0Astack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat"Concat*
+axis 
+
+Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat:0
+9stack_bidirectional_rnn/cell_1/fw/basic_rnn_cell/kernel:0Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul:0Astack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul"MatMul
+
+Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd:0Bstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd"Add
+Ù
+Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd:0Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid:0Bstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid"Sigmoid
+’
+)stack_bidirectional_rnn/cell_0/concat_1:0
+Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid:0Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_1:0Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_1"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_1:0
+9stack_bidirectional_rnn/cell_1/fw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_1:0Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_1"MatMul
+“
+Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_1:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_1:0Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_1"Add
+ß
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_1:0Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_1:0Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_1"Sigmoid
+ù
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_1:0
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_2:0)stack_bidirectional_rnn/cell_1/concat_1:0'stack_bidirectional_rnn/cell_1/concat_1"Concat*
+axis 
+”
+)stack_bidirectional_rnn/cell_0/concat_2:0
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_1:0Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_2:0Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_2"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_2:0
+9stack_bidirectional_rnn/cell_1/fw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_2:0Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_2"MatMul
+“
+Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_2:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_2:0Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_2"Add
+ß
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_2:0Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_2:0Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_2"Sigmoid
+ù
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_2:0
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_1:0)stack_bidirectional_rnn/cell_1/concat_2:0'stack_bidirectional_rnn/cell_1/concat_2"Concat*
+axis 
+”
+)stack_bidirectional_rnn/cell_0/concat_3:0
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_2:0Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_3:0Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_3"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/concat_3:0
+9stack_bidirectional_rnn/cell_1/fw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_3:0Cstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_3"MatMul
+“
+Estack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/MatMul_3:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_3:0Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_3"Add
+ß
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/BiasAdd_3:0Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_3:0Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_3"Sigmoid
+÷
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_3:0
+Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid:0)stack_bidirectional_rnn/cell_1/concat_3:0'stack_bidirectional_rnn/cell_1/concat_3"Concat*
+axis 
+’
+'stack_bidirectional_rnn/cell_0/concat:0
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_2:0Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_3:0Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_3"Concat*
+axis 
+–
+Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/concat_3:0
+9stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/kernel:0Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_3:0Cstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_3"MatMul
+“
+Estack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/MatMul_3:0
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_3:0Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_3"Add
+ß
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/BiasAdd_3:0Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_3:0Dstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_3"Sigmoid
+ó
+Dstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid:0
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_3:0'stack_bidirectional_rnn/cell_1/concat:0%stack_bidirectional_rnn/cell_1/concat"Concat*
+axis 
+½
+Fstack_bidirectional_rnn/cell_0/cell_0/bw/bw/basic_rnn_cell/Sigmoid_3:0
+Fstack_bidirectional_rnn/cell_1/cell_1/bw/bw/basic_rnn_cell/Sigmoid_3:0
+concat_2:0concat_2"Concat*
+axis  : 
+½
+Fstack_bidirectional_rnn/cell_0/cell_0/fw/fw/basic_rnn_cell/Sigmoid_3:0
+Fstack_bidirectional_rnn/cell_1/cell_1/fw/fw/basic_rnn_cell/Sigmoid_3:0
+concat_1:0concat_1"Concat*
+axis  : 
+Ó
+'stack_bidirectional_rnn/cell_1/concat:0
+)stack_bidirectional_rnn/cell_1/concat_1:0
+)stack_bidirectional_rnn/cell_1/concat_2:0
+)stack_bidirectional_rnn/cell_1/concat_3:0concat:0concat"Concat*
+axis  : tf2onnx*¯	B9stack_bidirectional_rnn/cell_1/fw/basic_rnn_cell/kernel:0Jl R>;lËq¾=M ¿Ke¿ öu=µˆ?Ö¾¾®¨¾ã` ¿ &7>XÁ>Ø¢þ½Wƒ²¾Lg	>ªyØ>°ÌI¾[Ç¾s >2ü>(€!¿àç=ë_?úÿÅ¾þ!¿ Š#½ª\³¾c ?*¯	B9stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/kernel:0JlC‰,?©?  ¿Ô¢¾¾iÖ>¸×=Ð4M¾6¿ÌŽ¾R3ž¾Ö³Õ¾®mù>\£>‘É¿IŒ,?+Ô¾`ÿ½¼%‡¾±`¾?Ô*?p &¿z!/¿F…>1Á2?íÉ.¿òm×>è,é=*KB7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0J            *£B9stack_bidirectional_rnn/cell_0/fw/basic_rnn_cell/kernel:0J`b>ºð¹>8I>.Æ”>è4Ç=,nW>šÅò>f$¿F—,¿Ýp<?ì¡I¾ØÛ_>/ô¿63ñ>M/?ÔMë¾Š=´>w—¾˜kI>0—¾r‹ô>bø¿¾*ðî>Êo¨¾*£B9stack_bidirectional_rnn/cell_0/bw/basic_rnn_cell/kernel:0J`´fQ>Mç>VM¾Rƒ˜>:²¾ƒ?ØM¡½|$?ê’>`1|½„	¾½¶½öºÂ>Rò³¾B¿@µó< T×=Ðæ¦=ÿ3¿\Ú>Ââï¾G"ì¾`ÝÖ=à»½*Bin_4:0Jª"_?b\?4a¦>*Bin_3:0Jtïh?x²	? .?*Bin_2:0J¸³q?â~?í]?*Bin_1:0JE?‚–m?æ|?*bBin_0:0JP~^G?LM?žp9?ol>î%:?X¸8><q?b|d?”Î?Ìal?P@¯=,5K?Ö¹(?î6?`u#>0ž> {> hð>’o~?v|?R‚converted from /dl4j-test-resources/src/main/resources/tf_graphs/examples/rnn/bstack/sta_b1_n5-3_ts4_sig_IS_f64_n2/frozen_model.pbZK
+9stack_bidirectional_rnn/cell_1/fw/basic_rnn_cell/kernel:0
+
+	
+ZK
+9stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/kernel:0
+
+	
+ZE
+7stack_bidirectional_rnn/cell_1/bw/basic_rnn_cell/bias:0
+
+
+ZK
+9stack_bidirectional_rnn/cell_0/fw/basic_rnn_cell/kernel:0
+
+
+ZK
+9stack_bidirectional_rnn/cell_0/bw/basic_rnn_cell/kernel:0
+
+
+Z
+in_4:0
+
+
+Z
+in_3:0
+
+
+Z
+in_2:0
+
+
+Z
+in_1:0
+
+
+Z
+in_0:0
+
+
+
+b
+concat:0
+
+
+b
+
+concat_1:0
+
+
+b
+
+concat_2:0
+
+
+B
